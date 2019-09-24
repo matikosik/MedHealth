@@ -1,0 +1,55 @@
+
+.verdeMedHealth{
+	background-color: #18D13D;		
+}
+
+.textoNavBar{
+	font-family: 'Poppins';font-size: 22px;
+}
+
+.imgpos{
+	position: fixed;
+	left: 10px;
+	top: 10px;	
+}
+
+.txtMD{
+	text-align: top;
+}
+.imgpos2{
+	position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+}
+
+#rcorners1 {
+	border-radius: 25px;
+	background: #18D13D;
+	padding: 20px; 
+	width: 300px;
+	height: 10px;
+}
+
+#navPos {
+	position: fixed;
+	top: 90%;
+}
+
+.shadow{
+	box-shadow: 0px -1px 5px 0px rgba(0,0,0,0.75);
+}
+
+.boton {
+	position: absolute;
+	top: 80px;
+	right: 100px;
+	background: #18D13D;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+  }
+
+.textboton{
+	text-align: center;
+}
