@@ -1,15 +1,19 @@
-var http = require('http');
-var fs = require('fs');
-
-
-const express = require('express')
+var express = require('express')
 var app = express()
 
-app.get('/', function(req, res){
-    res.send('hello world')
+app.use('/css', express.static('../css'));
+app.use('/js', express.static('../js'));
+app.use('/images', express.static('../images'));
+app.use('/html', express.static('../html'));
+
+
+app.get('/', (req, res) => {
+    res.sendFile('index.html', {root: '../'});
 });
 
-app.listen(3000)
+app.listen(3000, () => {
+    console.log('estoy escuchando a puerto 3000');
+}); 
 
 /*
 var server  = http.createServer(function(req, res){
