@@ -1,11 +1,14 @@
 var express = require('express')
 var app = express()
 
+app.use('/', express.static('../'));
+
+/*
 app.use('/css', express.static('../css'));
 app.use('/js', express.static('../js'));
 app.use('/images', express.static('../images'));
 app.use('/html', express.static('../html'));
-
+*/
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', {root: '../'});
