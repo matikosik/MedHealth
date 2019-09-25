@@ -1,5 +1,10 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var bodyParser = require('body-parser');
+
+var app = express();
+var urlencoderParser = bodyParser.urlencoded({extended: false});
+
+
 
 app.use('/', express.static('../'));
 
@@ -12,6 +17,20 @@ app.use('/html', express.static('../html'));
 
 app.get('/', (req, res) => {
     res.sendFile('index.html', {root: '../'});
+});
+
+app.get('/login', (req, res) => {
+    res.sendFile('Login.html', {root: '../html'});
+});
+
+app.get('/register', (req, res) => {
+    res.sendFile('Register.html', {root: '../html'});
+    
+});
+
+app.post('/register', urlencoderParser, (req, res) => {
+    res.sendFile('Register.html', {root: '../html'});
+    console.log(req.body);
 });
 
 app.listen(3000, () => {

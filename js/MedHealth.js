@@ -19,5 +19,5 @@ function Registrar()
 
 function LogIn()
 {
-    window.location.href = 'Login.html';
+    window.location.href = 'HTML/Login.html';
 }
