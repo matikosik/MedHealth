@@ -78,3 +78,13 @@
 	font-weight: 550;
 	font-size: 30px;
 }
+
+.login-form{
+	width: 360px;
+	height: 580px;
+	border-radius: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%)
+}

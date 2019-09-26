@@ -10,42 +10,28 @@
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script type="text/javascript" src="../js/materialize.js"></script>
 	<script type="text/javascript" src="../js/MedHealth.js"></script>
-	
 	<!-- fuentes -->
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
 <body>
+	<form action:"" class="login-form" method="POST">
+		<h1>Login</h1>
+		<div class="input-group">
+			<div class="txtb">
+				<input type="text" name="username">
+				<span data-placeholder="Username"></span>
+			</div>
 
-		<div class="col l12">
-			<img src="../images/logo.png" class='responsive-img imgpos2' width="120" alt="120">
-		</div>
-		<div>
-			<p id="LogInText">Welcome Back!</p>
-		</div>
+			<div class="txtb">
+				<input type="password" name="password">
+				<span data-placeholder="Password"></span>
+			</div>
 
-	<!-- Sign In -->
-				<div class="input-field col l5 fieldpos">
-						
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">email</i>
-							<input id="email" type="email" class="validate">
-							<label for="email">Email</label>
-						</div>
-					
+			<input type="submit" class="logbtn" value="Login">
 
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">vpn_key</i>
-							<input id="password" type="password" class="validate">
-							<label for="password">Password</label>
-						</div>
-					</div>	
-				</div>	
-				<div>
-					<a class="waves-effect waves-light btn hoverable verdeMedHealth" id="rcorners1">LOG IN</a>
-				</div>
-
-
+			<div class="bottom-text"></div>
+	</form>
 </body>
 
 

@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 
 var app = express();
 var urlencoderParser = bodyParser.urlencoded({extended: false});
+app.use(bodyParser.json())
 
 
 
@@ -20,12 +21,16 @@ app.get('/', (req, res) => {
 });
 
 app.get('/login', (req, res) => {
+    res.sendFile('Login.html', {root: '../html'});;
+});
+
+app.post('/login',urlencoderParser, (req, res) => {
     res.sendFile('Login.html', {root: '../html'});
+    console.log(JSON.stringify(req.body, null, 2))
 });
 
 app.get('/register', (req, res) => {
     res.sendFile('Register.html', {root: '../html'});
-    
 });
 
 app.post('/register', urlencoderParser, (req, res) => {
