@@ -15,58 +15,28 @@
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body class="todo">
+<body>
 
 		<div class="col l12">
-			<img src="../images/logo.png" class='responsive-img imgpos' width="120" alt="120">
+			<img src="../images/logo.png" class='responsive-img imgpos2' width="120" alt="120">
+		</div>
+		<div>
+			<p id="RegText">REGISTER</p>
 		</div>
 
 	<!-- Register -->
-	<div class="container col s8">	
-		<div class="col s14">
-		  	<div class="row">
-				<div class="input-field hoverable">
-
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">contacts</i>
-							<input id="first_name" type="text" class="validate">
-							<label for="first_name">First Name</label>
-						</div>
-					
-
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">contacts</i>
-							<input id="last_name" type="text" class="validate">
-							<label for="last_name">Last Name</label>
-						</div>
-					
-						
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">email</i>
-							<input id="email" type="email" class="validate">
-							<label for="email">Email</label>
-						</div>
-					
-
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">vpn_key</i>
-							<input id="password" type="password" class="validate">
-							<label for="password">Password</label>
-						</div>
-
-						<div class="input-field hoverable">
-							<i class="material-icons prefix">replay</i>
-							<input id="password2" type="password" class="validate">
-							<label for="password2">Retype Password</label>
-						</div>
-					</div>	
-				</div>	
+				
+			<div class='col l4'>
+				<form action="" method="POST">
+					<div class="input-group">
+					   <input type="text" class="form-control" name="userSearchInput" placeholder="Enter the id of the product you would like to buy" aria-label="Recipient's username" aria-describedby="basic-addon2">
+					   <input type="password" class="form-control" name="userSearchInput" placeholder="Enter the id of the product you would like to buy" aria-label="Recipient's username" aria-describedby="basic-addon2" id='password'	>
+					   <div class="input-group-append">
+							<button class="btn btn-outline-secondary" id="searchBTN" type="submit"><i class="fas fa-cart-plus mr-2"></i>chupamela</button>
+					 </div>
+				  </div>
+				 </form>
 			</div>
-	    </div>
-			<div>
-		  		<a class="waves-effect waves-light btn right hoverable verdeMedHealth" id="rcorners1"><h3 class="textboton">Register</h3></a>
-			</div>	  
-	</div>
 
 
 </body>

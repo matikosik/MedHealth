@@ -13,11 +13,12 @@ $(document).ready(function(){
     });
 
 function Registrar()
-{
-    window.location.href = 'html/register.html';
+
+    window.location.href = 'register';
 }
 
 function LogIn()
 {
-    window.location.href = 'html/Login.html';
+
+    window.location.href = 'login';
 }
