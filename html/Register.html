@@ -6,7 +6,7 @@
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/materialize.css">
+	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css">-->
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
 	<script type="text/javascript" src="../js/materialize.js"></script>
 	<script type="text/javascript" src="../js/MedHealth.js"></script>
@@ -24,20 +24,44 @@
 			<p id="RegText">REGISTER</p>
 		</div>
 
-	<!-- Register -->
-				
-			<div class='col l4'>
-				<form action="" method="POST">
-					<div class="input-group">
-					   <input type="text" class="form-control" name="userSearchInput" placeholder="Enter the id of the product you would like to buy" aria-label="Recipient's username" aria-describedby="basic-addon2">
-					   <input type="password" class="form-control" name="userSearchInput" placeholder="Enter the id of the product you would like to buy" aria-label="Recipient's username" aria-describedby="basic-addon2" id='password'	>
-					   <div class="input-group-append">
-							<button class="btn btn-outline-secondary" id="searchBTN" type="submit"><i class="fas fa-cart-plus mr-2"></i>chupamela</button>
-					 </div>
-				  </div>
-				 </form>
-			</div>
 
+		<form action:"" class="login-form" method="POST">
+			<h1>Resgister</h1>
+			<div class="input-group">
+				<div class="txtb">
+					<input type="nametxt" name="name">
+					<span data-placeholder="Name"></span>
+				</div>
+	
+				<div class="txtb">
+					<input type="lastnametxt" name="lastname">
+					<span data-placeholder="lastname"></span>
+				</div>
+
+				<div class="txtb">
+					<input type="mailtxt" name="mail">
+					<span data-placeholder="Mail"></span>
+				</div>
+
+				<div class="txtb">
+					<input type="password" name="password">
+					<span data-placeholder="Password"></span>
+				</div>
+
+				<div class="txtb">
+					<input type="password" name="passwordconfirm">
+					<span data-placeholder="Confirm password"></span>
+				</div>
+
+				<div class="txtb">
+					<input type="addresstxt" name="address">
+					<span data-placeholder="Address"></span>
+				</div>
+	
+				<input type="submit" class="logbtn" value="Login">
+	
+				<div class="bottom-text"></div>
+		</form>
 
 </body>
 
