@@ -90,6 +90,10 @@
 	transform: translate(-50%, -50%)
 }
 
+a{
+	margin-left: 50%;
+}
+
 .txtb{
 	position: relative;	
 	left: 10.5%;

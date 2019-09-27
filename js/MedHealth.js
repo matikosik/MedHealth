@@ -12,12 +12,10 @@ $(document).ready(function(){
     
     });
 
-function Registrar()
-{
+function registrar(){
     window.location.href = 'register';
 }
 
-function LogIn()
-{
+function login(){
     window.location.href = 'login';
 }
