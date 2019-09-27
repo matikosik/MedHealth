@@ -20,7 +20,7 @@ app.use('/html', express.static('../html'));
 */
 
 app.get('/', (req, res) => {
-    res.sendFile('index.html', {root: '../'});
+    res.sendFile('index');
 });
 
 
@@ -48,9 +48,13 @@ app.post('/register', urlencoderParser, (req, res) => {
 
 
 //  BASE DE DATOS
-router.get('/get-data', (req, res, next) => {
 
+var data = [{item: 'anda1'}, {item: 'anda2'}]
+
+app.get('/login', function(req, res){
+    res.sendFile('login', {datas: data});
 });
+
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 

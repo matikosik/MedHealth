@@ -1,48 +1,52 @@
 <!DOCTYPE html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<script type="text/javascript" src="../js/materialize.js"></script>
-	<script type="text/javascript" src="../js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
 <body>
 
-	
+    <form action="" class="login-form" method="POST">
 
-	<form action:"" class="login-form" method="POST">
+        <h1>Login</h1>
+        
+        <div class="txtb">
+            <input type="userxtx" name="username">
+            <span data-placeholder="Username"></span>
+        </div>
 
-		<h1>Login</h1>
-		<div class="input-group">
-			<div class="txtb">
-				<input type="userxtx" name="username">
-				<span data-placeholder="Username"></span>
-			</div>
+        <div class="txtb">
+            <input type="password" name="password">
+            <span data-placeholder="Password"></span>
+        </div>
 
-			<div class="txtb">
-				<input type="password" name="password">
-				<span data-placeholder="Password"></span>
-			</div>
+        <input type="submit" class="logbtn" value="Login">
 
-			<input type="submit" class="logbtn" value="Login">
+        <div class="bottom-text">
+            Don't have an account yet? <a href="#">Sign Up</a>
+        </div>
 
-			<div class="bottom-text"></div>
+    </form>
 
-			<a href="index.html" class="logologin"><img src="images/logo.png" class='responsive-img imgpos' width="120" alt="120"></a>
-	</form>
+    <script type="text/javascript">
+    $(".txtb input").on("focus",function(){
+        $(this).addClass("focus");
+    });
 
-	<form action="/insert" method="POST">
-		<div class="input"
-	</form>
+    $(".txtb input").on("blur",function(){
+        if($(this).val() == "")
+        $(this).removeClass("focus");
+    });
+    </script>
 </body>
-
-
 </html>
