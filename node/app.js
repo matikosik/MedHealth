@@ -28,25 +28,25 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 });
 
-
+ 
 //      LOGIN
 app.get('/login', (req, res) => {
-    res.sendFile('login.html', {root: 'views/html'});;
+    res.render('login.ejs', {root: 'views/html'});
 });
-  
+  // , {root: 'views/html'}
 app.post('/login',urlencoderParser, (req, res) => {
-    res.sendFile('login.html', {root: 'views/html'});
+    res.render('login.ejs', {root: 'views/html'});
     console.log(JSON.stringify(req.body, null, 2));
 });
 //      FIN LOGIN
 
 //      REGISTER
 app.get('/register', (req, res) => {
-    res.sendFile('register.html', {root: 'views/html'});
+    res.render('register.ejs', {root: 'views/html'});
 });
 
 app.post('/register', urlencoderParser, (req, res) => {
-    res.sendFile('register.html', {root: 'views/html'});
+    res.redner('register.ejs', {root: 'views/html'});
     console.log(JSON.stringify(req.body, null, 2));
 });
 //      FIN REGISTER
