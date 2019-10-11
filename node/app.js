@@ -16,7 +16,7 @@ var db = moongose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // SCHEMAS
-var LoginMongo = require(__dirname + '/models/login.js');
+var RegisterMongo = require(__dirname + '/models/register.js');
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
@@ -44,30 +44,20 @@ app.post('/login',urlencoderParser, (req, res) => {
 //      FIN LOGIN
 
 //      REGISTER
-app.get('/register', (req, res) => {
-    res.render('register', {root: 'views/html'});
+app.get('/register', async(req, res) => {
+
+    const tasks = await RegisterMongo.find();
+    console.log(tasks); 
+
+    res.render('register', {root: 'views/html'}, {
+        tasks
+    });
 });
 
-app.post('/register', urlencoderParser, async(req, res) => {
-    res.render('register', {root: 'views/html'});   
-    console.log(req.body);
-    
-    const User = new LoginMongo({
-        name: req.body.name,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        password: req.body.password,
-        rptpassword: req.body.rptpassword,
-    });
-    try{
-        const savedTurista = await User.save();
-        console.log(savedTurista);
-    }
-    catch(error)
-    {
-        console.log("MaxiPete");
-    }
-
+app.post('/register', urlencoderParser, async(req, res) => { 
+    const Register = new RegisterMongo(req.body);
+    await Register.save();
+    res.render('register', {root: 'views/html'});
 });
 //      FIN REGISTER
 

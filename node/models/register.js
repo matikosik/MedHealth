@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const LoginSchema = Schema({
+const RegisterSchema = Schema({
     name: {
         type: String
     },
@@ -19,4 +19,4 @@ const LoginSchema = Schema({
     }
 });
 
-module.exports = mongoose.model('login', LoginSchema);
+module.exports = mongoose.model('register', RegisterSchema);
