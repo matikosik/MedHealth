@@ -3,10 +3,16 @@ var bodyParser = require('body-parser');
 var assert = require('express');
 var morgan = require('morgan');
 var path = require('path');
+var moongose = require('mongoose')
 
 var app = express();
 var router = express.Router();
 var urlencoderParser = bodyParser.urlencoded({extended: false});
+
+moongose.connect('mongodb://localhost/MedHealth-mongo', 
+    {
+    useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}, () => console.log('se conecto la base de datos correctamente'))
+    
 
 app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
@@ -15,14 +21,6 @@ app.use(bodyParser.json());
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
 
-
-
-/*
-app.use('/css', express.static('../css'));
-app.use('/js', express.static('../js'));
-app.use('/images', express.static('../images'));
-app.use('/html', express.static('../html'));
-*/
 
 app.get('/', (req, res) => {
     res.render('index.ejs');
@@ -46,7 +44,7 @@ app.get('/register', (req, res) => {
 });
 
 app.post('/register', urlencoderParser, (req, res) => {
-    res.redner('register.ejs', {root: 'views/html'});
+    res.render('register.ejs', {root: 'views/html'});
     console.log(JSON.stringify(req.body, null, 2));
 });
 //      FIN REGISTER
