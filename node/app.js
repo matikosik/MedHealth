@@ -4,6 +4,8 @@ var assert = require('express');
 var morgan = require('morgan');
 var path = require('path');
 var moongose = require('mongoose')
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var app = express();
 var router = express.Router();
@@ -33,25 +35,53 @@ app.get('/', (req, res) => {
 
  
 //      LOGIN
-app.get('/login', (req, res) => {
+app.get('/login', async(req, res) => {
+    const tasks = await RegisterMongo.find();
+    console.log(tasks); 
+    
     res.render('login', {root: 'views/html'});
 });
 
-app.post('/login',urlencoderParser, (req, res) => {
+app.post('/login',urlencoderParser, async(req, res) => {
+//  autenticacion
+    var email = req.body.email
+    console.log(email)
+
+    var emailDB = RegisterMongo.find(req.body.email)
+    console.log(emailDB)
+    if(emailDB){
+        console.log('anda')
+    }
+    else{
+        console.log('no anda')
+    }
+/*
+    passport.use(new LocalStrategy({
+        usenameField = req.body.email
+    }, async (email, password, done) => {
+        const userAutentified = await RegisterMongo.findOne({email : req.body.email})
+        if(!userAutentified){
+            return done(null, false, res.render('register', {root: 'views/html'}));
+        }
+        else{
+            const passwordAutentified = await RegisterMongo.matchPassword(password);
+        if(match){
+            return done(null, res.render('index'))
+        }
+        else{
+            return done(null, false, res.post('contraseña incorrecta'))
+        }
+        }
+    }));
+*/
     res.render('login', {root: 'views/html'});
-    console.log(JSON.stringify(req.body, null, 2));
+    
 });
 //      FIN LOGIN
 
 //      REGISTER
-app.get('/register', async(req, res) => {
-
-    const tasks = await RegisterMongo.find();
-    console.log(tasks); 
-
-    res.render('register', {root: 'views/html'}, {
-        tasks
-    });
+app.get('/register', (req, res) => {
+    res.render('register', {root: 'views/html'});
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
@@ -64,3 +94,18 @@ app.post('/register', urlencoderParser, async(req, res) => {
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 
+
+/*
+ver cosas de la base de datos por consola 
+
+var RegisterMongo = require(__dirname + '/models/register.js');
+        (esto)
+
+const tasks = await (VA ACA) .find();
+    console.log(tasks); 
+
+
+ver cosas posteadas en e formulario html
+
+console.log(JSON.stringify(req.body, null, 2));
+*/
