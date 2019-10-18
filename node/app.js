@@ -5,7 +5,9 @@ var morgan = require('morgan');
 var path = require('path');
 var moongose = require('mongoose')
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = express();
 var router = express.Router();
@@ -25,9 +27,18 @@ app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
-
+app.use(cookieParser());
+app.use(session({
+    secret: 'MedHealth',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -36,58 +47,25 @@ app.get('/', (req, res) => {
  
 //      LOGIN
 app.get('/login', async(req, res) => {
-    const tasks = await RegisterMongo.find();
-    console.log(tasks); 
-    
-    res.render('login', {root: 'views/html'});
+    res.render('login');
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-//  autenticacion
-    var email = req.body.email
-    console.log(email)
-
-    var emailDB = RegisterMongo.find(req.body.email)
-    console.log(emailDB)
-    if(emailDB){
-        console.log('anda')
-    }
-    else{
-        console.log('no anda')
-    }
-/*
-    passport.use(new LocalStrategy({
-        usenameField = req.body.email
-    }, async (email, password, done) => {
-        const userAutentified = await RegisterMongo.findOne({email : req.body.email})
-        if(!userAutentified){
-            return done(null, false, res.render('register', {root: 'views/html'}));
-        }
-        else{
-            const passwordAutentified = await RegisterMongo.matchPassword(password);
-        if(match){
-            return done(null, res.render('index'))
-        }
-        else{
-            return done(null, false, res.post('contraseña incorrecta'))
-        }
-        }
-    }));
-*/
-    res.render('login', {root: 'views/html'});
+    console.log(req.body);
+    res.render('login');
     
 });
 //      FIN LOGIN
 
 //      REGISTER
 app.get('/register', (req, res) => {
-    res.render('register', {root: 'views/html'});
+    res.render('register')
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
     const Register = new RegisterMongo(req.body);
     await Register.save();
-    res.render('register', {root: 'views/html'});
+    res.render('register');
 });
 //      FIN REGISTER
 
