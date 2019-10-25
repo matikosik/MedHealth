@@ -5,7 +5,9 @@ var morgan = require('morgan');
 var path = require('path');
 var moongose = require('mongoose')
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = express();
 var router = express.Router();
@@ -25,9 +27,18 @@ app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
-
+app.use(cookieParser());
+app.use(session({
+    secret: 'MedHealth',
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -46,13 +57,13 @@ app.post('/login',urlencoderParser, async(req, res) => {
 
 //      REGISTER
 app.get('/register', (req, res) => {
-    res.render('register', {root: 'views/html'});
+    res.render('register')
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
     const Register = new RegisterMongo(req.body);
     await Register.save();
-    res.render('register', {root: 'views/html'});
+    res.render('register');
 });
 //      FIN REGISTER
 
