@@ -36,46 +36,11 @@ app.get('/', (req, res) => {
  
 //      LOGIN
 app.get('/login', async(req, res) => {
-    const tasks = await RegisterMongo.find();
-    console.log(tasks); 
-    
     res.render('login', {root: 'views/html'});
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-//  autenticacion
-    var email = req.body.email
-    console.log(email)
-
-    var emailDB = RegisterMongo.find(req.body.email)
-    console.log(emailDB)
-    if(emailDB){
-        console.log('anda')
-    }
-    else{
-        console.log('no anda')
-    }
-/*
-    passport.use(new LocalStrategy({
-        usenameField = req.body.email
-    }, async (email, password, done) => {
-        const userAutentified = await RegisterMongo.findOne({email : req.body.email})
-        if(!userAutentified){
-            return done(null, false, res.render('register', {root: 'views/html'}));
-        }
-        else{
-            const passwordAutentified = await RegisterMongo.matchPassword(password);
-        if(match){
-            return done(null, res.render('index'))
-        }
-        else{
-            return done(null, false, res.post('contraseña incorrecta'))
-        }
-        }
-    }));
-*/
     res.render('login', {root: 'views/html'});
-    
 });
 //      FIN LOGIN
 

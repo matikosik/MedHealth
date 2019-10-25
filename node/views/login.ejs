@@ -15,11 +15,15 @@
 
 </head>
 <body>
-		
-		<form action="" class="col s12 login-form" method="POST">
+	<div>
+		<div class="LogImage2">
+			<img src="images/logoForm.png">
+		</div>
 
-			<h1>Login</h1>
-			
+		<form action="" class="login-form2" method="POST">
+
+			<h1 class="h12">LOG IN</h1>
+
 			<div class="txtb">
 				<input type="email" name="email">
 				<span data-placeholder="Email"></span>
@@ -30,24 +34,24 @@
 				<span data-placeholder="Password"></span>
 			</div>
 
-			<input type="submit" class="logbtn" value="Register">
+			<input type="submit" class="logbtn" value="LOGIN">
 
-			<div class="bottom-text">
-				Don't have an account yet? <a href="register">Sign Up</a>
+			<div class="bottom-text2">
+				Don't have an account yet? <a href="register">register</a>
 			</div>
 
 		</form>
 	</div>
-	
-	<script type="text/javascript">
-	$(".txtb input").on("focus",function(){
-		$(this).addClass("focus");
-	});
+		<script type="text/javascript">
+		$(".txtb input").on("focus",function(){
+			$(this).addClass("focus");
+		});
 
-	$(".txtb input").on("blur",function(){
-		if($(this).val() == "")
-		$(this).removeClass("focus");
-	});
-	</script>
+		$(".txtb input").on("blur",function(){
+			if($(this).val() == "")
+			$(this).removeClass("focus");
+		});
+		</script>
+
 </body>
 </html>
