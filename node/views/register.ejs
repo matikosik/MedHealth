@@ -43,12 +43,19 @@
         <div class="txtb">
             <input type="password" name="rptpassword">
             <span data-placeholder="Repeat Password"></span>
-        </div>
+		</div>
+		
+		<select id="list">
+			<option value="medico">medico</option>
+			<option value="paciente">paciente</option>
+		</select>
 
 		<input type="submit" class="logbtn" value="Register">
 
 		<div class="bottom-text">
 			Already have an account? <a href="login">Log In</a>
+			<br>
+			<%= error %>
 		</div>
 
 	</form>
