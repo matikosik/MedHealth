@@ -45,8 +45,7 @@ app.get('/', (req, res) => {
 });
 
 //      LOGIN
-app.get('/login', async(req, res) => {
-    
+app.get('/login', async(req, res) => {    
     res.render('login', {
         tasks
     });
@@ -58,7 +57,7 @@ app.post('/login',urlencoderParser, async(req, res) => {
     res.render('login', {
         tasks
     }); 
-});
+
 //      FIN LOGIN
 
 //      REGISTER

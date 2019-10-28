@@ -14,10 +14,10 @@ $(document).ready(function(){
 
 function Registrar()
 {
-    window.location.href = 'register';
+    window.location.href = 'HTML/register.html';
 }
 
 function LogIn()
 {
-    window.location.href = 'login';
+    window.location.href = 'HTML/Login.html';
 }
