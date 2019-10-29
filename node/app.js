@@ -44,32 +44,58 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
- 
 //      LOGIN
-app.get('/login', async(req, res) => {
-
-    const tasks = await RegisterMongo.find();
-    console.log(tasks); 
-
+app.get('/login', async(req, res) => {    
     res.render('login', {
         tasks
     });
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-    res.render('login', {root: 'views/html'});
-});
+    const tasks = await RegisterMongo.find();
+    console.log(tasks)
+    res.render('login', {
+        tasks
+    }); 
+
 //      FIN LOGIN
 
 //      REGISTER
+const error = ('')
 app.get('/register', (req, res) => {
-    res.render('register')
+    res.render('register', {
+        error
+    })
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
-    const Register = new RegisterMongo(req.body);
-    await Register.save();
-    res.render('register');
+    var errorArray = ['Ya existe un usuario con este email', 'El registro fue exitoso', '']
+
+    const user = await RegisterMongo.find({email: req.body.email});
+
+    if(user == ''){  
+        const Register = new RegisterMongo(req.body);
+        await Register.save();
+        const error = (errorArray[1]);
+        console.log(error);
+
+        res.render('exito', {
+        });
+    }
+    else{
+        const error = (errorArray[0]);
+        console.log(error);
+
+        res.render('register', {
+            error
+        });
+    }
+    
+    //console.log(user);
+    //console.log(req.body.email);
+    //console.log(req.body);
+
+    
 });
 //      FIN REGISTER
 

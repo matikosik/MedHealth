@@ -53,20 +53,17 @@
             <span data-placeholder="Repeat Password"></span>
 		</div>
 		
-			<!-- dropdown -->
-
-			<!--		<div>
-						<select id="list" onchange="getSelectedValue();">
-							<option value="paciente">Paciente</option>
-							<option value="medico">Medico</option>
-						</select>
-					</div>
-			-->
+		<select id="list">
+			<option value="medico">medico</option>
+			<option value="paciente">paciente</option>
+		</select>
 
 		<input type="submit" class="logbtn radius" value="REGISTER">
 
 		<div class="bottom-text">
-			Already have an account? <a href="login">LOGIN</a>
+			Already have an account? <a href="login">Log In</a>
+			<br>
+			<%= error %>
 		</div>
 
 	</form>
