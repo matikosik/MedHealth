@@ -47,7 +47,13 @@ app.get('/', (req, res) => {
  
 //      LOGIN
 app.get('/login', async(req, res) => {
-    res.render('login', {root: 'views/html'});
+
+    const tasks = await RegisterMongo.find();
+    console.log(tasks); 
+
+    res.render('login', {
+        tasks
+    });
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {

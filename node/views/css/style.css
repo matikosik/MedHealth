@@ -96,6 +96,8 @@ body{
 	width: 360px;
 	background: #f1f1f1;
 	height: 510px;
+	margin-top: 0%;
+	margin-bottom: 5%;
 	padding: 80px 40px;
 	border-radius: 10px;
 	position: absolute;
@@ -159,7 +161,7 @@ body{
 	display: block;
 	position: absolute;
 	top: 80%;
-	position: translateY(-80%);
+	position: translateY(80%);
 	width: 82%;
 	height: 50px;
 	border: none;
@@ -198,9 +200,10 @@ body{
 }
 
 h1{
-	font-family: Poppins;
+	font-family: 'Poppins';
 	color: #adadad;
 	font-weight: 500;
+	font-size: 40px;
 	position: relative;
 	top: 3%;
 	right: 0%;
@@ -211,14 +214,15 @@ h1{
 .LogImage2{
 	position: absolute;
 	left: 50%;
-	top: 6%;
-	transform: translate(-50%, 6%);
+	top: 4%;
+	transform: translate(-50%, 4%);
 }
 
 .h12{
 	font-family: Poppins;
 	color: #adadad;
 	font-weight: 500;
+	font-size: 40px;
 	position: relative;
 	top: 3%;
 	right: 0%;
@@ -227,7 +231,8 @@ h1{
 .login-form2{
 	width: 360px;
 	background: #f1f1f1;
-	height: 510px;
+	height: 300px;
+	margin-bottom: 5%;
 	padding: 80px 40px;
 	border-radius: 10px;
 	position: absolute;
@@ -290,8 +295,8 @@ h1{
 .logbtn2{
 	display: block;
 	position: absolute;
-	top: 80%;
-	position: translateY(-80%);
+	top: 50%;
+	position: translateY(-50%);
 	width: 82%;
 	height: 50px;
 	border: none;
@@ -309,9 +314,9 @@ h1{
 
 .bottom-text2{
 	position: absolute;
-	top: 85%;
-	left: 25%;
-	position: translateY(-85%);
+	top: 75%;
+	left: 23%;
+	position: translateY(75%);
 	margin-top: 60px;
 	text-align: center;
 	font-size: 13px;

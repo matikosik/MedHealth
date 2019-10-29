@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
+		<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,12 +21,12 @@
 <body>
 
 	<div class="LogImage">
-		<img src="images/logoForm.png">
+		<img src="/images/logoForm.png">
 	</div>
 
 	<form action="" class="login-form" method="POST">
 
-		<h1>REGISTER</h1>
+		<h1 class="h1">REGISTER</h1>
 		
 		<div class="txtb">
 			<input type="userxtx" name="name">
@@ -51,12 +51,22 @@
         <div class="txtb">
             <input type="password" name="rptpassword">
             <span data-placeholder="Repeat Password"></span>
-        </div>
+		</div>
+		
+			<!-- dropdown -->
+
+			<!--		<div>
+						<select id="list" onchange="getSelectedValue();">
+							<option value="paciente">Paciente</option>
+							<option value="medico">Medico</option>
+						</select>
+					</div>
+			-->
 
 		<input type="submit" class="logbtn radius" value="REGISTER">
 
 		<div class="bottom-text">
-			Already have an account? <a href="login">login</a>
+			Already have an account? <a href="login">LOGIN</a>
 		</div>
 
 	</form>
@@ -70,6 +80,12 @@
 		if($(this).val() == "")
 		$(this).removeClass("focus");
 	});
+
+	function getSelectedValue()
+	{
+		var selectedValue = document.getElementById("list").value;
+		console.log(selectedValue);
+	}
 	</script>
 </body>
 </html>
