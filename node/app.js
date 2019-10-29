@@ -40,6 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -52,12 +53,10 @@ app.get('/login', async(req, res) => {
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-    const tasks = await RegisterMongo.find();
-    console.log(tasks)
     res.render('login', {
         tasks
     }); 
-
+});
 //      FIN LOGIN
 
 //      REGISTER
@@ -93,9 +92,7 @@ app.post('/register', urlencoderParser, async(req, res) => {
     
     //console.log(user);
     //console.log(req.body.email);
-    //console.log(req.body);
-
-    
+    //console.log(req.body);   
 });
 //      FIN REGISTER
 
