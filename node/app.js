@@ -47,12 +47,14 @@ app.get('/', (req, res) => {
 
 //      LOGIN
 app.get('/login', async(req, res) => {    
+    const tasks = ('')
     res.render('login', {
         tasks
     });
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
+    const tasks = ('')
     res.render('login', {
         tasks
     }); 
@@ -95,6 +97,20 @@ app.post('/register', urlencoderParser, async(req, res) => {
     //console.log(req.body);   
 });
 //      FIN REGISTER
+
+app.get('/index2', async(req, res) => {    
+    const tasks = ('')
+    res.render('index2', {
+        tasks
+    });
+});
+
+app.post('/index2',urlencoderParser, async(req, res) => {
+    const tasks = ('')
+    res.render('index2', {
+        tasks
+    }); 
+});
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');

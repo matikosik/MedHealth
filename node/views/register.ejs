@@ -21,20 +21,20 @@
 <body>
 
 	<div class="LogImage">
-		<img src="/images/logoForm.png">
+		<a href="/"><img src="/images/logoForm.png"></a>
 	</div>
 
-	<form action="" class="login-form" method="POST">
+	<form action="" class="login-form" method="POST" onsubmit="return checkForm(this);">
 
 		<h1 class="h1">REGISTER</h1>
 		
 		<div class="txtb">
-			<input type="userxtx" name="name">
+			<input type="userxtx" name="name" required pattern="\w+">
 			<span data-placeholder="Name"></span>
         </div>
         
         <div class="txtb">
-                <input type="userxtx" name="lastName">
+                <input type="userxtx" name="lastName" required pattern="\w+">
                 <span data-placeholder="Last Name"></span>
         </div>
         
@@ -44,31 +44,35 @@
         </div>
 
 		<div class="txtb">
-			<input type="password" name="password">
+			<input type="password" input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
 			<span data-placeholder="Password"></span>
         </div>
 
         <div class="txtb">
-            <input type="password" name="rptpassword">
-            <span data-placeholder="Repeat Password"></span>
+            <input type="password" title="Please enter the same password as above" name="rptpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
+			<span data-placeholder="Repeat Password"></span>
 		</div>
 		
-		<select id="list">
-			<option value="medico">medico</option>
-			<option value="paciente">paciente</option>
-		</select>
+			<!-- dropdown -->
+
+			<!--		<div>
+						<select id="list" onchange="getSelectedValue();">
+							<option value="paciente">Paciente</option>
+							<option value="medico">Medico</option>
+						</select>
+					</div>
+			-->
 
 		<input type="submit" class="logbtn radius" value="REGISTER">
 
 		<div class="bottom-text">
-			Already have an account? <a href="login">Log In</a>
-			<br>
-			<%= error %>
+			Already have an account? <a href="login">LOGIN</a>
 		</div>
 
 	</form>
 
 	<script type="text/javascript">
+
 	$(".txtb input").on("focus",function(){
 		$(this).addClass("focus");
 	});
