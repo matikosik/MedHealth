@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
+		<meta charset="utf-8">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,20 +21,20 @@
 <body>
 
 	<div class="LogImage">
-		<img src="images/logoForm.png">
+		<a href="/"><img src="/images/logoForm.png"></a>
 	</div>
 
-	<form action="" class="login-form" method="POST">
+	<form action="" class="login-form" method="POST" onsubmit="return checkForm(this);">
 
-		<h1>REGISTER</h1>
+		<h1 class="h1">REGISTER</h1>
 		
 		<div class="txtb">
-			<input type="userxtx" name="name">
+			<input type="userxtx" name="name" required pattern="\w+">
 			<span data-placeholder="Name"></span>
         </div>
         
         <div class="txtb">
-                <input type="userxtx" name="lastName">
+                <input type="userxtx" name="lastName" required pattern="\w+">
                 <span data-placeholder="Last Name"></span>
         </div>
         
@@ -44,13 +44,13 @@
         </div>
 
 		<div class="txtb">
-			<input type="password" name="password">
+			<input type="password" input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
 			<span data-placeholder="Password"></span>
         </div>
 
         <div class="txtb">
-            <input type="password" name="rptpassword">
-            <span data-placeholder="Repeat Password"></span>
+            <input type="password" title="Please enter the same password as above" name="rptpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
+			<span data-placeholder="Repeat Password"></span>
 		</div>
 		
 		<!--<form id="tableForm" action="/getJson" method="get">-->
@@ -65,14 +65,13 @@
 		<input type="submit" class="logbtn radius" value="REGISTER">
 
 		<div class="bottom-text">
-			Already have an account? <a href="login">Log In</a>
-			<br>
-			<%= error %>
+			Already have an account? <a href="login">LOGIN</a>
 		</div>
 
 	</form>
 
 	<script type="text/javascript">
+
 	$(".txtb input").on("focus",function(){
 		$(this).addClass("focus");
 	});
@@ -81,6 +80,12 @@
 		if($(this).val() == "")
 		$(this).removeClass("focus");
 	});
+
+	function getSelectedValue()
+	{
+		var selectedValue = document.getElementById("list").value;
+		console.log(selectedValue);
+	}
 	</script>
 </body>
 </html>

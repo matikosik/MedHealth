@@ -49,6 +49,7 @@ app.get('/', (req, res) => {
 
 //      LOGIN
 app.get('/login', async(req, res) => {    
+    const tasks = ('')
     res.render('login', {
     });
 });
@@ -124,6 +125,20 @@ app.post('/register', urlencoderParser, async(req, res) => {
     }    
 });
 //      FIN REGISTER
+
+app.get('/index2', async(req, res) => {    
+    const tasks = ('')
+    res.render('index2', {
+        tasks
+    });
+});
+
+app.post('/index2',urlencoderParser, async(req, res) => {
+    const tasks = ('')
+    res.render('index2', {
+        tasks
+    }); 
+});
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
