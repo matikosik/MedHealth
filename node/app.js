@@ -40,6 +40,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+var countDB = RegisterMongo.count();
+console.log(toString(countDB));
+
 app.get('/', (req, res) => {
     res.render('index');
 });
@@ -47,17 +50,26 @@ app.get('/', (req, res) => {
 //      LOGIN
 app.get('/login', async(req, res) => {    
     res.render('login', {
-        tasks
     });
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-    const tasks = await RegisterMongo.find();
-    console.log(tasks)
-    res.render('login', {
-        tasks
-    }); 
 
+    const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
+        if (result == ''){
+            res.render('no existe ese usuario', {
+            }); 
+        } 
+        if(req.body.password != result[0].password){
+            res.render('mal password', {
+            });
+        }
+        else if(req.body.password == result[0].password){
+            res.render('success', {
+            }); 
+        }
+    });  
+});
 //      FIN LOGIN
 
 //      REGISTER
@@ -65,12 +77,19 @@ const error = ('')
 app.get('/register', (req, res) => {
     res.render('register', {
         error
-    })
+    });
+});
+
+app.get('/registerDoctor', (req, res) => {
+    res.render('registerDoctor', {
+        
+    });
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
     var errorArray = ['Ya existe un usuario con este email', 'El registro fue exitoso', '']
 
+    const saveUser = req.body
     const user = await RegisterMongo.find({email: req.body.email});
 
     if(user == ''){  
@@ -79,23 +98,30 @@ app.post('/register', urlencoderParser, async(req, res) => {
         const error = (errorArray[1]);
         console.log(error);
 
-        res.render('exito', {
-        });
+        if(req.body.mop == 'doctor'){
+            var name = saveUser.name;
+            var lastName = saveUser.lastName;
+            var email = saveUser.email;
+            res.render('registerDoctor', {
+                name,
+                lastName,
+                email
+            });
+        }
+        else if(req.body.mop != 'doctor'){
+            res.render('index2', {
+            });
+        }    
     }
     else{
+
         const error = (errorArray[0]);
         console.log(error);
 
         res.render('register', {
             error
         });
-    }
-    
-    //console.log(user);
-    //console.log(req.body.email);
-    //console.log(req.body);
-
-    
+    }    
 });
 //      FIN REGISTER
 

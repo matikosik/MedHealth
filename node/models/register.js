@@ -16,6 +16,9 @@ const RegisterSchema = Schema({
     },
     rptpassword: {
         type: String
+    },
+    mop: {
+        type: String
     }
 });
 

@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth - Register</title>
+	<title>MedHealth - Register Doctor</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -26,49 +26,26 @@
 
 	<form action="" class="login-form" method="POST">
 
-		<h1>REGISTER</h1>
-		
+		<h1>REGISTER DOCTOR</h1>
+		<br>
+		<h3>Name:</h3>
+		<%= name %>
+		<h3>Last Name:</h3>
+		<%= lastName %>
+		<h3>Email:</h3>
+		<%= email %>
+
 		<div class="txtb">
-			<input type="userxtx" name="name">
-			<span data-placeholder="Name"></span>
+			<input type="address" name="address">
+			<span data-placeholder="Address"></span>
         </div>
         
         <div class="txtb">
-                <input type="userxtx" name="lastName">
-                <span data-placeholder="Last Name"></span>
-        </div>
-        
-        <div class="txtb">
-            <input type="email" name="email">
-            <span data-placeholder="Email"></span>
-        </div>
-
-		<div class="txtb">
-			<input type="password" name="password">
-			<span data-placeholder="Password"></span>
-        </div>
-
-        <div class="txtb">
-            <input type="password" name="rptpassword">
-            <span data-placeholder="Repeat Password"></span>
+                <input type="phonenumber" name="phonenumber">
+                <span data-placeholder="Phone number"></span>
 		</div>
 		
-		<!--<form id="tableForm" action="/getJson" method="get">-->
-			<select class="selectpicker" data-style="btn-info" name="mop">
-				<optgroup label="¿Waht are you?">
-					<option name="patient" value="patient">Patient</option>
-					<option name="doctor" value="doctor">Doctor</option>
-				</optgroup>
-			</select>
-		<!--</form>-->
-
-		<input type="submit" class="logbtn radius" value="REGISTER">
-
-		<div class="bottom-text">
-			Already have an account? <a href="login">Log In</a>
-			<br>
-			<%= error %>
-		</div>
+		<input type="submit" class="logbtn radius" value="CONTINUE">
 
 	</form>
 
