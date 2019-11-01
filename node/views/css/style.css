@@ -166,7 +166,7 @@ body{
 .logbtn{
 	display: block;
 	position: absolute;
-	top: 80%;
+	top: 90%;
 	position: translateY(80%);
 	width: 82%;
 	height: 50px;
@@ -181,6 +181,10 @@ body{
 
 .logbtn:hover{
 	background-position: right;
+}
+
+.error{
+	color: red;
 }
 
 .bottom-text{
@@ -364,18 +368,26 @@ hr {
 .av{
 	position: absolute;
 	top: 10%;
-	left: 75%;
+	left: 85%;
 }
 
 .avtxt{
 	font-family: poppins;
 	font-weight: 600;
+	text-align: left;	
+	align-items: center;
+}
+
+#lang{
+	position: absolute;
+	top: 25%;
+	left: 91%;
 }
 
 #logout{
 	position: absolute;
 	top: 20%;
-	left: 90%;
+	left: 50%;
 	height: 25px;
 	width: 100px;
 	background: red;
@@ -409,6 +421,7 @@ hr {
 	left: 6%;
 	text-align: center;
 	font-family: poppins;
+	color: #707070;
 }
 
 #textH{
@@ -481,6 +494,8 @@ hr {
 	background: #c4c4c4;
 }
 
+/*  Medics  */
+
 #rect1{
 	position: absolute;
 	top: 31%;
@@ -526,6 +541,13 @@ hr {
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#name3{
+	font-family: poppins;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 5px;
 }
 
 #rect4{
@@ -588,6 +610,55 @@ hr {
 	top: 95%;
 	left: 84%;
 	width: 200px;
+	height: 200px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+/* Hospitals */
+
+#hos1{
+	position: absolute;
+	top: 31%;
+	left: 50%;
+	width: 660px;
+	height: 175px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+#Hname1{
+	font-family: poppins;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+#hos2{
+	position: absolute;
+	top: 63%;
+	left: 50%;
+	width: 660px;
+	height: 175px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+#Hname2{
+	font-family: poppins;
+	font-weight: bold;
+	margin-left: 15px;
+	margin-top: 5px;
+}
+
+#hos3{
+	position: absolute;
+	top: 95%;
+	left: 50%;
+	width: 660px;
 	height: 175px;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);

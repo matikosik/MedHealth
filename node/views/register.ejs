@@ -52,23 +52,24 @@
             <input type="password" title="Please enter the same password as above" name="rptpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
 			<span data-placeholder="Repeat Password"></span>
 		</div>
-		
-		<!--<form id="tableForm" action="/getJson" method="get">-->
-			<select class="selectpicker" data-style="btn-info" name="mop">
-				<optgroup label="¿Waht are you?">
-					<option name="patient" value="patient">Patient</option>
-					<option name="doctor" value="doctor">Doctor</option>
-				</optgroup>
-			</select>
-		<!--</form>-->
+
+		<select class="selectpicker" data-style="btn-info" name="mop">
+			<optgroup label="¿Waht are you?">
+				<option name="patient" value="patient">Patient</option>
+				<option name="doctor" value="doctor">Doctor</option>
+			</optgroup>
+		</select>
+		<br>
+		<br>
+		<label class="error"> <%= error %> </label>
 
 		<input type="submit" class="logbtn radius" value="REGISTER">
 
-		<div class="bottom-text">
-			Already have an account? <a href="login">LOGIN</a>
-		</div>
-
 	</form>
+
+	<div class="bottom-text">
+		Already have an account? <a href="login">LOGIN</a>
+	</div>
 
 	<script type="text/javascript">
 
