@@ -22,11 +22,13 @@ function LogIn()
     window.location.href = 'HTML/Login.html';
 }
 
-function avatar() {
-    var x = document.getElementById("avconf");
-    if (x.style.display === "none") {
-      x.style.display = "block";
+/*-----------------------------------------------------------------*/
+
+function hideav() {
+    var x = document.getElementById('avconfdisp');
+    if (x.style.visibility === 'hidden') {
+      x.style.visibility = 'visible';
     } else {
-      x.style.display = "none";
+      x.style.visibility = 'hidden';
     }
-  }
+}

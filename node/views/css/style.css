@@ -166,7 +166,7 @@ body{
 .logbtn{
 	display: block;
 	position: absolute;
-	top: 90%;
+	top: 80%;
 	position: translateY(80%);
 	width: 82%;
 	height: 50px;
@@ -181,10 +181,6 @@ body{
 
 .logbtn:hover{
 	background-position: right;
-}
-
-.error{
-	color: red;
 }
 
 .bottom-text{
@@ -355,6 +351,7 @@ hr {
 	border-style: inset;
 	border-width: 1px;
 	border-top: 1px solid #f1f1f1f1;
+	z-index: -5;
 }
 
 .picpref{
@@ -365,17 +362,19 @@ hr {
 	height: 100px;
 }
 
-.av{
+#av{
 	position: absolute;
 	top: 10%;
-	left: 85%;
+	left: 84%;
+	z-index: 2;
 }
 
-.avtxt{
+#avtxt{
 	font-family: poppins;
 	font-weight: 600;
 	text-align: left;	
 	align-items: center;
+	visibility: visible;
 }
 
 #lang{
@@ -384,10 +383,18 @@ hr {
 	left: 91%;
 }
 
+#avconfdisp{
+	position: absolute;
+	top: 2%;
+	left: 990px;
+	visibility: hidden;
+	z-index: 1;
+}
+
 #logout{
 	position: absolute;
-	top: 20%;
-	left: 50%;
+	top: 50%;
+	left: 20%;
 	height: 25px;
 	width: 100px;
 	background: red;
@@ -427,7 +434,7 @@ hr {
 #textH{
 	position: absolute;
 	top: 80%;
-	left: 35%;
+	left: 29%;
 	position: translate(80%, 34%);
 	color: #18D13D;
 	font-weight: 400;
@@ -437,7 +444,7 @@ hr {
 #textM{
 	position: absolute;
 	top: 80%;
-	left: 45%;
+	left: 39%;
 	position: translate(24%, 50%);
 	color: #18D13D;
 	font-weight: 400;
@@ -447,7 +454,7 @@ hr {
 #textC{
 	position: absolute;
 	top: 80%;
-	left: 53%;
+	left: 47%;
 	position: translate(24%, 50%);
 	color: #18D13D;
 	font-weight: 400;
@@ -455,6 +462,17 @@ hr {
 }
 
 #textS{
+	position: absolute;
+	top: 80%;
+	left: 57%;
+	position: translate(24%, 50%);
+	color: #18D13D;
+	font-weight: 400;
+	font-family: "poppins";
+}
+
+#textCal{
+	position: absolute;
 	position: absolute;
 	top: 80%;
 	left: 63%;
@@ -473,6 +491,7 @@ hr {
 	background: blue;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 20px;
+	z-index: -2;
 }
 
 #appointtxt{
@@ -485,15 +504,38 @@ hr {
 	margin-top: 3px;
 }
 
-#map{
-	position: absolute;
-	top: 31%;
-	left: 1%;
-	width: 640px;
-	height: 600px;
-	background: #c4c4c4;
+.section-one{
+	background-color: #FF0000;
+	float: right;
+	overflow-y: auto;
+	width: 15%;
+	height: 100%;
 }
 
+.visible-scrollbar, .invisible-scrollbar, .mostly-customized-scrollbar{
+	display: block;
+	width: 10em;
+	overflow: auto;
+	height: 2em;
+}
+  
+  .invisible-scrollbar::-webkit-scrollbar{
+	display: none;
+}
+  
+  /* Demonstrate a "mostly customized" scrollbar
+   * (won't be visible otherwise if width/height is specified) */
+  .mostly-customized-scrollbar::-webkit-scrollbar{
+	width: 5px;
+	height: 8px;
+	background-color: #aaa; /* or add it to the track */
+}
+  
+  /* Add a thumb */
+  .mostly-customized-scrollbar::-webkit-scrollbar-thumb{
+	  background: #000; 
+}
+  
 /*  Medics  */
 
 #rect1{
@@ -621,9 +663,9 @@ hr {
 #hos1{
 	position: absolute;
 	top: 31%;
-	left: 50%;
-	width: 660px;
-	height: 175px;
+	left: 1%;
+	width: 650px;
+	height: 50px;
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
@@ -647,16 +689,37 @@ hr {
 	border-radius: 12px;
 }
 
-#Hname2{
-	font-family: poppins;
-	font-weight: bold;
-	margin-left: 15px;
-	margin-top: 5px;
-}
-
 #hos3{
 	position: absolute;
 	top: 95%;
+	left: 50%;
+	width: 660px;
+	height: 175px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+/* Categories */
+
+#Cname1{
+	position: absolute;
+}
+
+#cat1{
+	position: absolute;
+	top: 63%;
+	left: 50%;
+	width: 660px;
+	height: 175px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+#cat2{
+	position: absolute;
+	top: 31%;
 	left: 50%;
 	width: 660px;
 	height: 175px;
