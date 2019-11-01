@@ -88,7 +88,7 @@ app.get('/registerDoctor', (req, res) => {
 });
 
 app.post('/register', urlencoderParser, async(req, res) => { 
-    var errorArray = ['Ya existe un usuario con este email', 'El registro fue exitoso', '']
+    var errorArray = ['A user already exists using this email', 'El registro fue exitoso', '']
 
     const saveUser = req.body
     const user = await RegisterMongo.find({email: req.body.email});
