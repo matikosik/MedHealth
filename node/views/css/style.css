@@ -305,7 +305,7 @@ h1{
 .logbtn2{
 	display: block;
 	position: absolute;
-	top: 71%;
+	top: 80%;
 	position: translateY(-71%);
 	width: 82%;
 	height: 50px;

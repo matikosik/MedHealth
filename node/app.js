@@ -47,25 +47,28 @@ app.get('/', (req, res) => {
 
 //      LOGIN
 app.get('/login', async(req, res) => {    
-    const tasks = ('')
+    const error = ('')
     res.render('login', {
+        error
     });
 });
 
 app.post('/login',urlencoderParser, async(req, res) => {
-
     const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
         if (result == ''){
-            res.render('no existe ese usuario', {
-            }); 
+            var error = 'User does not exist'
+            res.render('login', {
+                error
+            });
         } 
-        if(req.body.password != result[0].password){
-            res.render('mal password', {
+        else if(req.body.password != result[0].password){
+            var error = 'Wrong Password'
+            res.render('login', {
+                error
             });
         }
         else if(req.body.password == result[0].password){
-            res.render('success', {
-            }); 
+            res.redirect('/index2');
         }
     });  
 });
@@ -136,11 +139,7 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
     });
     await Register.save();
 
-    res.render('registerDoctor', {
-        name,
-        lastName,
-        email
-    });
+    res.redirect('/index2');
 });
 
 

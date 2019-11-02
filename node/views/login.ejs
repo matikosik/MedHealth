@@ -34,14 +34,18 @@
 				<input type="password" name="password">
 				<span data-placeholder="Password"></span>
 			</div>
+			
+			<label class="error"> <%= error %> </label>
 
 			<input type="submit" class="logbtn2" value="LOGIN">
-
-			<div class="bottom-text2">
-				Don't have an account yet? <a href="register">REGISTER</a>
-			</div>
+			
 
 		</form>
+
+		<div class="bottom-text2">
+			Don't have an account yet? <a href="register">REGISTER</a>
+		</div>
+
 	</div>
 		<script type="text/javascript">
 		$(".txtb input").on("focus",function(){
