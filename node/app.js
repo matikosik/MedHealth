@@ -21,6 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // SCHEMAS
 var RegisterMongo = require(__dirname + '/models/register.js');
+var RegisterMongo = require(__dirname + '/models/doctors.js');
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
@@ -39,9 +40,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-var countDB = RegisterMongo.count();
-console.log(toString(countDB));
 
 app.get('/', (req, res) => {
     res.render('index');
@@ -74,35 +72,31 @@ app.post('/login',urlencoderParser, async(req, res) => {
 //      FIN LOGIN
 
 //      REGISTER
-const error = ('')
+
 app.get('/register', (req, res) => {
+    const error = ('');
     res.render('register', {
         error
     });
 });
 
-app.get('/registerDoctor', (req, res) => {
-    res.render('registerDoctor', {
-        
-    });
-});
-
 app.post('/register', urlencoderParser, async(req, res) => { 
-    var errorArray = ['A user already exists using this email', 'El registro fue exitoso', '']
+    var errorArray = ['A user already exists using this email', 'El registro fue exitoso', ''];
 
-    const saveUser = req.body
+    const savedUser = req.body;
     const user = await RegisterMongo.find({email: req.body.email});
 
     if(user == ''){  
         const Register = new RegisterMongo(req.body);
         await Register.save();
+
         const error = (errorArray[1]);
         console.log(error);
 
         if(req.body.mop == 'doctor'){
-            var name = saveUser.name;
-            var lastName = saveUser.lastName;
-            var email = saveUser.email;
+            var name = savedUser.name;
+            var lastName = savedUser.lastName;
+            var email = savedUser.email;
             res.render('registerDoctor', {
                 name,
                 lastName,
@@ -115,7 +109,6 @@ app.post('/register', urlencoderParser, async(req, res) => {
         }    
     }
     else{
-
         const error = (errorArray[0]);
         console.log(error);
 
