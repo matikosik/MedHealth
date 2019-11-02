@@ -21,7 +21,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // SCHEMAS
 var RegisterMongo = require(__dirname + '/models/register.js');
-var RegisterMongo = require(__dirname + '/models/doctors.js');
+var DoctorsMongo = require(__dirname + '/models/doctors.js');
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
@@ -80,6 +80,10 @@ app.get('/register', (req, res) => {
     });
 });
 
+var name
+var lastName
+var email
+
 app.post('/register', urlencoderParser, async(req, res) => { 
     var errorArray = ['A user already exists using this email', 'El registro fue exitoso', ''];
 
@@ -89,23 +93,18 @@ app.post('/register', urlencoderParser, async(req, res) => {
     if(user == ''){  
         const Register = new RegisterMongo(req.body);
         await Register.save();
-
+        console.log(req.body);
         const error = (errorArray[1]);
         console.log(error);
 
         if(req.body.mop == 'doctor'){
-            var name = savedUser.name;
-            var lastName = savedUser.lastName;
-            var email = savedUser.email;
-            res.render('registerDoctor', {
-                name,
-                lastName,
-                email
-            });
+            name = savedUser.name;
+            lastName = savedUser.lastName;
+            email = savedUser.email;
+            res.redirect('/registerDoctor');
         }
         else if(req.body.mop != 'doctor'){
-            res.render('index2', {
-            });
+            res.redirect('index2');
         }    
     }
     else{
@@ -119,17 +118,39 @@ app.post('/register', urlencoderParser, async(req, res) => {
 });
 //      FIN REGISTER
 
+app.get('/registerDoctor', async(req, res) => { 
+    res.render('registerDoctor', {
+        name,
+        lastName,
+        email
+    });
+});
+
+app.post('/registerDoctor', urlencoderParser, async(req, res) => { 
+
+    const Register = new DoctorsMongo({ 
+        email: email,
+        address: req.body.address,
+        phoneNumber: req.body.phonenumber,
+        doctorType: req.body.doctorType 
+    });
+    await Register.save();
+
+    res.render('registerDoctor', {
+        name,
+        lastName,
+        email
+    });
+});
+
+
 app.get('/index2', async(req, res) => {    
-    const tasks = ('')
     res.render('index2', {
-        tasks
     });
 });
 
 app.post('/index2',urlencoderParser, async(req, res) => {
-    const tasks = ('')
     res.render('index2', {
-        tasks
     }); 
 });
 

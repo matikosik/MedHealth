@@ -9,7 +9,7 @@ const DoctorsSchema = Schema({
         type: String
     },
     phoneNumber: {
-        type: String
+        type: Number
     },
     doctorType: {
         type: String

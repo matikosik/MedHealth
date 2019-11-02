@@ -166,8 +166,8 @@ body{
 .logbtn{
 	display: block;
 	position: absolute;
-	top: 80%;
-	position: translateY(80%);
+	top: 89%;
+	position: translateY(85%);
 	width: 82%;
 	height: 50px;
 	border: none;
@@ -181,6 +181,10 @@ body{
 
 .logbtn:hover{
 	background-position: right;
+}
+
+.error{
+	color: red;
 }
 
 .bottom-text{
