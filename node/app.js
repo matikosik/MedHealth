@@ -22,6 +22,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // SCHEMAS
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
+var CalendarsMongo = require(__dirname + '/models/calendar.js');
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
@@ -53,6 +54,8 @@ app.get('/login', async(req, res) => {
     });
 });
 
+var user;
+
 app.post('/login',urlencoderParser, async(req, res) => {
     const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
         if (result == ''){
@@ -68,7 +71,9 @@ app.post('/login',urlencoderParser, async(req, res) => {
             });
         }
         else if(req.body.password == result[0].password){
-            res.redirect('/index2');
+            user = req.body.email;
+            console.log(user);
+            res.redirect('index2');
         }
     });  
 });
