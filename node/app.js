@@ -23,7 +23,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
 var CalendarsMongo = require(__dirname + '/models/calendar.js');
-// FIN SCHEMAS
+// FIN SCHEMAS;
 
 app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
@@ -156,6 +156,14 @@ app.get('/index2', async(req, res) => {
 app.post('/index2',urlencoderParser, async(req, res) => {
     res.render('index2', {
     }); 
+});
+
+app.get('/calendar', (req, res) => { 
+    res.render('calendar');
+});
+
+app.post('/calendar', async(req, res) => { 
+    res.render('calendar');
 });
 
 app.listen(3000, () => {
