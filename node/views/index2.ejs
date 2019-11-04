@@ -32,7 +32,7 @@
 
 				<div id="av" onclick="hideav()">
 					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
-					<p id="avtxt">John Doe</p>
+					<p id="avtxt"> <%= fullName %> </p>
 				</div>
 
 					<div id="avconfdisp">
@@ -42,18 +42,16 @@
 								<img src="images/add.png" height="10%" width="10%">
 							</div>
 
-							<p id="textconfdisp1">John Doe</p>
+							<p id="textconfdisp1"><%= fullName %></p>
 							
-							<p id="textconfdisp2">Status:<p id="textconfdisp3">Patient</p></p>
+							<p id="textconfdisp2">Status:<p id="textconfdisp3"><%= status %></p></p>
 
-							<p id="textconfdisp5">JohnnyD@gmail.com</p>
+							<p id="textconfdisp5"><%= mail %></p>
 							
 							<div id="editprofile"><p id="edittxt">Edit Profile</p></div>
-
-						</div>												
-
+						</div>
 					</div>
-					
+						
 				<div id="lang" onclick="hidelang()">
 					<img src="images/DropDownLang.png" height="85%" width="85%">					
 				</div>
