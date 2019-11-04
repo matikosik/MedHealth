@@ -5,6 +5,12 @@ const DoctorsSchema = Schema({
     email: {
         type: String
     },
+    name: {
+        type: String
+    },
+    lastName: {
+        type: String
+    },
     address: {
         type: String
     },

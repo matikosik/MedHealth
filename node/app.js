@@ -31,6 +31,7 @@ app.use(morgan('dev'));
 //index
 app.get('/', (req, res) => {
     res.render('index');
+    user = undefined;
 });
 //fin index
 
@@ -66,7 +67,7 @@ app.post('/register', urlencoderParser, async(req, res) => {
             res.redirect('/registerDoctor');
         }
         else if(req.body.mop != 'doctor'){
-            res.redirect('index2');
+            res.redirect('login');
         }    
     }
     else{
@@ -100,6 +101,8 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
 
         const Register = new DoctorsMongo({ 
             email: email,
+            name: name,
+            lastName: lastName,
             address: req.body.address,
             phoneNumber: req.body.phonenumber,
             doctorType: req.body.doctorType,
@@ -109,7 +112,7 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
         await Register.save();
     })
 
-    res.redirect('/index2');
+    res.redirect('/login');
 });
 //fin register doctor
 
@@ -148,51 +151,116 @@ app.post('/login',urlencoderParser, async(req, res) => {
 
 //index2
 app.get('/index2', async(req, res) => {    
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    console.log(fullName)
     res.render('index2', {
+        fullName,
+        status,
+        mail
     });
 });
 
 var medic;
 app.post('/index2',urlencoderParser, async(req, res) => {
-    medic = (req.body.med)
+    medic = req.body.med
     console.log(medic)
-    if(req.body.med == 'Cardiology1'){
-        console.log('anda')
-    }
-    else{
-        console.log('andamal')
-    }
     res.redirect('doctors');
 });
 //fin index2
 
 //doctors
-app.get('/doctors', (req, res) => { 
+app.get('/doctors', async(req, res) => { 
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+        });
+        
+        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+        var status = (findUser[0].mop)
+        var mail = (findUser[0].email)
+
     console.log(medic);
+
+    const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
+    });
+    var latitude = ('')
+    var longitude = ('')
+    //console.log(findDoctors);
+
     res.render('doctors',{
+        fullName,
+        status,
+        mail,
+        medic,
+        findDoctors,
+        latitude,
+        longitude
     });
 });
 
 app.post('/doctors', async(req, res) => { 
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+        });
+        
+        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+        var status = (findUser[0].mop)
+        var mail = (findUser[0].email)
+
+        console.log(medic);
+
+        const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
+        });
+        
+        const coords = await DoctorsMongo.find({'email': req.body.whoMed}, function(err, result) {
+        });
+        var latitude = (coords[0].lat)
+        var longitude = (coords[0].lon)
+        //console.log(findDoctors);
+        //console.log(req.body.whoMed);
+        console.log(coords);
 
     res.render('doctors',{
+        fullName,
+        status,
+        mail,
+        medic,
+        findDoctors,
+        latitude,
+        longitude
     });
 });
 //fin doctors
 
-app.get('/calendar', (req, res) => { 
+app.get('/calendar', async(req, res) => { 
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+        });
+        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+        var status = (findUser[0].mop)
+        var mail = (findUser[0].email)
 
     res.render('calendar',{
-        user,
-        //longitude
+        fullName,
+        status,
+        mail
     });
 });
 
 app.post('/calendar', async(req, res) => { 
+const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
 
     res.render('calendar',{
-        user,
-        //longitude
+        fullName,
+        status,
+        mail
     });
 });
 

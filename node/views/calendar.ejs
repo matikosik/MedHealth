@@ -16,7 +16,11 @@
 	<script type="text/javascript" src="js/MedHealth.js"></script>
 	<!-- fuentes -->
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+<style>
+	#calendarTitle{
+		color: #ffffff00
+	}
+</style>
 </head>
 <body>
     <div class="container">
@@ -32,7 +36,7 @@
 
 				<div id="av" onclick="hideav()">
 					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
-					<p id="avtxt">John Doe</p>
+					<p id="avtxt"> <%= fullName %> </p>
 				</div>
 
 					<div id="avconfdisp">
@@ -42,13 +46,11 @@
 								<img src="images/add.png" height="10%" width="10%">
 							</div>
 
-							<p id="textconfdisp1">John Doe</p>
+							<p id="textconfdisp1"><%= fullName %></p>
 							
-							<p id="textconfdisp2">Status:<p id="textconfdisp3">Pacient</p></p>
-							
-							<p id="textconfdisp4">+1 502 326-7834</p>
+							<p id="textconfdisp2">Status:<p id="textconfdisp3"><%= status %></p></p>
 
-							<p id="textconfdisp5">JohnnyD@gmail.com</p>
+							<p id="textconfdisp5"><%= mail %></p>
 							
 							<div id="editprofile"><p id="edittxt">Edit Profile</p></div>
 
@@ -79,5 +81,5 @@
             </div>
 
         </div>
-    </div>
+	</div>
 </body>

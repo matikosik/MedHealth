@@ -1,3 +1,157 @@
+#loginhref{
+	position: absolute;
+	top: 50%;
+	left: 28%;
+	width: 300px;
+	height: 40px;
+	background: #f1f1f1;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	z-index: 3;
+}
+
+#loginhref:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#registerhref{
+	position: absolute;
+	top: 50%;
+	left: 52%;
+	width: 300px;
+	height: 40px;
+	background: #18D13D;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	z-index: 3;
+}
+
+#registerhref:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#reglogborder{
+	position: absolute;
+	top: 47%;
+	left: 25%;
+	width: 700px;
+	height: 80px;
+	background: #ebebeb;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	z-index: 2;
+}
+
+#reglogs{
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	width: 450px;
+	height: 200px;
+	background: #ebebeb;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	z-index: 1;
+}
+
+#indexlogo{
+	position: absolute;
+	top: 7%;
+	left: 45%;
+	z-index: 5;
+}
+
+#logindex{
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	color: black;
+	font-family: poppins;
+	font-weight: 800;
+}
+
+#regindex{
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	color: white;
+	font-family: poppins;
+	font-weight: 800;
+}
+
+#circlewhite{
+	position: absolute;
+	top: 50%;
+	left: 23.5%;
+	width: 228px;
+	height: 50px;
+	background: wite;
+	border-radius: 12px;
+}
+
+#titleindex{
+	position: absolute;
+	top: -10%;
+	left: 1%;
+	color: #18D13D;
+	font-family: poppins;
+	font-weight: bold;
+	font-size: 40px;
+}
+
+#textindex{
+	font-family: poppins;
+	position: absolute;
+	top: 60%;
+	left: 25%;
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.slider-frame{
+	overflow: hidden;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+}
+
+/*  Slider Animation   */
+
+@-webkit-keyframes slide_animation{
+	0% {right:0px}
+	10% {right:0px}
+	20% {right:1200px}
+	30% {right:1200px}
+	40% {right:2400px}
+	50% {right:2400px}
+	60% {right:1200px}
+	70% {right:1200px}
+	80% {right:0px}
+	90% {right:0px}
+	100% {right:0px}
+}
+
+.slide-images{
+	width: 3600px;
+	height: 800px;
+	margin: 0 0 0 -2400px;
+	position: relative;
+	-webkit-animation-name: slide_animation;
+	-webkit-animation-duration: 33s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-direction: alternate;
+	-webkit-animation-play-state: running;
+}
+
+.img-comtainer{
+	height: 800px;
+	width: 1366px;
+	position: relative;
+	float: left;
+}
+
 .fondo{
 	background: url(../images/boy-check-up-dental-care-52527.jpg)
 }
@@ -101,7 +255,7 @@ body{
 .login-form{
 	width: 360px;
 	background: #f1f1f1;
-	height: 510px;
+	height: 550px;
 	margin-top: 0%;
 	margin-bottom: 5%;
 	padding: 80px 40px;
@@ -167,7 +321,7 @@ body{
 	display: block;
 	position: absolute;
 	top: 89%;
-	position: translateY(89%);
+	position: translateY(86%);
 	width: 82%;
 	height: 50px;
 	border: none;
@@ -189,14 +343,26 @@ body{
 
 .bottom-text{
 	position: absolute;
-	top: 85%;
-	left: 25%;
-	position: translateY(-85%);
+	top: 120%;
+	left: 41.5%;
+	position: translateY(109%);
 	margin-top: 60px;
 	text-align: center;
 	font-size: 13px;
 	font-family: 'Poppins';
 }
+
+.bottom-textD{
+	position: absolute;
+	top: 88%;
+	left: 27%;
+	position: translateY(90%);
+	margin-top: 60px;
+	text-align: center;
+	font-size: 13px;
+	font-family: 'Poppins';
+}
+
 
 .LogImage{
 	position: absolute;
@@ -217,6 +383,140 @@ h1{
 	position: relative;
 	top: 3%;
 	right: 0%;
+}
+
+/* ---------------------DocRegister--------------------- */
+
+#backimagedoc{
+	background-color: #bf0000;
+}
+
+#selectpicker{
+	position: absolute;
+	top: 77.5%;
+	width: 350px;
+}
+
+#titledoc{
+	font-family: poppins;
+	color: #adadad;
+	font-weight: 500;
+	font-size: 40px;
+	position: absolute;
+	top: 12%;
+}
+
+#namedoc{
+	color: #afafaf;
+	font-weight: 500;
+	position: absolute;
+	top: 25%;
+}
+
+#lastnamedoc{
+	color: #afafaf;
+	font-weight: 500;
+	position: absolute;
+	top: 35%;
+}
+
+#emaildoc{
+	color: #afafaf;
+	font-weight: 500;
+	position: absolute;
+	top: 45%;
+}
+
+.txtb3{
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	top: 50%;
+	margin: 30px 0;
+}
+
+.txtb3 input{
+	font-size: 15px;
+	color: #333;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+
+.txtb3 span::before{
+	content: attr(data-placeholder);
+	position: absolute;
+	top: 50%;
+	left: 1.5%;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: .5s;
+}
+
+.txtb3 span::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(120deg,#18D13D,#0a5719);
+	transition: .5s;
+}
+
+.focus3 + span::before{
+	top: -5px;
+}
+
+.focus3 + span::after{
+	width: 100%;
+}
+
+.txtb4{
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	top: 50%;
+	margin: 30px 0;
+}
+
+.txtb4 input{
+	font-size: 15px;
+	color: #333;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+
+.txtb4 span::before{
+	content: attr(data-placeholder);
+	position: absolute;
+	top: 50%;
+	left: 1.5%;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: .5s;
+}
+
+.txtb4 span::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(120deg,#18D13D,#0a5719);
+	transition: .5s;
+}
+
+.focus4 + span::before{
+	top: -5px;
+}
+
+.focus4 + span::after{
+	width: 100%;
 }
 
 /* -------------------- LOG IN -------------------- */
@@ -324,8 +624,8 @@ h1{
 
 .bottom-text2{
 	position: absolute;
-	top: 77%;
-	left: 23%;
+	top: 72%;
+	left: 40%;
 	position: translateY(77%);
 	margin-top: 60px;
 	text-align: center;
@@ -865,6 +1165,8 @@ hr{
 }
 
 #square1{
+	position: absolute;
+	top: 0%;
 	width: 50px;
 	height: 50px;
 	background: linear-gradient(45deg,#E18CFF,#0720A4);
@@ -875,7 +1177,8 @@ hr{
 #cimage1{
 	position: absolute;
 	top: 20%;
-	left: 3.5%;
+	left: 4%;
+	z-index: 5;
 }
 
 #cat1{
@@ -889,6 +1192,30 @@ hr{
 	border-radius: 12px;
 }
 
+#cat1:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+#btncat{
+	position: absolute;
+	top: 0%;
+	width: 100%;
+	height: 50px;
+	border-radius: 12px;
+	background: #ffffff00;
+	font-family: poppins;
+	font-size: 16px;
+	text-align: center;
+	border: none;
+}
+
+#imgcat{
+	z-index: 9;
+	position: absolute;
+	top: 20%;
+	left: 3.5%;
+}
+
 #cat2{
 	position: absolute;
 	top: 31%;
@@ -898,6 +1225,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat2:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat3{
@@ -911,6 +1242,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat3:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat4{
 	position: absolute;
 	top: 31%;
@@ -920,6 +1255,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat4:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat5{
@@ -933,6 +1272,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat5:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat6{
 	position: absolute;
 	top: 42%;
@@ -942,6 +1285,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat6:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat7{
@@ -955,6 +1302,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat7:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat8{
 	position: absolute;
 	top: 42%;
@@ -964,6 +1315,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat8:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat9{
@@ -977,6 +1332,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat9:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat10{
 	position: absolute;
 	top: 53%;
@@ -986,6 +1345,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat10:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat11{
@@ -999,6 +1362,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat11:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat12{
 	position: absolute;
 	top: 53%;
@@ -1008,6 +1375,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat12:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat13{
@@ -1021,6 +1392,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat13:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat14{
 	position: absolute;
 	top: 64%;
@@ -1030,6 +1405,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat14:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat15{
@@ -1043,6 +1422,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat15:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat16{
 	position: absolute;
 	top: 64%;
@@ -1052,6 +1435,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat16:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat17{
@@ -1065,6 +1452,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat17:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat18{
 	position: absolute;
 	top: 75%;
@@ -1074,6 +1465,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat18:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat19{
@@ -1087,6 +1482,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat19:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat20{
 	position: absolute;
 	top: 75%;
@@ -1096,6 +1495,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat20:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat21{
@@ -1109,6 +1512,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat21:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat22{
 	position: absolute;
 	top: 86%;
@@ -1118,6 +1525,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat22:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat23{
@@ -1131,6 +1542,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat23:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat24{
 	position: absolute;
 	top: 86%;
@@ -1140,6 +1555,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat24:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat25{
@@ -1153,6 +1572,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat25:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat26{
 	position: absolute;
 	top: 97%;
@@ -1162,6 +1585,10 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat26:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
 #cat27{
@@ -1175,6 +1602,10 @@ hr{
 	border-radius: 12px;
 }
 
+#cat27:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #cat28{
 	position: absolute;
 	top: 97%;
@@ -1184,4 +1615,22 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
+}
+
+#cat28:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
+#btnMed{
+	background: #ffffff00; 
+	border: none;
+	color: #ffffff00;
+	width: 100%;
+	height: 100%;
+}
+
+#textMed{
+	position: relative;
+	top: -95%;
+	font-size: 15px;
 }

@@ -18,53 +18,81 @@
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body>
+<body style="background-color: rgba(170, 170, 170, 0.322)">
 
-	<div class="LogImage">
-		<img src="images/MHblue.png">
-	</div>
+	<div id="backimgdoc">
 
-	<form action="" class="login-form" method="POST">
-
-		<h1>REGISTER DOCTOR</h1>
-		<br>
-		<h3>Name:</h3>
-		<%= name %>
-		<h3>Last Name:</h3>
-		<%= lastName %>
-		<h3>Email:</h3>
-		<%= email %>
-
-		<div class="txtb">
-			<input type="address" name="address">
-			<span data-placeholder="Address"></span>
-        </div>
-        
-        <div class="txtb">
-                <input type="phonenumber" name="phonenumber">
-                <span data-placeholder="Phone number"></span>
+		<div class="LogImage">
+			<img src="images/logoForm.png">
 		</div>
-	
-		<select class="selectpicker" data-style="btn-info" name="doctorType">
-			<optgroup label="¿Waht are you?">
-				<option name="patient" value="patient">Patient</option>
-				<option name="doctor" value="doctor">Doctor</option>
-			</optgroup>
-		</select>
-		
-		<input type="submit" class="logbtn radius" value="CONTINUE">
 
-	</form>
+		<form action="" class="login-form" method="POST">
 
-	<script type="text/javascript">
-	$(".txtb input").on("focus",function(){
-		$(this).addClass("focus");
-	});
+			<p id="titledoc">REGISTER DOCTOR</p>
+			<p id="namedoc">Name: <%= name %> </p>
+			
+			<p id="lastnamedoc">Last Name: <%= lastName %> </p>
+			
+			<p id="emaildoc">Email: <%= email %> </p>
+			
 
-	$(".txtb input").on("blur",function(){
-		if($(this).val() == "")
-		$(this).removeClass("focus");
-	});
-	</script>
+			<div class="txtb3">
+				<input type="address" name="address">
+				<span data-placeholder="Address"></span>
+			</div>
+			
+			<div class="txtb4">
+					<input type="phonenumber" name="phonenumber">
+					<span data-placeholder="Phone number"></span>
+			</div>
+			
+			<select id="selectpicker" data-style="btn-info" name="doctorType">
+				<optgroup label="Specialty">
+					<option name="Ophthalmology" value="Ophthalmology">Ophthalmology</option>
+					<option name="Cardiology" value="Cardiology">Cardiology</option>
+					<option name="Dentistry" value="Dentistry">Dentistry</option>
+					<option name="Laboratory" value="Laboratory">Laboratory</option>
+					<option name="Pediatrics" value="Pediatrics">Pediatrics</option>
+					<option name="Radiology" value="Radiology">Radiology</option>
+					<option name="Dermatology" value="Dermatology">Dermatology</option>
+					<option name="Anesthesiology" value="Anesthesiology">Anesthesiology</option>
+					<option name="Neurology" value="Neurology">Neurology</option>
+					<option name="Nuclear Medicine" value="Nuclear Medicine">Nuclear Medicine</option>
+					<option name="Gynecology" value="Gynecology">Gynecology</option>
+					<option name="Urology" value="Urology">Urology</option>
+					<option name="Pathology" value="Pathology">Pathology</option>
+					<option name="Psychiatry" value="Psychiatry">Psychiatry</option>
+					<option name="Physical Medicine" value="Physical Medicine">Physical Medicine</option>
+					<option name="Internal Medicine" value="Internal Medicine">Internal Medicine</option>
+					<option name="Preventive Medicine" value="Preventive Medicine">Preventive Medicine</option>
+					<option name="Emergency Medicine" value="Emergency Medicine">Emergency Medicine</option>
+					<option name="Allergy & Immunology" value="Allergy & Immunology">Allergy & Immunology</option>
+					<option name="Tomography" value="Tomography">Tomography</option>
+					<option name="Ecography" value="Ecography">Ecography</option>
+					<option name="Toxicology" value="Toxicology">Toxicology</option>
+					<option name="M.R.I." value="M.R.I.">M.R.I.</option>
+					<option name="Sexology" value="Sexology">Sexology</option>
+				</optgroup>
+			</select>
+			
+			<input type="submit" class="logbtn radius" value="CONTINUE">
+
+			<div class="bottom-textD">
+					Already have an account? <a href="login">LOGIN</a>
+			</div>
+
+		</form>
+
+		<script type="text/javascript">
+		$(".txtb input").on("focus",function(){
+			$(this).addClass("focus");
+		});
+
+		$(".txtb input").on("blur",function(){
+			if($(this).val() == "")
+			$(this).removeClass("focus");
+		});
+		</script>
+	</div>
 </body>
 </html>
