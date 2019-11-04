@@ -152,11 +152,33 @@ app.get('/index2', async(req, res) => {
     });
 });
 
+var medic;
 app.post('/index2',urlencoderParser, async(req, res) => {
-    res.render('index2', {
-    }); 
+    medic = (req.body.med)
+    console.log(medic)
+    if(req.body.med == 'Cardiology1'){
+        console.log('anda')
+    }
+    else{
+        console.log('andamal')
+    }
+    res.redirect('doctors');
 });
 //fin index2
+
+//doctors
+app.get('/doctors', (req, res) => { 
+    console.log(medic);
+    res.render('doctors',{
+    });
+});
+
+app.post('/doctors', async(req, res) => { 
+
+    res.render('doctors',{
+    });
+});
+//fin doctors
 
 app.get('/calendar', (req, res) => { 
 
