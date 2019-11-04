@@ -13,6 +13,12 @@ const DoctorsSchema = Schema({
     },
     doctorType: {
         type: String
+    },
+    lat: {
+        type: String
+    },
+    lon: {
+        type: String
     }
 });
 

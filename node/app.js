@@ -1,16 +1,11 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var assert = require('express');
-var morgan = require('morgan');
-var path = require('path');
 var moongose = require('mongoose')
-var passport = require('passport');
-var flash = require('connect-flash');
-var cookieParser = require('cookie-parser');
-var session = require('express-session');
+var path = require('path');
+var morgan = require('morgan');
+const openGeocoder = require('node-open-geocoder');
 
 var app = express();
-var router = express.Router();
 var urlencoderParser = bodyParser.urlencoded({extended: false});
 
 moongose.connect('mongodb://localhost/MedHealth-mongo', 
@@ -23,7 +18,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
 var CalendarsMongo = require(__dirname + '/models/calendar.js');
-// FIN SCHEMAS;
+// FIN SCHEMAS
 
 app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
@@ -32,55 +27,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
-app.use(cookieParser());
-app.use(session({
-    secret: 'MedHealth',
-    resave: false,
-    saveUninitialized: false
-}))
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
 
+//index
 app.get('/', (req, res) => {
     res.render('index');
 });
+//fin index
 
-//      LOGIN
-app.get('/login', async(req, res) => {    
-    const error = ('')
-    res.render('login', {
-        error
-    });
-});
-
-var user;
-
-app.post('/login',urlencoderParser, async(req, res) => {
-    const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
-        if (result == ''){
-            var error = 'User does not exist'
-            res.render('login', {
-                error
-            });
-        } 
-        else if(req.body.password != result[0].password){
-            var error = 'Wrong Password'
-            res.render('login', {
-                error
-            });
-        }
-        else if(req.body.password == result[0].password){
-            user = req.body.email;
-            console.log(user);
-            res.redirect('index2');
-        }
-    });  
-});
-//      FIN LOGIN
-
-//      REGISTER
-
+//register
 app.get('/register', (req, res) => {
     const error = ('');
     res.render('register', {
@@ -124,8 +78,9 @@ app.post('/register', urlencoderParser, async(req, res) => {
         });
     }    
 });
-//      FIN REGISTER
+//fin register
 
+//register doctor
 app.get('/registerDoctor', async(req, res) => { 
     res.render('registerDoctor', {
         name,
@@ -136,18 +91,62 @@ app.get('/registerDoctor', async(req, res) => {
 
 app.post('/registerDoctor', urlencoderParser, async(req, res) => { 
 
-    const Register = new DoctorsMongo({ 
-        email: email,
-        address: req.body.address,
-        phoneNumber: req.body.phonenumber,
-        doctorType: req.body.doctorType 
-    });
-    await Register.save();
+    
+    openGeocoder()
+    .geocode(req.body.address)
+    .end(async(err, res) => {
+        var latitude = (res[0].lat)
+        var longitude = (res[0].lon)
+
+        const Register = new DoctorsMongo({ 
+            email: email,
+            address: req.body.address,
+            phoneNumber: req.body.phonenumber,
+            doctorType: req.body.doctorType,
+            lat: latitude,
+            lon: longitude
+        });
+        await Register.save();
+    })
 
     res.redirect('/index2');
 });
+//fin register doctor
 
+//login
+app.get('/login', async(req, res) => {    
+    const error = ('')
+    res.render('login', {
+        error
+    });
+});
 
+var user;
+
+app.post('/login',urlencoderParser, async(req, res) => {
+    const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
+        if (result == ''){
+            var error = 'User does not exist'
+            res.render('login', {
+                error
+            });
+        } 
+        else if(req.body.password != result[0].password){
+            var error = 'Wrong Password'
+            res.render('login', {
+                error
+            });
+        }
+        else if(req.body.password == result[0].password){
+            user = req.body.email;
+            console.log(user);
+            res.redirect('index2');
+        }
+    });  
+});
+//fin login
+
+//index2
 app.get('/index2', async(req, res) => {    
     res.render('index2', {
     });
@@ -157,15 +156,32 @@ app.post('/index2',urlencoderParser, async(req, res) => {
     res.render('index2', {
     }); 
 });
+//fin index2
 
 app.get('/calendar', (req, res) => { 
-    res.render('calendar');
+
+    res.render('calendar',{
+        user,
+        //longitude
+    });
 });
 
 app.post('/calendar', async(req, res) => { 
-    res.render('calendar');
+
+    res.render('calendar',{
+        user,
+        //longitude
+    });
 });
 
+/*
+openGeocoder()
+  .geocode('fray justo sarmiento 2589')
+  .end((err, res) => {
+      console.log(res[0].lat);
+      console.log(res[0].lon);
+  })
+*/
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 
@@ -183,4 +199,11 @@ const tasks = await (VA ACA) .find();
 ver cosas posteadas en e formulario html
 
 console.log(JSON.stringify(req.body, null, 2));
+
+
+buscar en la db 
+
+const findUser = DoctorsMongo.find({'address': '399 Pereida St'}, function(err, result) {
+    console.log(result);
+}); 
 */
