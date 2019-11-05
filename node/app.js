@@ -269,14 +269,6 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     });
 });
 
-/*
-openGeocoder()
-  .geocode('fray justo sarmiento 2589')
-  .end((err, res) => {
-      console.log(res[0].lat);
-      console.log(res[0].lon);
-  })
-*/
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 
