@@ -269,6 +269,16 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     });
 });
 
+app.get('/calendarAPI', async(req, res) => { 
+    res.render('calendarAPI',{
+    });
+});
+
+app.post('/calendarAPI', async(req, res) => { 
+    res.render('calendarAPI',{
+    });
+});
+
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 
@@ -292,5 +302,13 @@ buscar en la db
 
 const findUser = DoctorsMongo.find({'address': '399 Pereida St'}, function(err, result) {
     console.log(result);
-}); 
+});
+
+calndar api
+
+Client ID : 376741700450-mfik21bsmnj4h6ke9l0febh2jr623495.apps.googleusercontent.com
+Clent Secret : 2gMqC6n3iatTxBwOw2Y6pJU9
+
+Api key : AIzaSyDf_qJIG18bADHOEqv-mhv38-A9RQoOahI
+
 */
