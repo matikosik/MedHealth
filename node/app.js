@@ -17,7 +17,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // SCHEMAS
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
-var CalendarsMongo = require(__dirname + '/models/calendar.js');
+console.log(__dirname + '/models/doctors.js')
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
@@ -51,10 +51,10 @@ app.post('/register', urlencoderParser, async(req, res) => {
     var errorArray = ['A user already exists using this email', 'El registro fue exitoso', ''];
 
     const savedUser = req.body;
-    const user = await RegisterMongo.find({email: req.body.email});
+    const user = await DoctorsMongo.find({email: req.body.email});
 
     if(user == ''){  
-        const Register = new RegisterMongo(req.body);
+        const Register = new DoctorsMongo(req.body);
         await Register.save();
         console.log(req.body);
         const error = (errorArray[1]);
@@ -92,7 +92,6 @@ app.get('/registerDoctor', async(req, res) => {
 
 app.post('/registerDoctor', urlencoderParser, async(req, res) => { 
 
-    
     openGeocoder()
     .geocode(req.body.address)
     .end(async(err, res) => {
@@ -110,7 +109,7 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
             lon: longitude
         });
         await Register.save();
-    })
+    });
 
     res.redirect('/login');
 });
@@ -120,7 +119,7 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
 app.get('/login', async(req, res) => {    
     const error = ('')
     res.render('login', {
-        error
+        error   
     });
 });
 
@@ -187,6 +186,7 @@ app.get('/doctors', async(req, res) => {
 
     const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
     });
+
     var latitude = ('')
     var longitude = ('')
     //console.log(findDoctors);

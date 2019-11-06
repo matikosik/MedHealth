@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const CalendarSchema = Schema({
+const CalendarSchema = new mongoose.Schema({
     email: {
         type: String
     },
