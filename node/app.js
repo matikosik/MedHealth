@@ -26,7 +26,6 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // SCHEMAS
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
-console.log(__dirname + '/models/doctors.js')
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
