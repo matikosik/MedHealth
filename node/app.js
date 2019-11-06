@@ -148,7 +148,7 @@ app.post('/login',urlencoderParser, async(req, res) => {
         }
         else if(req.body.password == result[0].password){
             user = req.body.email;
-            console.log(user);
+            //console.log(user);
             res.redirect('index2');
         }
     });  
@@ -164,7 +164,6 @@ app.get('/index2', async(req, res) => {
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
-    console.log(fullName)
     res.render('index2', {
         fullName,
         status,
@@ -175,7 +174,6 @@ app.get('/index2', async(req, res) => {
 var medic;
 app.post('/index2',urlencoderParser, async(req, res) => {
     medic = req.body.med
-    console.log(medic)
     res.redirect('doctors');
 });
 //fin index2
@@ -188,8 +186,6 @@ app.get('/doctors', async(req, res) => {
         var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
         var status = (findUser[0].mop)
         var mail = (findUser[0].email)
-
-    console.log(medic);
 
     const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
     });
@@ -217,8 +213,6 @@ app.post('/doctors', async(req, res) => {
         var status = (findUser[0].mop)
         var mail = (findUser[0].email)
 
-        console.log(medic);
-
         const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
         });
         
@@ -226,7 +220,6 @@ app.post('/doctors', async(req, res) => {
         });
         var latitude = (coords[0].lat)
         var longitude = (coords[0].lon)
-        console.log(coords);
 
     res.render('doctors',{
         fullName,

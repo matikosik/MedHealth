@@ -129,8 +129,26 @@
             appendPre('No upcoming events found.');
           }
         });
-      }
 
+        var resource = {
+        'summary': 'Google I/O 2015',
+        'start': {
+          'dateTime': '2019-11-28T09:00:00-07:00',
+        },
+        'end': {
+          'dateTime': '2019-11-28T17:00:00-07:00',
+        }
+      };
+
+        var request = gapi.client.calendar.events.insert({
+          'calendarId': 'matiaskosik@gmail.com',
+          'resource': resource
+        });
+        request.execute(function(resp) {
+          console.log(resp);
+        });
+
+      }
     </script>
 
     <script async defer src="https://apis.google.com/js/api.js"
