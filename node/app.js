@@ -3,12 +3,21 @@ var bodyParser = require('body-parser');
 var moongose = require('mongoose')
 var path = require('path');
 var morgan = require('morgan');
-const openGeocoder = require('node-open-geocoder');
-
+var NodeGeocoder = require('node-geocoder');
+ 
+var options = {
+  provider: 'google',
+  httpAdapter: 'https', 
+  apiKey: 'AIzaSyCm62Zh7VrzfYqUhKhBdZjpEWkF8Ddl2hc',
+  formatter: null 
+};
+ 
+var geocoder = NodeGeocoder(options);
+ 
 var app = express();
 var urlencoderParser = bodyParser.urlencoded({extended: false});
 
-moongose.connect('mongodb://localhost/MedHealth-mongo', 
+moongose.connect('mongodb+srv://matikosik:matias20@medhealth-rui79.mongodb.net/test?retryWrites=true&w=majority', 
     {useNewUrlParser: true, useUnifiedTopology: true});
  
 var db = moongose.connection;
@@ -81,6 +90,8 @@ app.post('/register', urlencoderParser, async(req, res) => {
 });
 //fin register
 
+
+
 //register doctor
 app.get('/registerDoctor', async(req, res) => { 
     res.render('registerDoctor', {
@@ -92,13 +103,10 @@ app.get('/registerDoctor', async(req, res) => {
 
 app.post('/registerDoctor', urlencoderParser, async(req, res) => { 
 
-    openGeocoder()
-    .geocode(req.body.address)
-    .end(async(err, res) => {
-        var latitude = (res[0].lat)
-        var longitude = (res[0].lon)
-
-        const Register = new DoctorsMongo({ 
+    geocoder.geocode(req.body.address, async function(err, res) {
+        var latitude = (res[0].latitude)
+        var longitude = (res[0].longitude)
+        const registerDoctor = new DoctorsMongo({ 
             email: email,
             name: name,
             lastName: lastName,
@@ -108,8 +116,8 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
             lat: latitude,
             lon: longitude
         });
-        await Register.save();
-    });
+        await registerDoctor.save();
+      });
 
     res.redirect('/login');
 });
@@ -219,8 +227,6 @@ app.post('/doctors', async(req, res) => {
         });
         var latitude = (coords[0].lat)
         var longitude = (coords[0].lon)
-        //console.log(findDoctors);
-        //console.log(req.body.whoMed);
         console.log(coords);
 
     res.render('doctors',{
@@ -264,14 +270,16 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     });
 });
 
-/*
-openGeocoder()
-  .geocode('fray justo sarmiento 2589')
-  .end((err, res) => {
-      console.log(res[0].lat);
-      console.log(res[0].lon);
-  })
-*/
+app.get('/calendarAPI', async(req, res) => { 
+    res.render('calendarAPI',{
+    });
+});
+
+app.post('/calendarAPI', async(req, res) => { 
+    res.render('calendarAPI',{
+    });
+});
+
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
 }); 
@@ -295,5 +303,13 @@ buscar en la db
 
 const findUser = DoctorsMongo.find({'address': '399 Pereida St'}, function(err, result) {
     console.log(result);
-}); 
+});
+
+calndar api
+
+Client ID : 376741700450-mfik21bsmnj4h6ke9l0febh2jr623495.apps.googleusercontent.com
+Clent Secret : 2gMqC6n3iatTxBwOw2Y6pJU9
+
+Api key : AIzaSyDf_qJIG18bADHOEqv-mhv38-A9RQoOahI
+
 */

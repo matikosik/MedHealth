@@ -17,7 +17,14 @@
     <!-- fuentes -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
-	</style>
+	<style>
+       #map {
+         height: 470px; 
+         width: 40%;
+         left: 60%;
+         transform: translateY(-47%);
+        }
+     </style>
 </head>
 <body>
     <div class="container">
@@ -128,6 +135,30 @@
 
 			<!---       End Medics     --->
             </div>
+            <div id="map"></div>
+
+            <script>
+                function initMap() {
+                  var buenosAires = {lat: -34.603722, lng: -58.381592};
+                  var map = new google.maps.Map(
+                      document.getElementById('map'), {
+                          zoom: 11,
+                          center: buenosAires
+                    });
+                    var lati = parseFloat('<%= latitude %>')
+                    var long = parseFloat('<%= longitude %>')
+                    var doctorPos = {lat: lati, lng: long};
+                    //var doctorPos = {lat: -34.5506908, lng: -58.4531638};
+                    var marker = new google.maps.Marker({
+                        position: doctorPos,
+                        map: map
+                    });
+                }
+                
+            </script>
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjRjHHM3RjDfl_amqyoBopIZXD4ewkGg&callback=initMap">
+            </script>
         </div>
 	</div>
 </body>

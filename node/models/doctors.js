@@ -21,10 +21,10 @@ const DoctorsSchema = new mongoose.Schema({
         type: String
     },
     lat: {
-        type: String
+        type: Number
     },
     lon: {
-        type: String
+        type: Number
     }
 });
 
