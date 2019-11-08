@@ -137,6 +137,8 @@
             <div id="map"></div>
 
             <script>
+
+
                 function initMap() {
                   var buenosAires = {lat: -34.603722, lng: -58.381592};
                   var map = new google.maps.Map(
@@ -144,10 +146,11 @@
                           zoom: 11,
                           center: buenosAires
                     });
+
                     var lati = parseFloat('<%= latitude %>')
                     var long = parseFloat('<%= longitude %>')
+                    
                     var doctorPos = {lat: lati, lng: long};
-                    //var doctorPos = {lat: -34.5506908, lng: -58.4531638};
                     var marker = new google.maps.Marker({
                         position: doctorPos,
                         map: map

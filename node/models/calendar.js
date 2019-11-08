@@ -8,17 +8,20 @@ const CalendarSchema = new mongoose.Schema({
     emailDocotor: {
         type: String
     },
-    day: {
-        type: String
-    },
-    month: {
-        type: String
-    },
-    year: {
-        type: String
-    },
     event: {
         type: String
+    },
+    day: {
+        type: Number
+    },
+    month: {
+        type: Number
+    },
+    year: {
+        type: Number
+    },
+    when: {
+        type: Number
     }
 });
 

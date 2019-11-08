@@ -63,7 +63,7 @@ app.post('/register', urlencoderParser, async(req, res) => {
     const user = await DoctorsMongo.find({email: req.body.email});
 
     if(user == ''){  
-        const Register = new DoctorsMongo(req.body);
+        const Register = new RegisterMongo(req.body);
         await Register.save();
         console.log(req.body);
         const error = (errorArray[1]);
@@ -180,6 +180,7 @@ app.post('/index2',urlencoderParser, async(req, res) => {
 //fin index2
 
 //doctors
+var doctor;
 app.get('/doctors', async(req, res) => { 
     const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
         });
@@ -219,18 +220,20 @@ app.post('/doctors', async(req, res) => {
         
         const coords = await DoctorsMongo.find({'email': req.body.whoMed}, function(err, result) {
         });
+        doctor = coords;  
         var latitude = (coords[0].lat)
         var longitude = (coords[0].lon)
 
-    res.render('doctors',{
-        fullName,
-        status,
-        mail,
-        medic,
-        findDoctors,
-        latitude,
-        longitude
-    });
+        res.render('doctors' ,{
+            fullName,
+            status,
+            mail,
+            medic,
+            findDoctors,
+            latitude,
+            longitude
+        });
+        
 });
 //fin doctors
 
@@ -263,13 +266,14 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     });
 });
 
-app.get('/calendarAPI', async(req, res) => { 
-    res.render('calendarAPI',{
+app.get('/appointment', async(req, res) => { 
+    console.log(doctor);
+    res.render('nada',{
     });
 });
 
-app.post('/calendarAPI', async(req, res) => { 
-    res.render('calendarAPI',{
+app.post('/appointment', async(req, res) => { 
+    res.render('nada',{
     });
 });
 
