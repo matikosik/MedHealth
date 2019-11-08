@@ -5,7 +5,16 @@ const CalendarSchema = new mongoose.Schema({
     email: {
         type: String
     },
+    emailDocotor: {
+        type: String
+    },
     day: {
+        type: String
+    },
+    month: {
+        type: String
+    },
+    year: {
         type: String
     },
     event: {
