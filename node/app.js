@@ -267,13 +267,24 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
 });
 
 app.get('/appointment', async(req, res) => { 
-    console.log(doctor);
-    res.render('nada',{
+
+    const findDoctor = await DoctorsMongo.find({'email': 'palmierisanti@gmail.com'}, function(err, result) {
+    });
+    console.log(findDoctor);
+    res.render('appointment',{
+        medic,
+        findDoctor
     });
 });
 
 app.post('/appointment', async(req, res) => { 
-    res.render('nada',{
+
+    const findDoctor = await DoctorsMongo.find({'email': 'palmierisanti@gmail.com'}, function(err, result) {
+    });
+    console.log(findDoctor);
+    res.render('appointment',{
+        medic,
+        findDoctor
     });
 });
 
