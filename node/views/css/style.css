@@ -1,3 +1,76 @@
+#navindex{
+	height: 150px;
+	width: 1366px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#imgindex{
+	position: absolute;
+	top: 2%;
+	left: 1%;
+}
+
+#txtlogoindex{
+	position: absolute;
+	top: 8%;
+	left: 10.5%;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 36px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #18D13D;
+}
+
+#indextxt{
+	position: absolute;
+	top: 25%;
+	left: 18%;
+	font-family: poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 73px;
+	line-height: 90px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#regiboxx{
+	position: absolute;
+	top: 50%;
+	left: 30%;
+}
+
+#regibox{
+	width: 300px;
+	height: 100px;
+	background: #18D13D;
+	z-index: 15;
+}
+
+#indextxt2{
+	position: absolute;
+	top: 80%;
+	left: 6%;
+	font-family: poppins;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50px;
+	line-height: 90px;
+	display: flex;
+	align-items: center;
+	text-align: center;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
 #loginhref{
 	position: absolute;
 	top: 50%;
@@ -119,7 +192,7 @@
 
 /*  Slider Animation   */
 
-@-webkit-keyframes slide_animation{
+/*@-webkit-keyframes slide_animation{
 	0% {right:0px}
 	10% {right:0px}
 	20% {right:1200px}
@@ -131,9 +204,166 @@
 	80% {right:0px}
 	90% {right:0px}
 	100% {right:0px}
+}*/
+/*body{
+	background: #e7e7e7;
 }
 
-.slide-images{
+#navindex{
+	width: 100%;
+	height: 120px;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#indexlog{
+	position: absolute;
+	top: 1.5%;
+	left: 1%;
+}
+
+#titleindex{
+	position: absolute;
+	top: 5.5%;
+	left: 9%;
+	color: #18D13D;
+	font-family: poppins;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#textindex{
+
+}
+
+#regiboxx{
+	position: absolute;
+	top: 45%;
+	left: 30%;
+	z-index: 2;
+}
+
+#regibox{
+
+}
+
+#text2index{
+
+}
+
+#logtxt{
+
+}
+
+#loginhref{
+	position: absolute;
+	top: 50%;
+	left: 28%;
+	width: 300px;
+	height: 40px;
+	background: #f1f1f1;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	z-index: 3;
+}
+
+#loginhref:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#registerhref{
+	position: absolute;
+	top: 50%;
+	left: 52%;
+	width: 300px;
+	height: 40px;
+	background: #18D13D;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	z-index: 3;
+}
+
+#registerhref:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+}
+
+#reglogborder{
+	position: absolute;
+	top: 47%;
+	left: 25%;
+	width: 700px;
+	height: 80px;
+	background: #ebebeb;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	z-index: 2;
+}
+
+#reglogs{
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	width: 450px;
+	height: 200px;
+	background: #ebebeb;
+	border-radius: 12px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	z-index: 1;
+}
+
+#indexlogo{
+	position: absolute;
+	top: 7%;
+	left: 45%;
+	z-index: 5;
+}
+
+#logindex{
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	color: black;
+	font-family: poppins;
+	font-weight: 800;
+}
+
+#regindex{
+	position: absolute;
+	top: 25%;
+	left: 40%;
+	color: white;
+	font-family: poppins;
+	font-weight: 800;
+}
+
+#circlewhite{
+	position: absolute;
+	top: 50%;
+	left: 23.5%;
+	width: 228px;
+	height: 50px;
+	background: wite;
+	border-radius: 12px;
+}
+
+#textindex{
+	font-family: poppins;
+	position: absolute;
+	top: 60%;
+	left: 25%;
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+}
+
+.slider-frame{
+	overflow: hidden;
+	position: absolute;
+	top: 10%;
+	left: 10%;
+} --------->*/
+/*.slide-images{
 	width: 3600px;
 	height: 800px;
 	margin: 0 0 0 -2400px;
@@ -143,7 +373,7 @@
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-direction: alternate;
 	-webkit-animation-play-state: running;
-}
+}*/
 
 .img-comtainer{
 	height: 800px;
@@ -666,6 +896,14 @@ hr{
 	height: 100px;
 }
 
+#date{
+	position: absolute;
+	top: 28%;
+	left: 67%;
+	font-family: poppins;
+	color: rgba(110, 110, 110, 0.685);
+}
+
 #av{
 	position: absolute;
 	top: 13%;
@@ -779,7 +1017,7 @@ hr{
 
 #logout{
 	position: absolute;
-	top: 78%;
+	top: 80%;
 	left: 83%;
 	height: 24px;
 	width: 100px;
@@ -841,10 +1079,10 @@ hr{
 
 #textC2{
 	position: absolute;
-	top: 80%;
-	left: 30.5%;
+	top: 79%;
+	left: 35%;
 	position: translate(24%, 50%);
-	color: #18D13D;
+	color: rgba(121, 121, 121, 0.678);
 	font-weight: bold;
 	font-family: "poppins";
 }
@@ -877,7 +1115,7 @@ hr{
 
 #calendar{
 	position: absolute;
-	top: 79%;
+	top: 80%;
 	left: 58%;
 	height: 24px;
 	width: 100px;
@@ -949,7 +1187,7 @@ hr{
 	background: #FFFFFF;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
-	display: none;
+	visibility: hidden;
 	z-index: 10;
 }
 
@@ -1171,7 +1409,7 @@ hr{
 	height: 50px;
 	background: linear-gradient(45deg,#E18CFF,#0720A4);
 	border-radius: 12px 0px 0px 12px;
-	height: 50px;
+	z-index: 0;
 }
 
 #cimage1{
@@ -1633,4 +1871,132 @@ hr{
 	position: relative;
 	top: -95%;
 	font-size: 15px;
+}
+
+#docinfo{
+	position: absolute;
+	top: 28.5%;
+	left: 0%;
+	width: 50%;
+	height: 72%;
+	background: #FFFFFF;
+}
+
+#nameappo{
+	position: absolute;
+	top: 2%;
+	left: 35%;
+	font-weight: bold;
+	font-size: 20px;
+	font-family: 'Poppins';
+}
+
+#up1{
+	margin-top: 3rem;
+}
+
+#up2{
+	margin-top: 4rem;
+}
+
+#up3{
+	margin-top: 4.25rem;
+}
+
+#up4{
+	margin-top: 4.5rem;
+}
+
+#up5{
+	margin-top: 4.75rem;
+}
+
+#emailappo{
+	position: absolute;
+	top: 14%;
+	left: 13%;
+	font-weight: 500;
+	font-size: 20px;
+	font-family: 'Poppins';
+}
+
+#imgemail{
+	position: absolute;
+	top: 14.5%;
+	left: 7%;
+}
+
+#addressappo{
+	position: absolute;
+	top: 28%;
+	left: 13%;
+	font-weight: 500;
+	font-size: 20px;
+	font-family: 'Poppins';
+}
+
+#imgaddress{
+	position: absolute;
+	top: 28%;
+	left: 7%;
+}
+
+#phoneappo{
+	position: absolute;
+	top: 44%;
+	left: 13%;
+	font-weight: 500;
+	font-size: 20px;
+	font-family: 'Poppins';
+}
+
+#imgphone{
+	position: absolute;
+	top: 44%;
+	left: 7%;
+}
+
+#categoryappo{
+	position: absolute;
+	top: 60%;
+	left: 13%;
+	font-weight: 500;
+	font-size: 20px;
+	font-family: 'Poppins';
+}
+
+#imgcategory{
+	position: absolute;
+	top: 59%;
+	left: 7%;
+}
+
+#appobutton{
+	position: absolute;
+	top: 79%;
+	left: 22%;
+	width: 350px;
+	height: 50px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 50px;
+	background: #18D13D;
+}
+
+#appobtntxt{
+	font-family: poppins;
+	color: white;
+	font-size: 25px;
+	font-weight: 800;
+	align-items: center;
+	text-align: center;
+	margin-top: 6px;
+}
+
+#map5{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	width: 50%;
+	height: 70%;
+	background: gray;
 }

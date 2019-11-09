@@ -53,10 +53,10 @@ function hidename() {
 
 function myFunction() {
   var x = document.getElementById("box");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  if (x.style.visibility === "hidden") {
+    x.style.visibility = "visible";
   } else {
-    x.style.display = "none";
+    x.style.visibility = "hidden";
   }
 }
 

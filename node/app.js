@@ -37,6 +37,11 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
 
+var datetime = new Date();
+var day = datetime.getDay()+3
+var month = datetime.getMonth()+1
+var year = datetime.getFullYear()
+
 //index
 app.get('/', (req, res) => {
     res.render('index');
@@ -168,7 +173,10 @@ app.get('/index2', async(req, res) => {
     res.render('index2', {
         fullName,
         status,
-        mail
+        mail,
+        day,
+        month,
+        year
     });
 });
 
@@ -192,48 +200,22 @@ app.get('/doctors', async(req, res) => {
     const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
     });
 
-    var latitude = ('')
-    var longitude = ('')
-    //console.log(findDoctors);
-
     res.render('doctors',{
         fullName,
         status,
         mail,
         medic,
         findDoctors,
-        latitude,
-        longitude
+        day,
+        month,
+        year
     });
 });
 
+var doctor;
 app.post('/doctors', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
-        });
-        
-        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-        var status = (findUser[0].mop)
-        var mail = (findUser[0].email)
-
-        const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
-        });
-        
-        const coords = await DoctorsMongo.find({'email': req.body.whoMed}, function(err, result) {
-        });
-        doctor = coords;  
-        var latitude = (coords[0].lat)
-        var longitude = (coords[0].lon)
-
-        res.render('doctors' ,{
-            fullName,
-            status,
-            mail,
-            medic,
-            findDoctors,
-            latitude,
-            longitude
-        });
-        
+        doctor = req.body.whoMed;
+        res.redirect('appointment')
 });
 //fin doctors
 
@@ -247,7 +229,10 @@ app.get('/calendar', async(req, res) => {
     res.render('calendar',{
         fullName,
         status,
-        mail
+        mail,
+        day,
+        month,
+        year
     });
 });
 
@@ -262,29 +247,66 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     res.render('calendar',{
         fullName,
         status,
-        mail
+        mail,
+        day,
+        month,
+        year
     });
 });
 
 app.get('/appointment', async(req, res) => { 
-
-    const findDoctor = await DoctorsMongo.find({'email': 'palmierisanti@gmail.com'}, function(err, result) {
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
     });
-    console.log(findDoctor);
-    res.render('appointment',{
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    const findDoctor = await DoctorsMongo.find({'email': doctor}, function(err, result) {
+    });
+
+    var latitude = (findDoctor[0].lat)
+    var longitude = (findDoctor[0].lon)
+
+    res.render('appointment' ,{
+        fullName,
+        status,
+        mail,
         medic,
-        findDoctor
+        findDoctor,
+        latitude,
+        longitude,
+        day,
+        month,
+        year
     });
 });
 
-app.post('/appointment', async(req, res) => { 
-
-    const findDoctor = await DoctorsMongo.find({'email': 'palmierisanti@gmail.com'}, function(err, result) {
+app.post('/appointment', async(req, res) => {
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
     });
-    console.log(findDoctor);
-    res.render('appointment',{
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    const findDoctor = await DoctorsMongo.find({'email': doctor}, function(err, result) {
+    });
+
+    var latitude = (findDoctor[0].lat)
+    var longitude = (findDoctor[0].lon)
+
+    res.render('appointment' ,{
+        fullName,
+        status,
+        mail,
         medic,
-        findDoctor
+        findDoctor,
+        latitude,
+        longitude,
+        day,
+        month,
+        year
     });
 });
 

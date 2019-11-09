@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth</title>
+	<title>MedHealth -  Doctors</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -16,11 +16,16 @@
 	<script type="text/javascript" src="js/MedHealth.js"></script>
 	<!-- fuentes -->
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-<style>
-	#calendarTitle{
-		color: #ffffff00
-	}
-</style>
+
+	<style>
+		#map {
+		  height: 460px; 
+		  width: 40%;
+		  left: 60%;
+		  transform: translateY(38%);
+		 }
+	  </style>
+
 </head>
 <body>
     <div class="container">
@@ -55,9 +60,7 @@
 							<p id="textconfdisp5"><%= mail %></p>
 							
 							<div id="editprofile"><p id="edittxt">Edit Profile</p></div>
-
-						</div>												
-
+						</div>
 					</div>
 					
 				<div id="lang" onclick="hidelang()">
@@ -68,20 +71,75 @@
 
 				<div id="location">
 					<img src="images/placeholder-filled-point.png" width="5%" height="5%">
-					<p id="loctext">Current Location</p>
+					<p id="loctext">Belgrano CABA</p>
 				</div>
 
 				<div>
-					<a href="calendar"><p id="calendartxt2">CALENDAR</p></a>							
+					<p id="textC2"><%= medic %></p>							
 				</div>
 
+				<a href="calendar"><div id="calendar"><p id="calendartxt">Calendar</p></div></a>
 				<a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
-            </div>
-            
-            <div id="calenACTUAL">
-                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FArgentina%2FBuenos_Aires&amp;src=bWF0aWFza29zaWtAZ21haWwuY29t&amp;src=ZXMuYXIjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%237986CB&amp;color=%230B8043&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0" style="border-width:0" width="800" height="600" frameborder="100" scrolling="no"></iframe>
-            </div>
 
+			</div>
+			
+					
+
+			<div id="docinfo">	
+				
+				<div>
+					<p id="nameappo">Dr. <%= findDoctor[0].name %> <%= findDoctor[0].lastName %></p>
+					<hr id="up1">
+				</div>
+					
+				<div>
+					<p id="emailappo"><%= findDoctor[0].email %></p>
+					<div id="imgemail"><img src="images/envelope.png" width="30px" height="30px"></div>
+				</div>
+				<hr id="up2">
+				<div>
+					<p id="addressappo"><%= findDoctor[0].address %></p>
+					<div id="imgaddress"><img src="images/address.png" width="30px" height="30px"></div>
+				</div>
+				<hr id="up3">
+				<div>
+					<p id="phoneappo"><%= findDoctor[0].phoneNumber %></p>
+					<div id="imgphone"><img src="images/phone.png" width="30px" height="30px"></div>
+				</div>
+				<hr id="up4">
+				<div>
+					<p id="categoryappo"><%= medic %></p>
+					<div id="imgcategory"><img src="images/stethoscope2.png" width="30px" height="30px"></div>
+				</div>
+				<hr id="up5">
+
+				<div id="appobutton" onclick="myFunction2()"><p id="appobtntxt">Make an Appointment</p></div>
+			</div>
+			<div id="map"></div>
         </div>
 	</div>
+
+	<script>
+		function initMap() {
+		  var buenosAires = {lat: -34.603722, lng: -58.381592};
+		  var lati = parseFloat('<%= latitude %>')
+		  var long = parseFloat('<%= longitude %>')
+		  var doctorPos = {lat: lati, lng: long};
+		  var map = new google.maps.Map(
+			  document.getElementById('map'), {
+				  zoom: 15,
+				  //enter: buenosAires
+				  center: doctorPos
+			});
+			var marker = new google.maps.Marker({
+				position: doctorPos,
+				map: map
+			});
+		}
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjRjHHM3RjDfl_amqyoBopIZXD4ewkGg&callback=initMap">
+	</script>
+
 </body>
+</html>

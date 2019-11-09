@@ -17,14 +17,6 @@
     <!-- fuentes -->
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
-	<style>
-       #map {
-         height: 470px; 
-         width: 40%;
-         left: 60%;
-         transform: translateY(-47%);
-        }
-     </style>
 </head>
 <body>
     <div class="container">
@@ -37,6 +29,8 @@
                 </div>
 
                 <p class="textoNavBar">MEDHEALTH</p>
+
+                <p id="date">Date: <%=day%> / <%=month%> / <%=year%></p>
 
                 <div id="av" onclick="hideav()">
 					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
@@ -72,11 +66,11 @@
                 </div>
 
                 <div>
-                    <p id="textC2">CATEGORY: <%= medic %></p>                            
+                    <p id="textC2"><%= medic %></p>                            
                 </div>
 
                 <a href="calendar"><div id="calendar"><p id="calendartxt">Calendar</p></div></a>
-                <div id="logout"><p id="logouttxt">Log out</p></div>
+                <a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
 
             </div>          
 
@@ -107,8 +101,8 @@
 						<% for(var i = 0; findDoctors.length > i; i++) { %>
                         	<th>
 								<form action="" method="POST">
-									<div id="med1" onclick="myFunction()">
-										<input type="submit" name="whoMed" value="<%= findDoctors[i].email %>" id="btnMed"> 
+									<div id="med1">
+										<input type="submit" name="whoMed" value="<%= findDoctors[i].email %>" id="btnMed">
 										
 										<label id="textMed">Name:</label>
 										<br>
@@ -118,7 +112,7 @@
 										<br>
 										<label id="textMed"><%= findDoctors[i].email %></label>
 										<br>
-										<label id="textMed">Adress:</label>
+										<label id="textMed">Address:</label>
 										<br>
 										<label id="textMed"><%= findDoctors[i].address %></label>
 										<br>
@@ -134,33 +128,6 @@
 
 			<!---       End Medics     --->
             </div>
-            <div id="map"></div>
-
-            <script>
-
-
-                function initMap() {
-                  var buenosAires = {lat: -34.603722, lng: -58.381592};
-                  var map = new google.maps.Map(
-                      document.getElementById('map'), {
-                          zoom: 11,
-                          center: buenosAires
-                    });
-
-                    var lati = parseFloat('<%= latitude %>')
-                    var long = parseFloat('<%= longitude %>')
-                    
-                    var doctorPos = {lat: lati, lng: long};
-                    var marker = new google.maps.Marker({
-                        position: doctorPos,
-                        map: map
-                    });
-                }
-                
-            </script>
-            <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjRjHHM3RjDfl_amqyoBopIZXD4ewkGg&callback=initMap">
-            </script>
         </div>
 	</div>
 </body>

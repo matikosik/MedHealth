@@ -30,6 +30,8 @@
 
 				<p class="textoNavBar">MEDHEALTH</p>
 
+				<p id="date">Date: <%=day%> / <%=month%> / <%=year%></p>
+
 				<div id="av" onclick="hideav()">
 					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
 					<p id="avtxt"> <%= fullName %> </p>
@@ -179,11 +181,12 @@
 			<div id="CATEGORIES">
 
 					<div id="cat1">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
 						<form method="post">
 							<input type="submit" name="med" value="Ophthalmology" id="btncat"> 
 						</form>
+						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+						<div id="square1"></div>
+						
 					</div>
 
 					<div id="cat2">
