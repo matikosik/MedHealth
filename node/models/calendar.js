@@ -5,7 +5,10 @@ const CalendarSchema = new mongoose.Schema({
     email: {
         type: String
     },
-    emailDocotor: {
+    doctor: {
+        type: String
+    },
+    doctorEmail: {
         type: String
     },
     event: {
@@ -18,9 +21,6 @@ const CalendarSchema = new mongoose.Schema({
         type: Number
     },
     year: {
-        type: Number
-    },
-    when: {
         type: Number
     }
 });

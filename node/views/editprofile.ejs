@@ -74,72 +74,45 @@
 					<p id="loctext">Belgrano CABA</p>
 				</div>
 
-				<div>
-					<p id="textC2"><%= medic %></p>							
-				</div>
-
 				<a href="calendar"><div id="calendar"><p id="calendartxt">Calendar</p></div></a>
 				<a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
 
 			</div>
-			
-					
 
-			<div id="docinfo">	
-				
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<form action="" class="" method="POST">
 				<div>
-					<p id="nameappo">Dr. <%= findDoctor[0].name %> <%= findDoctor[0].lastName %></p>
-					<hr id="up1">
+					<label>Name:</label>
+					<input type="userxtx" name="name" value='<%= name %>'>
 				</div>
-					
 				<div>
-					<p id="emailappo"><%= findDoctor[0].email %></p>
-					<div id="imgemail"><img src="images/envelope.png" width="30px" height="30px"></div>
+					<label>Last Name:</label>
+					<input type="userxtx" name="lastName" value='<%= lastName %>'>
 				</div>
-				<hr id="up2">
 				<div>
-					<p id="addressappo"><%= findDoctor[0].address %></p>
-					<div id="imgaddress"><img src="images/address.png" width="30px" height="30px"></div>
+					<label>Email:</label>
+					<input type="userxtx" name="email" value='<%= mail %>'>
 				</div>
-				<hr id="up3">
 				<div>
-					<p id="phoneappo"><%= findDoctor[0].phoneNumber %></p>
-					<div id="imgphone"><img src="images/phone.png" width="30px" height="30px"></div>
+					<label>Password:</label>
+					<input type="password" name="password" value='<%= password %>'>
 				</div>
-				<hr id="up4">
-				<div>
-					<p id="categoryappo"><%= medic %></p>
-					<div id="imgcategory"><img src="images/stethoscope2.png" width="30px" height="30px"></div>
-				</div>
-				<hr id="up5">
-
-				<div id="appobutton" onclick="myFunction2()"><p id="appobtntxt">Make an Appointment</p></div>
-			</div>
-			<div id="map"></div>
+				<input type="submit" class="" value="Update Profile" name="action">
+				<input type="submit" class="" value="Delete Profile" name="action">
+			</form>
         </div>
 	</div>
-
-	<script>
-		function initMap() {
-		  var buenosAires = {lat: -34.603722, lng: -58.381592};
-		  var lati = parseFloat('<%= latitude %>')
-		  var long = parseFloat('<%= longitude %>')
-		  var doctorPos = {lat: lati, lng: long};
-		  var map = new google.maps.Map(
-			  document.getElementById('map'), {
-				  zoom: 15,
-				  //enter: buenosAires
-				  center: doctorPos
-			});
-			var marker = new google.maps.Marker({
-				position: doctorPos,
-				map: map
-			});
-		}
-	</script>
-	<script async defer
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpjRjHHM3RjDfl_amqyoBopIZXD4ewkGg&callback=initMap">
-	</script>
-
 </body>
 </html>

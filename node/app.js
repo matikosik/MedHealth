@@ -254,6 +254,7 @@ const findUser = await RegisterMongo.find({'email': user}, function(err, result)
     });
 });
 
+//appointment
 app.get('/appointment', async(req, res) => { 
     const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
     });
@@ -309,6 +310,58 @@ app.post('/appointment', async(req, res) => {
         year
     });
 });
+//fin appointment
+
+app.get('/edit', async(req, res) => { 
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+    var name = (findUser[0].name)
+    var lastName = (findUser[0].lastName)
+    var password = (findUser[0].password)
+
+    res.render('editprofile' ,{
+        fullName,
+        status,
+        mail,
+        name,
+        lastName,
+        password,
+        day,
+        month,
+        year
+    });
+});
+
+app.post('/edit', async(req, res) => {
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+    
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+    var name = (findUser[0].name)
+    var lastName = (findUser[0].lastName)
+    var password = (findUser[0].password)
+
+    console.log(req.body)
+
+    res.render('editprofile' ,{
+        fullName,
+        status,
+        mail,
+        name,
+        lastName,
+        password,
+        day,
+        month,
+        year
+    });
+});
+
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
