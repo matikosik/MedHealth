@@ -1178,6 +1178,19 @@ hr{
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
+#calendarTable{
+	width: 80%;
+	height: 50;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+	margin:0 auto;
+}
+
+#calendarTable:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+}
+
 #box{
 	position: fixed;
 	top: 5%;

@@ -76,10 +76,36 @@
 
 				<a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
             </div>
-            
-            <div id="calenACTUAL">
-                    <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FArgentina%2FBuenos_Aires&amp;src=bWF0aWFza29zaWtAZ21haWwuY29t&amp;src=ZXMuYXIjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%237986CB&amp;color=%230B8043&amp;showTabs=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0" style="border-width:0" width="800" height="600" frameborder="100" scrolling="no"></iframe>
-            </div>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			
+
+            <table style="border-collapse: separate; border-spacing: 25px;">
+					<tbody>
+						<% for(var i = 0; sortDate2.length > i; i++) { %>
+                        	<tr>
+								<form action="" method="POST">
+									<div id="calendarTable">
+										<input type="submit" name="whoMed" value="<%= sortDate2[i].doctor %>" id="btnMed">
+										<label id="textMed">Date: <%= sortDate2[i].day %> / <%= sortDate2[i].month %> / <%= sortDate2[i].year %></label>
+										<br>
+										<label id="textMed">Event: <%= sortDate2[i].event %></label>
+                        			</div>
+								</form>
+							</tr>
+							<br>
+						<% } %>
+					</tbody>      
+				</table>
 
         </div>
 	</div>

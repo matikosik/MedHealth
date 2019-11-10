@@ -20,6 +20,6 @@ var numeros = [{
 }
 ]
 var sortedNumeros = numeros.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
-var sortedNumeros1 = numeros.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
-var sortedNumeros2 = numeros.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
-console.log(sortedNumeros)
+var sortedNumeros1 = sortedNumeros.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
+var sortedNumeros2 = sortedNumeros1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
+console.log(sortedNumeros2)

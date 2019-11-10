@@ -38,9 +38,10 @@ app.use('/', express.static('views'))
 app.use(morgan('dev'));
 
 var datetime = new Date();
-var day = datetime.getDay()+3
+var day = ("0" + datetime.getDate()).slice(-2);
 var month = datetime.getMonth()+1
 var year = datetime.getFullYear()
+
 
 //index
 app.get('/', (req, res) => {
@@ -226,32 +227,27 @@ app.get('/calendar', async(req, res) => {
         var status = (findUser[0].mop)
         var mail = (findUser[0].email)
 
+    const events = await CalendarMongo.find({'email':user}, function(err, result) {
+    });
+
+    var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
+    var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
+    var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
+
     res.render('calendar',{
         fullName,
         status,
         mail,
         day,
         month,
-        year
+        year,
+        sortDate2
     });
 });
 
 app.post('/calendar', async(req, res) => { 
-const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
-    });
-    
-    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-    var status = (findUser[0].mop)
-    var mail = (findUser[0].email)
-
-    res.render('calendar',{
-        fullName,
-        status,
-        mail,
-        day,
-        month,
-        year
-    });
+    doctor = req.body.whoMed;
+    res.redirect('appointment')
 });
 
 //appointment
@@ -296,6 +292,16 @@ app.post('/appointment', async(req, res) => {
 
     var latitude = (findDoctor[0].lat)
     var longitude = (findDoctor[0].lon)
+
+    const appointment = new CalendarMongo({
+        email: user,
+        doctor: findDoctor[0].email,
+        event: req.body.event,
+        day: req.body.day,
+        month: req.body.month,
+        year: req.body.year
+        });
+        await appointment.save();
 
     res.render('appointment' ,{
         fullName,
