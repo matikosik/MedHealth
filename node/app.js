@@ -312,6 +312,7 @@ app.post('/appointment', async(req, res) => {
 });
 //fin appointment
 
+//edit
 app.get('/edit', async(req, res) => { 
     const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
     });
@@ -323,21 +324,53 @@ app.get('/edit', async(req, res) => {
     var lastName = (findUser[0].lastName)
     var password = (findUser[0].password)
 
-    res.render('editprofile' ,{
-        fullName,
-        status,
-        mail,
-        name,
-        lastName,
-        password,
-        day,
-        month,
-        year
-    });
+    if(status == 'doctor'){
+        res.redirect('/editDoctor')
+    }
+    else{
+        res.render('editprofile' ,{
+            fullName,
+            status,
+            mail,
+            name,
+            lastName,
+            password,
+            day,
+            month,
+            year
+        });
+    }
 });
 
 app.post('/edit', async(req, res) => {
     const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+
+    if(req.body.action == 'Update Profile'){
+        var updateUser = await RegisterMongo.updateMany({'email':user},{$set:
+            {
+                name: req.body.name,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: req.body.password,
+                rptpassword: req.body.password
+            }
+        });
+    }
+    else if(req.body.action == 'Delete Profile'){
+        var updateUser = await RegisterMongo.remove({'email':user});
+    }
+    
+   res.redirect('/login')
+});
+//fin edit
+
+//edit Doctor
+app.get('/editDoctor', async(req, res) => { 
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+
+    const findDoctor = await DoctorsMongo.find({'email': user}, function(err, result) {
     });
     
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
@@ -346,22 +379,52 @@ app.post('/edit', async(req, res) => {
     var name = (findUser[0].name)
     var lastName = (findUser[0].lastName)
     var password = (findUser[0].password)
+    var phoneNumber = (findDoctor[0].phoneNumber)
+    var address = (findDoctor[0].address)
+    var doctorType = (findDoctor[0].doctorType)
 
-    console.log(req.body)
-
-    res.render('editprofile' ,{
+    res.render('editdoctor' ,{
         fullName,
         status,
         mail,
         name,
         lastName,
         password,
+        phoneNumber,
+        address,
+        doctorType,
         day,
         month,
         year
     });
 });
 
+app.post('/editDoctor', async(req, res) => {
+    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+    });
+
+    var updateUser = await RegisterMongo.updateMany({'email':user},{$set:
+        {
+            name: req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            rptpassword: req.body.password
+        }
+    });
+    var updateDoctor = await RegisterMongo.updateMany({'email':user},{$set:
+        {
+            name: req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            rptpassword: req.body.password
+        }
+    });
+
+   res.redirect('/login')
+});
+//fin edit Doctor
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');

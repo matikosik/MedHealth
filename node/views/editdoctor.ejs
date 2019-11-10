@@ -112,6 +112,44 @@
 					<label>Password:</label>
 					<input type="password" name="password" value='<%= password %>'>
 				</div>
+				<div>
+					<label>Phone number:</label>
+					<input type="userxtx" name="phoneNumber" value='<%= phoneNumber %>'>
+				</div>
+				<div>
+					<label>Address:</label>
+					<input type="userxtx" name="address" value='<%= address %>'>
+				</div>
+
+				<select id="selectpicker" data-style="btn-info" name="doctorType">
+					<optgroup label="Specialty">
+						<option name="<%= doctorType %>" value="<%= doctorType %>"><%= doctorType %></option>
+						<option name="Cardiology" value="Cardiology">Cardiology</option>
+						<option name="Dentistry" value="Dentistry">Dentistry</option>
+						<option name="Laboratory" value="Laboratory">Laboratory</option>
+						<option name="Pediatrics" value="Pediatrics">Pediatrics</option>
+						<option name="Radiology" value="Radiology">Radiology</option>
+						<option name="Dermatology" value="Dermatology">Dermatology</option>
+						<option name="Anesthesiology" value="Anesthesiology">Anesthesiology</option>
+						<option name="Neurology" value="Neurology">Neurology</option>
+						<option name="Nuclear Medicine" value="Nuclear Medicine">Nuclear Medicine</option>
+						<option name="Gynecology" value="Gynecology">Gynecology</option>
+						<option name="Urology" value="Urology">Urology</option>
+						<option name="Pathology" value="Pathology">Pathology</option>
+						<option name="Psychiatry" value="Psychiatry">Psychiatry</option>
+						<option name="Physical Medicine" value="Physical Medicine">Physical Medicine</option>
+						<option name="Internal Medicine" value="Internal Medicine">Internal Medicine</option>
+						<option name="Preventive Medicine" value="Preventive Medicine">Preventive Medicine</option>
+						<option name="Emergency Medicine" value="Emergency Medicine">Emergency Medicine</option>
+						<option name="Allergy & Immunology" value="Allergy & Immunology">Allergy & Immunology</option>
+						<option name="Tomography" value="Tomography">Tomography</option>
+						<option name="Ecography" value="Ecography">Ecography</option>
+						<option name="Toxicology" value="Toxicology">Toxicology</option>
+						<option name="M.R.I." value="M.R.I.">M.R.I.</option>
+						<option name="Sexology" value="Sexology">Sexology</option>
+					</optgroup>
+				</select>
+
 				<input type="submit" class="" value="Update Profile" name="action">
 				<input type="submit" class="" value="Delete Profile" name="action">
 			</form>
