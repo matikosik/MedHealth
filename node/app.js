@@ -412,14 +412,23 @@ app.post('/editDoctor', async(req, res) => {
             rptpassword: req.body.password
         }
     });
-    var updateDoctor = await RegisterMongo.updateMany({'email':user},{$set:
-        {
-            name: req.body.name,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: req.body.password,
-            rptpassword: req.body.password
-        }
+
+    geocoder.geocode(req.body.address, async function(err, res) {
+        var latitude = (res[0].latitude)
+        var longitude = (res[0].longitude)
+
+        var updateDoctor = await DoctorsMongo.updateMany({'email':user},{$set:
+            {
+                email: req.body.email,
+                name: req.body.name,
+                lastName: req.body.lastName,
+                address: req.body.address,
+                doctorType: req.body.doctorType,
+                lat: latitude,
+                lon: longitude
+            }
+        });
+
     });
 
    res.redirect('/login')
