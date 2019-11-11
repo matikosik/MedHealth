@@ -4,22 +4,22 @@ var moongose = require('mongoose')
 var path = require('path');
 var morgan = require('morgan');
 var NodeGeocoder = require('node-geocoder');
- 
-var options = {
-  provider: 'google',
-  httpAdapter: 'https', 
-  apiKey: 'AIzaSyCm62Zh7VrzfYqUhKhBdZjpEWkF8Ddl2hc',
-  formatter: null 
-};
- 
-var geocoder = NodeGeocoder(options);
- 
-var app = express();
-var urlencoderParser = bodyParser.urlencoded({extended: false});
 
-moongose.connect('mongodb+srv://matikosik:matias20@medhealth-rui79.mongodb.net/test?retryWrites=true&w=majority', 
-    {useNewUrlParser: true, useUnifiedTopology: true});
- 
+var options = {
+    provider: 'google',
+    httpAdapter: 'https',
+    apiKey: 'AIzaSyCm62Zh7VrzfYqUhKhBdZjpEWkF8Ddl2hc',
+    formatter: null
+};
+
+var geocoder = NodeGeocoder(options);
+
+var app = express();
+var urlencoderParser = bodyParser.urlencoded({ extended: false });
+
+moongose.connect('mongodb+srv://matikosik:matias20@medhealth-rui79.mongodb.net/test?retryWrites=true&w=majority',
+    { useNewUrlParser: true, useUnifiedTopology: true });
+
 var db = moongose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
@@ -27,19 +27,20 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 var RegisterMongo = require(__dirname + '/models/register.js');
 var DoctorsMongo = require(__dirname + '/models/doctors.js');
 var CalendarMongo = require(__dirname + '/models/calendar.js');
+var AvailabilityMongo = require(__dirname + '/models/availability.js');
 // FIN SCHEMAS
 
 app.set('views', path.join('views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/', express.static('views'))
 app.use(morgan('dev'));
 
 var datetime = new Date();
 var day = ("0" + datetime.getDate()).slice(-2);
-var month = datetime.getMonth()+1
+var month = datetime.getMonth() + 1
 var year = datetime.getFullYear()
 
 
@@ -62,15 +63,14 @@ var name
 var lastName
 var email
 
-app.post('/register', urlencoderParser, async(req, res) => { 
+app.post('/register', urlencoderParser, async (req, res) => {
     var errorArray = ['A user already exists using this email.', 'El registro fue exitoso', '', 'Passwords are not the same.'];
 
     const savedUser = req.body;
-    const user = await DoctorsMongo.find({email: req.body.email});
+    const user = await DoctorsMongo.find({ email: req.body.email });
 
-    if(user == ''){  
-        if(req.body.password != req.body.rptpassword)
-        {
+    if (user == '') {
+        if (req.body.password != req.body.rptpassword) {
             const error = (errorArray[3]);
             console.log(error);
 
@@ -78,38 +78,38 @@ app.post('/register', urlencoderParser, async(req, res) => {
                 error
             });
         }
-        else{
+        else {
             const Register = new RegisterMongo(req.body);
             await Register.save();
             const error = (errorArray[1]);
             console.log(error);
-    
-            if(req.body.mop == 'doctor'){
+
+            if (req.body.mop == 'doctor') {
                 name = savedUser.name;
                 lastName = savedUser.lastName;
                 email = savedUser.email;
                 res.redirect('/registerDoctor');
             }
-            else if(req.body.mop != 'doctor'){
+            else if (req.body.mop != 'doctor') {
                 res.redirect('login');
-            }  
-        }   
+            }
+        }
     }
-    else{
+    else {
         const error = (errorArray[0]);
         console.log(error);
 
         res.render('register', {
             error
         });
-    }    
+    }
 });
 //fin register
 
 
 
 //register doctor
-app.get('/registerDoctor', async(req, res) => { 
+app.get('/registerDoctor', async (req, res) => {
     res.render('registerDoctor', {
         name,
         lastName,
@@ -117,12 +117,12 @@ app.get('/registerDoctor', async(req, res) => {
     });
 });
 
-app.post('/registerDoctor', urlencoderParser, async(req, res) => { 
+app.post('/registerDoctor', urlencoderParser, async (req, res) => {
 
-    geocoder.geocode(req.body.address, async function(err, res) {
+    geocoder.geocode(req.body.address, async function (err, res) {
         var latitude = (res[0].latitude)
         var longitude = (res[0].longitude)
-        const registerDoctor = new DoctorsMongo({ 
+        const registerDoctor = new DoctorsMongo({
             email: email,
             name: name,
             lastName: lastName,
@@ -133,50 +133,65 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
             lon: longitude
         });
         await registerDoctor.save();
-      });
+    });
 
-    res.redirect('/login');
+    res.redirect('/horarios');
 });
 //fin register doctor
 
+//register availability
+app.get('/horarios', async (req, res) => {
+    console.log(email)
+    res.render('horarios', {
+        email
+    })
+});
+
+app.post('/horarios', async (req, res) => {
+    console.log(req.body)
+    res.render('horarios')
+});
+//fin register availability
+
+
 //login
-app.get('/login', async(req, res) => {    
+app.get('/login', async (req, res) => {
     const error = ('')
     res.render('login', {
-        error   
+        error
     });
 });
 
 var user;
 
-app.post('/login',urlencoderParser, async(req, res) => {
-    const findUser = await RegisterMongo.find({'email': req.body.email}, function(err, result) {
-        if (result == ''){
+app.post('/login', urlencoderParser, async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': req.body.email }, function (err, result) {
+        if (result == '') {
             var error = 'User does not exist'
             res.render('login', {
                 error
             });
-        } 
-        else if(req.body.password != result[0].password){
+        }
+        else if (req.body.password != result[0].password) {
             var error = 'Wrong Password'
             res.render('login', {
                 error
             });
         }
-        else if(req.body.password == result[0].password){
+        else if (req.body.password == result[0].password) {
             user = req.body.email;
             //console.log(user); 
             res.redirect('index2');
         }
-    });  
+    });
 });
 //fin login
 
 //index2
-app.get('/index2', async(req, res) => {    
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.get('/index2', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
-    
+
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
@@ -192,7 +207,7 @@ app.get('/index2', async(req, res) => {
 });
 
 var medic;
-app.post('/index2',urlencoderParser, async(req, res) => {
+app.post('/index2', urlencoderParser, async (req, res) => {
     medic = req.body.med
     res.redirect('doctors');
 });
@@ -200,18 +215,18 @@ app.post('/index2',urlencoderParser, async(req, res) => {
 
 //doctors
 var doctor;
-app.get('/doctors', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
-        });
-        
-        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-        var status = (findUser[0].mop)
-        var mail = (findUser[0].email)
-
-    const findDoctors = await DoctorsMongo.find({'doctorType': medic}, function(err, result) {
+app.get('/doctors', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
 
-    res.render('doctors',{
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    const findDoctors = await DoctorsMongo.find({ 'doctorType': medic }, function (err, result) {
+    });
+
+    res.render('doctors', {
         fullName,
         status,
         mail,
@@ -224,27 +239,27 @@ app.get('/doctors', async(req, res) => {
 });
 
 var doctor;
-app.post('/doctors', async(req, res) => { 
-        doctor = req.body.whoMed;
-        res.redirect('appointment')
+app.post('/doctors', async (req, res) => {
+    doctor = req.body.whoMed;
+    res.redirect('appointment')
 });
 //fin doctors
 
-app.get('/calendar', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
-        });
-        var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-        var status = (findUser[0].mop)
-        var mail = (findUser[0].email)
+app.get('/calendar', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
+    });
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
 
-    const events = await CalendarMongo.find({'email':user}, function(err, result) {
+    const events = await CalendarMongo.find({ 'email': user }, function (err, result) {
     });
 
     var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
     var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
     var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
 
-    res.render('calendar',{
+    res.render('calendar', {
         fullName,
         status,
         mail,
@@ -255,27 +270,27 @@ app.get('/calendar', async(req, res) => {
     });
 });
 
-app.post('/calendar', async(req, res) => { 
+app.post('/calendar', async (req, res) => {
     doctor = req.body.whoMed;
     res.redirect('appointment')
 });
 
 //appointment
-app.get('/appointment', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.get('/appointment', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
-    
+
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
-    const findDoctor = await DoctorsMongo.find({'email': doctor}, function(err, result) {
+    const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function (err, result) {
     });
 
     var latitude = (findDoctor[0].lat)
     var longitude = (findDoctor[0].lon)
 
-    res.render('appointment' ,{
+    res.render('appointment', {
         fullName,
         status,
         mail,
@@ -289,15 +304,15 @@ app.get('/appointment', async(req, res) => {
     });
 });
 
-app.post('/appointment', async(req, res) => {
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.post('/appointment', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
-    
+
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
-    const findDoctor = await DoctorsMongo.find({'email': doctor}, function(err, result) {
+    const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function (err, result) {
     });
 
     var latitude = (findDoctor[0].lat)
@@ -310,10 +325,10 @@ app.post('/appointment', async(req, res) => {
         day: req.body.day,
         month: req.body.month,
         year: req.body.year
-        });
-        await appointment.save();
+    });
+    await appointment.save();
 
-    res.render('appointment' ,{
+    res.render('appointment', {
         fullName,
         status,
         mail,
@@ -329,10 +344,10 @@ app.post('/appointment', async(req, res) => {
 //fin appointment
 
 //edit
-app.get('/edit', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.get('/edit', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
-    
+
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
@@ -340,11 +355,11 @@ app.get('/edit', async(req, res) => {
     var lastName = (findUser[0].lastName)
     var password = (findUser[0].password)
 
-    if(status == 'doctor'){
+    if (status == 'doctor') {
         res.redirect('/editDoctor')
     }
-    else{
-        res.render('editprofile' ,{
+    else {
+        res.render('editprofile', {
             fullName,
             status,
             mail,
@@ -358,12 +373,13 @@ app.get('/edit', async(req, res) => {
     }
 });
 
-app.post('/edit', async(req, res) => {
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.post('/edit', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
 
-    if(req.body.action == 'Update Profile'){
-        var updateUser = await RegisterMongo.updateMany({'email':user},{$set:
+    if (req.body.action == 'Update Profile') {
+        var updateUser = await RegisterMongo.updateMany({ 'email': user }, {
+            $set:
             {
                 name: req.body.name,
                 lastName: req.body.lastName,
@@ -373,22 +389,22 @@ app.post('/edit', async(req, res) => {
             }
         });
     }
-    else if(req.body.action == 'Delete Profile'){
-        var updateUser = await RegisterMongo.remove({'email':user});
+    else if (req.body.action == 'Delete Profile') {
+        var updateUser = await RegisterMongo.remove({ 'email': user });
     }
-    
-   res.redirect('/index2')
+
+    res.redirect('/index2')
 });
 //fin edit
 
 //edit Doctor
-app.get('/editDoctor', async(req, res) => { 
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.get('/editDoctor', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
 
-    const findDoctor = await DoctorsMongo.find({'email': user}, function(err, result) {
+    const findDoctor = await DoctorsMongo.find({ 'email': user }, function (err, result) {
     });
-    
+
     var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
@@ -399,7 +415,7 @@ app.get('/editDoctor', async(req, res) => {
     var address = (findDoctor[0].address)
     var doctorType = (findDoctor[0].doctorType)
 
-    res.render('editdoctor' ,{
+    res.render('editdoctor', {
         fullName,
         status,
         mail,
@@ -415,11 +431,12 @@ app.get('/editDoctor', async(req, res) => {
     });
 });
 
-app.post('/editDoctor', async(req, res) => {
-    const findUser = await RegisterMongo.find({'email': user}, function(err, result) {
+app.post('/editDoctor', async (req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function (err, result) {
     });
 
-    var updateUser = await RegisterMongo.updateMany({'email':user},{$set:
+    var updateUser = await RegisterMongo.updateMany({ 'email': user }, {
+        $set:
         {
             name: req.body.name,
             lastName: req.body.lastName,
@@ -429,11 +446,12 @@ app.post('/editDoctor', async(req, res) => {
         }
     });
 
-    geocoder.geocode(req.body.address, async function(err, res) {
+    geocoder.geocode(req.body.address, async function (err, res) {
         var latitude = (res[0].latitude)
         var longitude = (res[0].longitude)
 
-        var updateDoctor = await DoctorsMongo.updateMany({'email':user},{$set:
+        var updateDoctor = await DoctorsMongo.updateMany({ 'email': user }, {
+            $set:
             {
                 email: req.body.email,
                 name: req.body.name,
@@ -447,22 +465,22 @@ app.post('/editDoctor', async(req, res) => {
 
     });
 
-   res.redirect('/index2')
+    res.redirect('/index2')
 });
 //fin edit Doctor
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
-}); 
+});
 
 /*
-ver cosas de la base de datos por consola 
+ver cosas de la base de datos por consola
 
 var RegisterMongo = require(__dirname + '/models/register.js');
         (esto)
 
 const tasks = await (VA ACA) .find();
-    console.log(tasks); 
+    console.log(tasks);
 
 
 ver cosas posteadas en e formulario html
@@ -470,7 +488,7 @@ ver cosas posteadas en e formulario html
 console.log(JSON.stringify(req.body, null, 2));
 
 
-buscar en la db 
+buscar en la db
 
 const findUser = DoctorsMongo.find({'address': '399 Pereida St'}, function(err, result) {
     console.log(result);
