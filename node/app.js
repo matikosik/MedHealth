@@ -63,27 +63,37 @@ var lastName
 var email
 
 app.post('/register', urlencoderParser, async(req, res) => { 
-    var errorArray = ['A user already exists using this email', 'El registro fue exitoso', ''];
+    var errorArray = ['A user already exists using this email.', 'El registro fue exitoso', '', 'Passwords are not the same.'];
 
     const savedUser = req.body;
     const user = await DoctorsMongo.find({email: req.body.email});
 
     if(user == ''){  
-        const Register = new RegisterMongo(req.body);
-        await Register.save();
-        console.log(req.body);
-        const error = (errorArray[1]);
-        console.log(error);
+        if(req.body.password != req.body.rptpassword)
+        {
+            const error = (errorArray[3]);
+            console.log(error);
 
-        if(req.body.mop == 'doctor'){
-            name = savedUser.name;
-            lastName = savedUser.lastName;
-            email = savedUser.email;
-            res.redirect('/registerDoctor');
+            res.render('register', {
+                error
+            });
         }
-        else if(req.body.mop != 'doctor'){
-            res.redirect('login');
-        }    
+        else{
+            const Register = new RegisterMongo(req.body);
+            await Register.save();
+            const error = (errorArray[1]);
+            console.log(error);
+    
+            if(req.body.mop == 'doctor'){
+                name = savedUser.name;
+                lastName = savedUser.lastName;
+                email = savedUser.email;
+                res.redirect('/registerDoctor');
+            }
+            else if(req.body.mop != 'doctor'){
+                res.redirect('login');
+            }  
+        }   
     }
     else{
         const error = (errorArray[0]);
@@ -155,7 +165,7 @@ app.post('/login',urlencoderParser, async(req, res) => {
         }
         else if(req.body.password == result[0].password){
             user = req.body.email;
-            //console.log(user);
+            //console.log(user); 
             res.redirect('index2');
         }
     });  
@@ -367,7 +377,7 @@ app.post('/edit', async(req, res) => {
         var updateUser = await RegisterMongo.remove({'email':user});
     }
     
-   res.redirect('/login')
+   res.redirect('/index2')
 });
 //fin edit
 
@@ -437,7 +447,7 @@ app.post('/editDoctor', async(req, res) => {
 
     });
 
-   res.redirect('/login')
+   res.redirect('/index2')
 });
 //fin edit Doctor
 
