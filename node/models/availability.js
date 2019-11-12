@@ -6,10 +6,10 @@ const AvailabilitySchema = new mongoose.Schema({
         type: String
     },
     days: {
-        type: String
+        type: Array
     },
     hours: {
-        type: Number
+        type: Array
     }
 });
 
