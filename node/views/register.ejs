@@ -1,92 +1,158 @@
 <!DOCTYPE html>
-<head>
-		<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth - Register</title>
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="images/logoFormWhite.png">
+    <title>Register</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body>
 
-	<div class="LogImage">
-		<a href="/"><img src="/images/logoForm.png"></a>
-	</div>
+<style>
+    .select-style5 {
+        position: absolute;
+        top: 79%;
+        left: 10%;
+        border: 1px solid #ccc;
+        width: 350px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .select-style5 select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        background: white;
+        background-image: none;
+    }
+    
+    .select-style5 select:focus {
+        outline: none;
+    }
+    
+    .select-style6 {
+        position: absolute;
+        top: 83%;
+        left: 10%;
+        border: 1px solid #ccc;
+        width: 350px;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .select-style6 select {
+        padding: 5px 8px;
+        width: 130%;
+        border: none;
+        background: white;
+        background-image: none;
+    }
+    
+    .select-style6 select:focus {
+        outline: none;
+    }
+</style>
 
-	<form action="" class="login-form" method="POST" onsubmit="return checkForm(this);">
+<body style="background-color: rgba(203, 203, 203, 0.322); overflow-x: hidden;">
 
-		<h1 class="h1">REGISTER</h1>
-		
-		<div class="txtb">
-			<input type="userxtx" name="name" required pattern="\w+">
-			<span data-placeholder="Name"></span>
-        </div>
-        
+    <div class="LogImage">
+        <a href="/"><img src="/images/logoFormWhite.png"></a>
+    </div>
+
+    <div id="greencirc1"></div>
+    <div id="greencirc2"></div>
+    <div id="greencirc3"></div>
+    <div id="greencirc4"></div>
+    <div id="greencirc5"></div>
+    <div id="greencirc6"></div>
+    <div id="greencirc7"></div>
+
+    <form action="" class="login-form" method="POST" onsubmit="return checkForm(this);">
+
+        <h1 class="h1">REGISTRARSE</h1>
+
         <div class="txtb">
-                <input type="userxtx" name="lastName" required pattern="\w+">
-                <span data-placeholder="Last Name"></span>
+            <input type="userxtx" name="name" required pattern="\w+">
+            <span data-placeholder="Nombre"></span>
         </div>
-        
+
+        <div class="txtb">
+            <input type="userxtx" name="lastName" required pattern="\w+">
+            <span data-placeholder="Apellido"></span>
+        </div>
+
         <div class="txtb">
             <input type="email" name="email">
             <span data-placeholder="Email"></span>
         </div>
 
-		<div class="txtb">
-			<input type="password" input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
-			<span data-placeholder="Password"></span>
+        <div class="txtb">
+            <input type="password" input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
+            <span data-placeholder="Contraseña"></span>
         </div>
 
         <div class="txtb">
             <input type="password" title="Please enter the same password as above" name="rptpassword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" onchange="">
-			<span data-placeholder="Repeat Password"></span>
-		</div>
+            <span data-placeholder="Repetir Contraseña"></span>
+        </div>
 
-		<select class="selectpicker" data-style="btn-info" name="mop">
-			<optgroup label="What are you?">
-				<option name="patient" value="patient">Patient</option>
+        <select class="select-style5" data-style="btn-info" name="mop">
+			<optgroup label="Qué sos?">
+				<option name="patient" value="patient">Paciente</option>
 				<option name="doctor" value="doctor">Doctor</option>
 			</optgroup>
 		</select>
-		<br>
-		<br>
-		<label class="error"> <%= error %> </label>
+        <br>
+        <br>
+        <br>
+        <select class="select-style6" data-style="btn-info" name="gender">
+			<optgroup label="Qué sos?">
+				<option name="hombre" value="hombre">Hombre</option>
+				<option name="mujer" value="mujer">Mujer</option>
+				<option name="otro" value="otro">Otro</option>
+			</optgroup>
+		</select>
 
-		<input type="submit" class="logbtn radius" value="REGISTER">
+        <br>
+        <br>
+        <label class="error2"> <%= error %> </label>
 
-	</form>
+        <input type="submit" class="logbtn radius" value="REGISTER">
 
-	<div class="bottom-text">
-		Already have an account? <a href="login">LOGIN</a>
-	</div>
+    </form>
 
-	<script type="text/javascript">
+    <div class="bottom-text">
+        Ya tienes una cuenta? <a href="login">LOGIN</a>
+    </div>
 
-	$(".txtb input").on("focus",function(){
-		$(this).addClass("focus");
-	});
+    <script type="text/javascript">
+        $(".txtb input").on("focus", function() {
+            $(this).addClass("focus");
+        });
 
-	$(".txtb input").on("blur",function(){
-		if($(this).val() == "")
-		$(this).removeClass("focus");
-	});
+        $(".txtb input").on("blur", function() {
+            if ($(this).val() == "")
+                $(this).removeClass("focus");
+        });
 
-	function getSelectedValue()
-	{
-		var selectedValue = document.getElementById("list").value;
-		console.log(selectedValue);
-	}
-	</script>
+        function getSelectedValue() {
+            var selectedValue = document.getElementById("list").value;
+            console.log(selectedValue);
+        }
+    </script>
 </body>
+
 </html>

@@ -18,67 +18,78 @@
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body style="background-color: rgba(170, 170, 170, 0.322)">
+<body style="background-color: rgba(170, 170, 170, 0.322); overflow-x: hidden;">
 
 	<div id="backimgdoc">
 
-		<div class="LogImage">
-			<img src="images/logoForm.png">
+		<div class="LogImage3">
+			<img src="images/logoFormWhite.png">
 		</div>
+
+		<div id="greencirc1"></div>
+		<div id="greencirc2"></div>
+		<div id="greencirc3"></div>
+		<div id="greencirc4"></div>
+		<div id="greencirc5"></div>
+		<div id="greencirc6"></div>
+		<div id="greencirc7"></div>
 
 		<form action="" class="login-form" method="POST">
 
 			<p id="titledoc">REGISTER DOCTOR</p>
-			<p id="namedoc">Name: <%= name %> </p>
+			<p id="namedoc">Nombre: <%= name %> </p>
 			
-			<p id="lastnamedoc">Last Name: <%= lastName %> </p>
+			<p id="lastnamedoc">Apellido: <%= lastName %> </p>
 			
 			<p id="emaildoc">Email: <%= email %> </p>
 			
 
-			<div class="txtb3">
+			<div class="txtb" style="position:relative; top: 50%; margin: 20px 0;">
 				<input type="address" name="address">
-				<span data-placeholder="Address"></span>
+				<span data-placeholder="Dirección"></span>
 			</div>
 			
-			<div class="txtb4">
+			<div class="txtb" style="position:relative; top: 52.5%; margin: 20px 0;">
 					<input type="phonenumber" name="phonenumber">
-					<span data-placeholder="Phone number"></span>
+					<span data-placeholder="Numero de Teléfono"></span>
 			</div>
 			
 			<select id="selectpicker" data-style="btn-info" name="doctorType">
 				<optgroup label="Specialty">
-					<option name="Ophthalmology" value="Ophthalmology">Ophthalmology</option>
-					<option name="Cardiology" value="Cardiology">Cardiology</option>
-					<option name="Dentistry" value="Dentistry">Dentistry</option>
-					<option name="Laboratory" value="Laboratory">Laboratory</option>
-					<option name="Pediatrics" value="Pediatrics">Pediatrics</option>
-					<option name="Radiology" value="Radiology">Radiology</option>
-					<option name="Dermatology" value="Dermatology">Dermatology</option>
-					<option name="Anesthesiology" value="Anesthesiology">Anesthesiology</option>
-					<option name="Neurology" value="Neurology">Neurology</option>
-					<option name="Nuclear Medicine" value="Nuclear Medicine">Nuclear Medicine</option>
-					<option name="Gynecology" value="Gynecology">Gynecology</option>
-					<option name="Urology" value="Urology">Urology</option>
-					<option name="Pathology" value="Pathology">Pathology</option>
-					<option name="Psychiatry" value="Psychiatry">Psychiatry</option>
-					<option name="Physical Medicine" value="Physical Medicine">Physical Medicine</option>
-					<option name="Internal Medicine" value="Internal Medicine">Internal Medicine</option>
-					<option name="Preventive Medicine" value="Preventive Medicine">Preventive Medicine</option>
-					<option name="Emergency Medicine" value="Emergency Medicine">Emergency Medicine</option>
-					<option name="Allergy & Immunology" value="Allergy & Immunology">Allergy & Immunology</option>
-					<option name="Tomography" value="Tomography">Tomography</option>
-					<option name="Ecography" value="Ecography">Ecography</option>
-					<option name="Toxicology" value="Toxicology">Toxicology</option>
+					<option name="Ophthalmology" value="Ophthalmology">Oftalmología</option>
+					<option name="Cardiology" value="Cardiology">Cardiología</option>
+					<option name="Dentistry" value="Dentistry">Odontología</option>
+					<option name="Laboratory" value="Laboratory">Laboratorio</option>
+					<option name="Pediatrics" value="Pediatrics">Pediatría</option>
+					<option name="Radiology" value="Radiology">Radiología</option>
+					<option name="Dermatology" value="Dermatology">Dermatología</option>
+					<option name="Anesthesiology" value="Anesthesiology">Anesthesiología</option>
+					<option name="Neurology" value="Neurology">Neurología</option>
+					<option name="Nuclear Medicine" value="Nuclear Medicine">Medicina Nuclear</option>
+					<option name="Gynecology" value="Gynecology">Gynecología</option>
+					<option name="Urology" value="Urology">Urología</option>
+					<option name="Pathology" value="Pathology">Pathología</option>
+					<option name="Psychiatry" value="Psychiatry">Psychiatría</option>
+					<option name="Physical Medicine" value="Physical Medicine">Medicina Física</option>
+					<option name="Internal Medicine" value="Internal Medicine">Medicina Interna</option>
+					<option name="Preventive Medicine" value="Preventive Medicine">Medicina Preventiva</option>
+					<option name="Emergency Medicine" value="Emergency Medicine">Medicina de Emergencia</option>
+					<option name="Allergy & Immunology" value="Allergy & Immunology">Alergia & Inmunología</option>
+					<option name="Tomography" value="Tomography">Tomografía</option>
+					<option name="Ecography" value="Ecography">Ecografía</option>
+					<option name="Toxicology" value="Toxicology">Toxicología</option>
 					<option name="M.R.I." value="M.R.I.">M.R.I.</option>
-					<option name="Sexology" value="Sexology">Sexology</option>
+					<option name="Sexology" value="Sexology">Sexología</option>
 				</optgroup>
 			</select>
+
+			<div id="dates"></div>
+			<div id="schedule"></div>
 			
 			<input type="submit" class="logbtn radius" value="CONTINUE">
 
 			<div class="bottom-textD">
-					Already have an account? <a href="login">LOGIN</a>
+					Ya tienes una cuenta? <a href="login">LOGIN</a>
 			</div>
 
 		</form>

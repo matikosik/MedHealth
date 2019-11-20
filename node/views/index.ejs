@@ -19,25 +19,21 @@
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body style="background-color: rgba(170, 170, 170, 0.322)">
+<body style="background-color: rgba(170, 170, 170, 0.322); overflow: hidden;">
 
 			<div id="navindex">
 				<div id="imgindex"><img src="images/logo.png" width="125px" height="125px"></div>
 				<div id="txtlogoindex">MEDHEALTH</div>
 			</div>
-
-			<div id="lang" onclick="hidelang()">
-				<img src="images/DropDownLang.png" height="85%" width="85%">					
-			</div>
-				
-			<div id="langmore"><img src="images/langlist.png" height="100%" width="100%"></div>
-
+			
 			<div>
-				<p id="indextxt">Welcome to Medhealth!</p>
-				<p id="indextxt2">Reach the best doctors near you with just a click.</p>
+				<p id="indextxt">Bienvenido a Medhealth!</p>
+				<p id="indextxt2">Encuentra los mejores doctores cerca de ti con tan solo un click.</p>
 			</div>
 
 			<div id="regiboxx"><img src="images/Regiboxx.png"></div>
+			<a href="register"><div id="regibtn"><p id="regibtntxt">REGISTRATE AQUI!</p></div></a>
+			<p id="alreadyindex">Si ya estas registrado puedes inciar sesion <a href="login"><p id=alreadyindex2>AQUI!</p></a></p>
 
 			<div></div>
 
@@ -47,6 +43,96 @@
 		<a href="register"><div id="registerhref"><p id="regindex">REGISTER</p></div></a>
 		<div id="indexlogo"><img src="images/indexlogo.png"></div>
 		<div id="textindex">The #1 site on Patient-Hospital communication enhancer!</div>-->
+
+		
+		<ul class="slideshow">
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+				<li><span></span></li>
+		</ul>
+
+<style>
+
+.slideshow {
+  list-style-type: none;
+  z-index: -2;
+}
+
+/** SLIDESHOW **/
+.slideshow,
+.slideshow:after { 
+    top: -16px; /*Not sure why I needed this fix*/
+		position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    z-index: -2; 
+}
+
+.slideshow li span { 
+		position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    z-index: 0;
+    animation: imageAnimation 30s linear infinite 0s; 
+}
+
+
+
+.slideshow li:nth-child(1) span { 
+    background-image: url("images/Dentistry.jpg"); 
+}
+.slideshow li:nth-child(2) span { 
+    background-image: url("images/Laboratory-testing.jpg");
+    animation-delay: 6s; 
+}
+.slideshow li:nth-child(3) span { 
+    background-image: url("images/health.jpg");
+    animation-delay: 12s; 
+}
+.slideshow li:nth-child(4) span { 
+    background-image: url("images/radiology-banner.jpg");   
+    animation-delay: 18s; 
+}
+.slideshow li:nth-child(5) span { 
+    background-image: url("images/Psychiatrist2.jpg");
+    animation-delay: 24s; 
+}
+
+
+
+@keyframes imageAnimation { 
+    0% { opacity: 0; animation-timing-function: ease-in; }
+    8% { opacity: 1; animation-timing-function: ease-out; }
+    17% { opacity: 1 }
+    25% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+@keyframes titleAnimation { 
+    0% { opacity: 0 }
+    8% { opacity: 1 }
+    17% { opacity: 1 }
+    19% { opacity: 0 }
+    100% { opacity: 0 }
+}
+
+
+.no-cssanimations .cb-slideshow li span {
+	opacity: 1;
+}
+
+</style>
 			
 </body>
 </html>

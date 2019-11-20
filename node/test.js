@@ -1,17 +1,31 @@
-var date = new Date();
-var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
-var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 
-var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-var dayName = days[1];
+var date = new Date(),
+    y = date.getFullYear(),
+    m = date.getMonth();
+var lastDay = new Date(y, m + 1, 0).getDate();
 
-var month = 11
-var day = 1
+//console.log(lastDay)
+var fechasDelDia = new Array();
+var i = 0
+var b = 0
 
-var birthday = new Date('11', day, ', 2019');
-var day1 = birthday.getDay();
-// Sunday - Saturday : 0 - 6
+while (b < 12) {
+    if (i < lastDay) {
+        var year = 2019
+        var month = b + 1
+        var day = i + 1
 
-console.log(days[day1]);
+        var fecha = new Date(month + ', ' + day + ', ' + year);
+        var fecha1 = fecha.getDay();
 
-var i = 1
+        if (days[fecha1] == 'Lunes') {
+            fechasDelDia.push({ day, month, year })
+        }
+        i++
+    } else {
+        b++
+        i = 0
+    }
+}
+console.log(fechasDelDia)

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
     <link rel="icon" href="images/logoFormWhite.png">
-    <title>MedHealth</title>
+    <title>Doctors</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -30,35 +30,28 @@
 
                 <p class="textoNavBar">MEDHEALTH</p>
 
-                <p id="date">Date: <%=day%> / <%=month%> / <%=year%></p>
+                <p id="date">Fecha: <%=day%> / <%=month%> / <%=year%></p>
 
                 <div id="av" onclick="hideav()">
-					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
-					<p id="avtxt"> <%= fullName %> </p>
-				</div>
+					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">					
+                </div>
+                
+                <p id="avtxt"> <%= fullName %> </p>
 
 					<div id="avconfdisp">
-						<img src="images/avconf.png" width="80%" height="80%">
+						<img src="images/OK.png" width="80%" height="80%">
 						<div>
-							<div id="imgadd">
-								<img src="images/add.png" height="10%" width="10%">
-							</div>
-
 							<p id="textconfdisp1"><%= fullName %></p>
 							
-							<p id="textconfdisp2">Status:<p id="textconfdisp3"><%= status %></p></p>
+                            <p id="textconfdisp2">Estado:<p id="textconfdisp3"><%= status %></p></p>
+                            
+                            <!--<p id="textconfdisp4">Appointment: 15/11</p>-->
 
 							<p id="textconfdisp5"><%= mail %></p>
 							
 							<a href="/edit"><div id="editprofile"><p id="edittxt">Edit Profile</p></div></a>
 						</div>
-					</div>
-						
-                <div id="lang" onclick="hidelang()">
-                    <img src="images/DropDownLang.png" height="85%" width="85%">                    
-                </div>
-                
-                <div id="langmore"><img src="images/langlist.png" height="100%" width="100%"></div>             
+					</div>           
 
                 <div id="location">
                     <img src="images/placeholder-filled-point.png" width="5%" height="5%">
@@ -69,8 +62,8 @@
                     <p id="textC2"><%= medic %></p>                            
                 </div>
 
-                <a href="calendar"><div id="calendar"><p id="calendartxt">Calendar</p></div></a>
-                <a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
+                <a href="calendar"><div id="calendar"><p id="calendartxt">Mis Turnos</p></div></a>
+                <a href="/"><div id="logout"><p id="logouttxt">Cerrar Sesión</p></div></a>
 
             </div>          
 
@@ -102,12 +95,14 @@
                         	<th>
 								<form action="" method="POST">
 									<div id="med1">
-										<input type="submit" name="whoMed" value="<%= findDoctors[i].email %>" id="btnMed">
+                                        <input type="submit" name="whoMed" value="<%= findDoctors[i].email %>" id="btnMed">
+                                        
+                                        <div id="doctorpic"><img src="images/doctor.png"></div>
+
+                                        <div id="dochr"><hr></div>
 										
-										<label id="textMed">Name:</label>
-										<br>
-										<label id="textMed"><%= findDoctors[i].name %> <%= findDoctors[i].lastName %></label>
-										<br>
+										<label>Dr. <%= findDoctors[i].name %> <%= findDoctors[i].lastName %></label>
+										<!--<br>
 										<label id="textMed">Email:</label>
 										<br>
 										<label id="textMed"><%= findDoctors[i].email %></label>
@@ -118,7 +113,7 @@
 										<br>
 										<label id="textMed">Phone Number:</label>
 										<br>
-										<label id="textMed"><%= findDoctors[i].phoneNumber %></label>
+										<label id="textMed"><%= findDoctors[i].phoneNumber %></label>-->
                         			</div>
 								</form>
 							</th>

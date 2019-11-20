@@ -19,6 +19,9 @@ const RegisterSchema = new mongoose.Schema({
     },
     mop: {
         type: String
+    },
+    gender: {
+        type: String
     }
 });
 

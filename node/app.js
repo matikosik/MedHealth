@@ -223,8 +223,6 @@ app.get('/doctors', async(req, res) => {
 
     const findDoctors = await DoctorsMongo.find({ 'doctorType': medic }, function(err, result) {});
 
-    const horariosDoctor = await AvailabilityMongo.find({ 'doctor': medic }, function(err, result) {});
-
     res.render('doctors', {
         fullName,
         status,
@@ -281,6 +279,8 @@ app.get('/appointment', async(req, res) => {
     var mail = (findUser[0].email)
 
     const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function(err, result) {});
+    console.log(doctor)
+    const horariosDoctor = await AvailabilityMongo.find({ 'doctor': doctor }, function(err, result) {});
 
     var latitude = (findDoctor[0].lat)
     var longitude = (findDoctor[0].lon)
@@ -295,7 +295,8 @@ app.get('/appointment', async(req, res) => {
         longitude,
         day,
         month,
-        year
+        year,
+        horariosDoctor
     });
 });
 
@@ -307,6 +308,8 @@ app.post('/appointment', async(req, res) => {
     var mail = (findUser[0].email)
 
     const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function(err, result) {});
+
+    const horariosDoctor = await AvailabilityMongo.find({ 'doctor': medic }, function(err, result) {});
 
     var latitude = (findDoctor[0].lat)
     var longitude = (findDoctor[0].lon)
@@ -331,7 +334,8 @@ app.post('/appointment', async(req, res) => {
         longitude,
         day,
         month,
-        year
+        year,
+        horariosDoctor
     });
 });
 //fin appointment

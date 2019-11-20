@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	
 	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth -  Doctors</title>
+	<title>Doctors</title>
 
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
@@ -19,15 +19,16 @@
 
 	<style>
 		#map {
-		  height: 460px; 
-		  width: 40%;
-		  left: 60%;
-		  transform: translateY(38%);
-		 }
+			position: absolute;
+			top: 30%;
+			left: 50%;
+			width: 660px;
+			height: 450px;
+		}
 	  </style>
 
 </head>
-<body onload="appointmentForm1()">
+<body>
     <div class="container">
         <div>
             <div class="NAVBAR">
@@ -39,35 +40,27 @@
 
 				<p class="textoNavBar">MEDHEALTH</p>
 
-				<p id="date">Date: <%=day%> / <%=month%> / <%=year%></p>
+				<p id="date">Fecha: <%=day%> / <%=month%> / <%=year%></p>
 
 				<div id="av" onclick="hideav()">
-					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
-					<p id="avtxt"> <%= fullName %> </p>
+					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">					
 				</div>
+				
+				<p id="avtxt"> <%= fullName %> </p>
 
 					<div id="avconfdisp">
-						<img src="images/avconf.png" width="80%" height="80%">
+						<img src="images/OK.png" width="80%" height="80%">
 						<div>
-							<div id="imgadd">
-								<img src="images/add.png" height="10%" width="10%">
-							</div>
-
 							<p id="textconfdisp1"><%= fullName %></p>
 							
-							<p id="textconfdisp2">Status:<p id="textconfdisp3"><%= status %></p></p>
+							<p id="textconfdisp2">Estado:<p id="textconfdisp3"><%= status %></p></p>
 
 							<p id="textconfdisp5"><%= mail %></p>
 							
-							<a href="/edit"><div id="editprofile"><p id="edittxt">Edit Profile</p></div></a>
+							<a href="/edit"><div id="editprofile"><p id="edittxt">Editar Perfil</p></div></a>
 						</div>
 					</div>
-					
-				<div id="lang" onclick="hidelang()">
-					<img src="images/DropDownLang.png" height="85%" width="85%">					
-				</div>
-				
-				<div id="langmore"><img src="images/langlist.png" height="100%" width="100%"></div>				
+								
 
 				<div id="location">
 					<img src="images/placeholder-filled-point.png" width="5%" height="5%">
@@ -78,13 +71,11 @@
 					<p id="textC2"><%= medic %></p>							
 				</div>
 
-				<a href="calendar"><div id="calendar"><p id="calendartxt">Calendar</p></div></a>
-				<a href="/"><div id="logout"><p id="logouttxt">Log out</p></div></a>
+				<a href="calendar"><div id="calendar"><p id="calendartxt">Mis Turnos</p></div></a>
+				<a href="/"><div id="logout"><p id="logouttxt">Cerrar Sesión</p></div></a>
 
 			</div>
 			
-					
-
 			<div id="docinfo">	
 				
 				<div>
@@ -113,23 +104,109 @@
 				</div>
 				<hr id="up5">
 
-				<div id="appobutton" onclick="appointmentForm()"><p id="appobtntxt">Make an Appointment</p></div>
+				<div id="appobutton" onclick="appointmentForm()"><p id="appobtntxt">Pedir un Turno</p></div>
 			</div>
 			<div id="map"></div>
+			<div id="thing"></div>
         </div>
 	</div>
 
 	<div id="appointmentForm" style="
-	background-color: red;
-	position: relative;
-	transform: translateY(-40%);
-	height: 400px;
-	width: 80%;
-	margin:0 auto;
+	background-color: white;
+	position: absolute;
+	top: 30%;
+	left: 35%;
+	border-radius: 12px;
+	height: 250px;
+	width: 400px;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	visibility: hidden;
+	z-index: 3;
 	">
-	<form action="" class="" method="POST"">
-		<select class="selectpicker" data-style="btn-info" name="day">
-			<optgroup label="Day">
+
+<style>
+	.select-style {
+	position: absolute;
+	top: 55%;
+	left: 26%;
+    border: 1px solid #ccc;
+    width: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+	}
+
+	.select-style select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    background: white;
+    background-image: none;
+	}
+
+	.select-style select:focus {
+    outline: none;
+	}
+
+	.select-style2 {
+	position: absolute;
+	top: 55%;
+	left: 43%;
+    border: 1px solid #ccc;
+    width: 50px;
+    border-radius: 4px;
+    overflow: hidden;
+
+	}
+
+	.select-style2 select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    background: white;
+    background-image: none;
+	}
+
+	.select-style2 select:focus {
+    outline: none;
+	}
+
+	.select-style3 {
+	position: absolute;
+	top: 55%;
+	left: 60%;
+    border: 1px solid #ccc;
+    width: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+	}
+
+	.select-style3 select {
+    padding: 5px 8px;
+    width: 130%;
+    border: none;
+    background: white;
+    background-image: none;
+	}
+
+	.select-style3 select:focus {
+    outline: none;
+	}
+	
+	#appotitle{
+		position: absolute;
+		top: 2%;
+		left: 30%;
+		font-family: poppins;
+		font-weight: 800;
+		font-size: 22px;
+		color: #000000;
+	}
+	</style>
+
+	<form action="" class="" method="POST">
+		<div id="appotitle">Turno</div>
+		<select class="select-style" data-style="btn-info" name="day">
+			<optgroup label="Día">
 				<option name="1" value="1">1</option>
 				<option name="2" value="2">2</option>
 				<option name="3" value="3">3</option>
@@ -162,8 +239,8 @@
 				<option name="30" value="30">30</option>
 			</optgroup>
 		</select>
-		<select class="selectpicker" data-style="btn-info" name="month">
-			<optgroup label="Month">
+		<select class="select-style2" data-style="btn-info" name="month">
+			<optgroup label="Mes">
 				<option name="1" value="1">1</option>
 				<option name="2" value="3">2</option>
 				<option name="3" value="3">3</option>
@@ -178,8 +255,8 @@
 				<option name="12" value="12">12</option>
 			</optgroup>
 		</select>
-		<select class="selectpicker" data-style="btn-info" name="year">
-			<optgroup label="Year">
+		<select class="select-style3" data-style="btn-info" name="year">
+			<optgroup label="Año">
 				<option name="2019" value="2019">2019</option>
 				<option name="2020" value="2020">2020</option>
 				<option name="2021" value="2021">2021</option>
@@ -191,12 +268,12 @@
 		</select>
 
 		<div>
-			<label>Description:</label>
-			<input type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
+			<p id="descappo">Descripción:</p>
+			<input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
 		</div>
 
-		<input type="submit" class="" value="Make the appointment">
-		</form>
+		<input type="submit" id="btnappo" value="Make the Appointment">
+	</form>
 	</div>
 	<script>
 		function initMap() {
@@ -229,9 +306,10 @@
       x.style.visibility = 'visible';
     }
 }
-function appointmentForm1() {
+
+function appointmentexit() {
     var x = document.getElementById('appointmentForm');
-    if (x.style.display === 'visible') {
+    if (x.style.visibility === 'visible') {
       x.style.visibility = 'hidden';
     } else {
       x.style.visibility = 'hidden';
