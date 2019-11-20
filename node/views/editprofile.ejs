@@ -1,64 +1,99 @@
 <!DOCTYPE html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="icon" href="images/logoFormWhite.png">
-	<title>Edit Profile</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="icon" href="images/logoFormWhite.png">
+    <title>Edit Profile</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+
+    <style>
+        .select-style6 {
+            position: absolute;
+            top: 74%;
+            left: 10%;
+            border: 1px solid #ccc;
+            width: 350px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .select-style6 select {
+            padding: 5px 8px;
+            width: 130%;
+            border: none;
+            background: white;
+            background-image: none;
+        }
+        
+        .select-style6 select:focus {
+            outline: none;
+        }
+    </style>
 
 </head>
+
 <body style="background-color: rgba(170, 170, 170, 0.322); overflow: hidden;">
-    
-			<div class="LogImage7">
-					<a href="/"><img src="/images/logoFormWhite.png"></a>
-			</div>
 
-			<div id="greencirc1"></div>
-			<div id="greencirc2"></div>
-			<div id="greencirc3"></div>
-			<div id="greencirc4"></div>
-			<div id="greencirc5"></div>
-			<div id="greencirc6"></div>
-			<div id="greencirc7"></div>
-		
-				<form action="" class="login-form6" method="POST">
-	
-					<div class="txtb5">
-						<input type="userxtx" name="name" value='<%= name %>'>
-						<span data-placeholder=""></span>
-					</div>
-	
-					<div class="txtb5">
-						<input type="userxtx" name="lastName" value='<%= lastName %>'>
-						<span data-placeholder=""></span>
-					</div>
-	
-					<div class="txtb5">
-						<input type="userxtx" name="email" value='<%= mail %>'>
-						<span data-placeholder=""></span>
-					</div>
-	
-					<div class="txtb5">
-						<input type="password" name="password" value='<%= password %>'>
-						<span data-placeholder=""></span>
-					</div>
+    <div class="LogImage7">
+        <a href="/"><img src="/images/logoFormWhite.png"></a>
+    </div>
 
-					<input type="submit" id="btnedit3" value="ACTUALIZAR PERFIL" name="action">
-					<input type="submit" id="btnedit4" value="ELIMINAR PEROFIL" name="action">
-				</form>
+    <div id="greencirc1"></div>
+    <div id="greencirc2"></div>
+    <div id="greencirc3"></div>
+    <div id="greencirc4"></div>
+    <div id="greencirc5"></div>
+    <div id="greencirc6"></div>
+    <div id="greencirc7"></div>
+
+    <form action="" class="login-form6" method="POST">
+
+        <div class="txtb5">
+            <input type="userxtx" name="name" value='<%= name %>'>
+            <span data-placeholder=""></span>
         </div>
-	</div>
+
+        <div class="txtb5">
+            <input type="userxtx" name="lastName" value='<%= lastName %>'>
+            <span data-placeholder=""></span>
+        </div>
+
+        <div class="txtb5">
+            <input type="userxtx" name="email" value='<%= mail %>'>
+            <span data-placeholder=""></span>
+        </div>
+
+        <div class="txtb5">
+            <input type="password" name="password" value='<%= password %>'>
+            <span data-placeholder=""></span>
+        </div>
+
+        <select class="select-style6" data-style="btn-info" name="gender">
+						<optgroup label="Qué sos?">
+							<option name="<%= gender %>" value="<%= gender %>"><%= gender %></option>
+							<option name="hombre" value="hombre">Hombre</option>
+							<option name="mujer" value="mujer">Mujer</option>
+							<option name="otro" value="otro">Otro</option>
+						</optgroup>
+					</select>
+
+        <input type="submit" id="btnedit3" value="ACTUALIZAR PERFIL" name="action">
+        <input type="submit" id="btnedit4" value="ELIMINAR PERFIL" name="action">
+    </form>
+    </div>
+    </div>
 </body>
+
 </html>

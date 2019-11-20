@@ -221,7 +221,6 @@ app.get('/doctors', async(req, res) => {
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
-    console.log(medic)
     const findDoctors = await DoctorsMongo.find({ 'doctorType': medic }, function(err, result) {});
 
     res.render('doctors', {
@@ -280,7 +279,6 @@ app.get('/appointment', async(req, res) => {
     var mail = (findUser[0].email)
 
     const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function(err, result) {});
-    console.log(doctor)
     const horariosDoctor = await AvailabilityMongo.find({ 'doctor': doctor }, function(err, result) {});
 
     var latitude = (findDoctor[0].lat)
@@ -321,7 +319,8 @@ app.post('/appointment', async(req, res) => {
         event: req.body.event,
         day: req.body.day,
         month: req.body.month,
-        year: req.body.year
+        year: req.body.year,
+        color: '#eb4034'
     });
     await appointment.save();
 
@@ -351,6 +350,8 @@ app.get('/edit', async(req, res) => {
     var name = (findUser[0].name)
     var lastName = (findUser[0].lastName)
     var password = (findUser[0].password)
+    var gender = (findUser[0].gender)
+
 
     if (status == 'doctor') {
         res.redirect('/editDoctor')
@@ -364,26 +365,28 @@ app.get('/edit', async(req, res) => {
             password,
             day,
             month,
-            year
+            year,
+            gender
         });
     }
 });
 
 app.post('/edit', async(req, res) => {
     const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
-
-    if (req.body.action == 'Update Profile') {
+    if (req.body.action == 'ACTUALIZAR PERFIL') {
         var updateUser = await RegisterMongo.updateMany({ 'email': user }, {
             $set: {
                 name: req.body.name,
                 lastName: req.body.lastName,
                 email: req.body.email,
                 password: req.body.password,
-                rptpassword: req.body.password
+                rptpassword: req.body.password,
+                mop: findUser[0].mop,
+                gender: req.body.gender
             }
         });
-    } else if (req.body.action == 'Delete Profile') {
-        var updateUser = await RegisterMongo.remove({ 'email': user });
+    } else if (req.body.action == 'ELIMINAR PERFIL') {
+        var updateUser = await RegisterMongo.deleteOne({ 'email': user });
     }
 
     res.redirect('/index2')
@@ -405,6 +408,7 @@ app.get('/editDoctor', async(req, res) => {
     var phoneNumber = (findDoctor[0].phoneNumber)
     var address = (findDoctor[0].address)
     var doctorType = (findDoctor[0].doctorType)
+    var gender = (findUser[0].gender)
 
     res.render('editdoctor', {
         fullName,
@@ -418,7 +422,8 @@ app.get('/editDoctor', async(req, res) => {
         doctorType,
         day,
         month,
-        year
+        year,
+        gender
     });
 });
 
@@ -431,7 +436,8 @@ app.post('/editDoctor', async(req, res) => {
             lastName: req.body.lastName,
             email: req.body.email,
             password: req.body.password,
-            rptpassword: req.body.password
+            rptpassword: req.body.password,
+            gender: req.body.gender
         }
     });
 

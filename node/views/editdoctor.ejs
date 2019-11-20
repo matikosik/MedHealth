@@ -1,97 +1,118 @@
 <!DOCTYPE html>
+
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="icon" href="images/logoFormWhite.png">
-	<title>Edit Profile</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="icon" href="images/logoFormWhite.png">
+    <title>Edit Profile</title>
 
-<style>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
-	.select-style4 {
-		position: absolute;
-		top: 78%;
-		left: 16%;
-    	border: 1px solid #ccc;
-   		width: 300px;
-   		border-radius: 4px;
-    	overflow: hidden;
-	}
-
-	.select-style4 select {
-    	padding: 5px 8px;
-    	width: 130%;
-    	border: none;
-    	background: white;
-    	background-image: none;
-	}
-
-	.select-style4 select:focus {
-    	outline: none;
-	}
-
-
-</style>
+    <style>
+        .select-style4 {
+            position: absolute;
+            top: 78%;
+            left: 16%;
+            border: 1px solid #ccc;
+            width: 300px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .select-style4 select {
+            padding: 5px 8px;
+            width: 130%;
+            border: none;
+            background: white;
+            background-image: none;
+        }
+        
+        .select-style4 select:focus {
+            outline: none;
+        }
+        
+        .select-style6 {
+            position: absolute;
+            top: 82%;
+            left: 10%;
+            border: 1px solid #ccc;
+            width: 350px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .select-style6 select {
+            padding: 5px 8px;
+            width: 130%;
+            border: none;
+            background: white;
+            background-image: none;
+        }
+        
+        .select-style6 select:focus {
+            outline: none;
+        }
+    </style>
 
 </head>
+
 <body style="background-color: rgba(203, 203, 203, 0.322); overflow-x: hidden;">
 
-		<div class="LogImage5">
-				<a href="index2"><img src="/images/logoFormWhite.png"></a>
-		</div>
+    <div class="LogImage5">
+        <a href="index2"><img src="/images/logoFormWhite.png"></a>
+    </div>
 
-		<div id="greencirc1"></div>
-		<div id="greencirc2"></div>
-		<div id="greencirc3"></div>
-		<div id="greencirc4"></div>
-		<div id="greencirc5"></div>
-		<div id="greencirc6"></div>
-		<div id="greencirc7"></div>
-    
-			<form action="" class="login-form5" method="POST">
+    <div id="greencirc1"></div>
+    <div id="greencirc2"></div>
+    <div id="greencirc3"></div>
+    <div id="greencirc4"></div>
+    <div id="greencirc5"></div>
+    <div id="greencirc6"></div>
+    <div id="greencirc7"></div>
 
-				<div class="txtb5">
-					<input type="userxtx" name="name" value='<%= name %>'>
-					<span data-placeholder=""></span>
-				</div>
+    <form action="" class="login-form5" method="POST">
 
-				<div class="txtb5">
-					<input type="userxtx" name="lastName" value='<%= lastName %>'>
-					<span data-placeholder=""></span>
-				</div>
+        <div class="txtb5">
+            <input type="userxtx" name="name" value='<%= name %>'>
+            <span data-placeholder=""></span>
+        </div>
 
-				<div class="txtb5">
-					<input type="userxtx" name="email" value='<%= mail %>'>
-					<span data-placeholder=""></span>
-				</div>
+        <div class="txtb5">
+            <input type="userxtx" name="lastName" value='<%= lastName %>'>
+            <span data-placeholder=""></span>
+        </div>
 
-				<div class="txtb5">
-					<input type="password" name="password" value='<%= password %>'>
-					<span data-placeholder=""></span>
-				</div>
+        <div class="txtb5">
+            <input type="userxtx" name="email" value='<%= mail %>'>
+            <span data-placeholder=""></span>
+        </div>
 
-				<div class="txtb5">
-					<input type="userxtx" name="phoneNumber" value='<%= phoneNumber %>'>
-					<span data-placeholder=""></span>
-				</div>
+        <div class="txtb5">
+            <input type="password" name="password" value='<%= password %>'>
+            <span data-placeholder=""></span>
+        </div>
 
-				<div class="txtb5">
-					<input type="userxtx" name="address" value='<%= address %>'>
-					<span data-placeholder=""></span>
-				</div>
+        <div class="txtb5">
+            <input type="userxtx" name="phoneNumber" value='<%= phoneNumber %>'>
+            <span data-placeholder=""></span>
+        </div>
 
-				<select class="select-style4" data-style="btn-info" name="doctorType">
+        <div class="txtb5">
+            <input type="userxtx" name="address" value='<%= address %>'>
+            <span data-placeholder=""></span>
+        </div>
+
+        <select class="select-style4" data-style="btn-info" name="doctorType">
 					<optgroup label="Specialty">
 						<option name="<%= doctorType %>" value="<%= doctorType %>"><%= doctorType %></option>
 						<option name="Cardiology" value="Cardiology">Cardiología</option>
@@ -120,10 +141,20 @@
 					</optgroup>
 				</select>
 
-				<input type="submit" id="btnedit" value="ACTUALIZAR PERFIL" name="action">
-				<input type="submit" id="btnedit2" value="ELIMINAR PERFIL" name="action">
-			</form>
-        </div>
-	</div>
+        <select class="select-style6" data-style="btn-info" name="gender">
+					<optgroup label="Qué sos?">
+						<option name="<%= gender %>" value="<%= gender %>"><%= gender %></option>
+						<option name="hombre" value="hombre">Hombre</option>
+						<option name="mujer" value="mujer">Mujer</option>
+						<option name="otro" value="otro">Otro</option>
+					</optgroup>
+				</select>
+
+        <input type="submit" id="btnedit" value="ACTUALIZAR PERFIL" name="action">
+        <input type="submit" id="btnedit2" value="ELIMINAR PERFIL" name="action">
+    </form>
+    </div>
+    </div>
 </body>
+
 </html>
