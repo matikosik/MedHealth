@@ -19,7 +19,7 @@ while (b < 12) {
         var fecha = new Date(month + ', ' + day + ', ' + year);
         var fecha1 = fecha.getDay();
 
-        if (days[fecha1] == 'Lunes') {
+        if (days[fecha1] == 'Martes') {
             fechasDelDia.push({ day, month, year })
         }
         i++

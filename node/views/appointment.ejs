@@ -308,13 +308,12 @@
 				<option name="2024" value="2024">2025</option>
 			</optgroup>
 		</select>
-            <%= horariosDoctor %>
-                <div>
-                    <p id="descappo">Descripción:</p>
-                    <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
-                </div>
+            <div>
+                <p id="descappo">Descripción:</p>
+                <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
+            </div>
 
-                <input type="submit" id="btnappo" value="Make the Appointment">
+            <input type="submit" id="btnappo" value="Make the Appointment">
         </form>
     </div>
     <script>
