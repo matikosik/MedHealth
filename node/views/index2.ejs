@@ -1,371 +1,400 @@
 <!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth</title>
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="images/logoFormWhite.png">
+    <title>MedHealth</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
+
 <body>
     <div class="container">
         <div>
             <div class="NAVBAR">
-				<div>
-					<a href="index2"><img src="/images/logo.png" class="picpref responsive-img"></a>
-					
-					<hr>					
-				</div>
+                <div>
+                    <a href="index2"><img src="/images/logo.png" class="picpref responsive-img"></a>
 
-				<p class="textoNavBar">MEDHEALTH</p>
+                    <hr>
+                </div>
 
-				<p id="date">Fecha: <%=day%> / <%=month%> / <%=year%></p>
+                <p class="textoNavBar">MEDHEALTH</p>
 
-				<div id="av" onclick="hideav()">
-					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
-				</div>
-				<p id="avtxt"> <%= fullName %> </p>
+                <p id="date">Fecha:
+                    <%=day%> /
+                        <%=month%> /
+                            <%=year%>
+                </p>
 
-					<div id="avconfdisp">
-						<img src="images/OK.png" width="80%" height="80%">
-						<div>
-							<p id="textconfdisp1"><%= fullName %></p>
-							
-							<p id="textconfdisp2">Estado:<p id="textconfdisp3"><%= status %></p></p>
+                <div id="av" onclick="hideav()">
+                    <img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
+                </div>
+                <p id="avtxt">
+                    <%= fullName %>
+                </p>
 
-							<!--<p id="textconfdisp4">Appointment: 15/11</p>-->
+                <div id="avconfdisp">
+                    <img src="images/OK.png" width="80%" height="80%">
+                    <div>
+                        <p id="textconfdisp1">
+                            <%= fullName %>
+                        </p>
 
-							<p id="textconfdisp5"><%= mail %></p>
-							
-							<a href="/edit"><div id="editprofile"><p id="edittxt">Editar Perfil</p></div></a>
-						</div>
-					</div>			
+                        <p id="textconfdisp2">Estado:
+                            <p id="textconfdisp3">
+                                <%= status %>
+                            </p>
+                        </p>
 
-				<div id="location">
-					<img src="images/placeholder-filled-point.png" width="5%" height="5%">
-					<p id="loctext">Belgrano CABA</p>
-				</div>
+                        <!--<p id="textconfdisp4">Appointment: 15/11</p>-->
 
-				<div>
-					<p id="textC" onclick="switchVisible()">CATEGORIAS</p>
-					<p id="textH" onclick="switchVisible2()">HOSPITALES</p>
-					<a href="calendar"><div id="calendar"><p id="calendartxt">Mis Turnos</p></div></a>							
-				</div>
+                        <p id="textconfdisp5">
+                            <%= mail %>
+                        </p>
 
-				<a href="/"><div id="logout"><p id="logouttxt">Cerrar Sesión</p></div></a>
-			</div>
+                        <a href="/edit">
+                            <div id="editprofile">
+                                <p id="edittxt">Editar Perfil</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
-			<!---		Hospitals		--->
+                <div id="location">
+                    <img src="images/placeholder-filled-point.png" width="5%" height="5%">
+                    <p id="loctext">Belgrano CABA</p>
+                </div>
 
-			<div id="HOSPITALS">
+                <div>
+                    <p id="textC" onclick="switchVisible()">CATEGORIAS</p>
+                    <p id="textH" onclick="switchVisible2()">HOSPITALES</p>
+                    <a href="calendar">
+                        <div id="calendar">
+                            <p id="calendartxt">Mis Turnos</p>
+                        </div>
+                    </a>
+                </div>
 
-				<div id="hos1">
-					<div>
-						<p id="Hname1">Hospital Fleni</p>
-					</div>
-				</div>
+                <a href="/">
+                    <div id="logout">
+                        <p id="logouttxt">Cerrar Sesión</p>
+                    </div>
+                </a>
+            </div>
 
-				<div id="hos2">
-					<div>
-						<p id="Hname1">Clínica CEMIC</p>
-					</div>
-				</div>
+            <!---		Hospitals		--->
 
-				<div id="hos3">
-					<div>
-						<p id="Hname1">Hospital Italiano</p>
-					</div>
-				</div>
+            <div id="HOSPITALS">
 
-				<div id="hos4">
-					<div>
-						<p id="Hname1">Hospital Alemán</p>
-					</div>
-				</div>
+                <div id="hos1">
+                    <div>
+                        <p id="Hname1">Hospital Fleni</p>
+                    </div>
+                </div>
 
-				<div id="hos5">
-					<div>
-						<p id="Hname1">Clínica Galeno</p>
-					</div>
-				</div>
+                <div id="hos2">
+                    <div>
+                        <p id="Hname1">Clínica CEMIC</p>
+                    </div>
+                </div>
 
-				<div id="hos6">
-					<div>
-						<p id="Hname1">Hospital Militar Central</p>
-					</div>
-				</div>
+                <div id="hos3">
+                    <div>
+                        <p id="Hname1">Hospital Italiano</p>
+                    </div>
+                </div>
 
-				<div id="hos7">
-					<div>
-						<p id="Hname1">Clínica Eneli</p>
-					</div>
-				</div>
+                <div id="hos4">
+                    <div>
+                        <p id="Hname1">Hospital Alemán</p>
+                    </div>
+                </div>
 
-				<div id="hos8">
-					<div>
-						<p id="Hname1">Clínica Loiacono</p>
-					</div>
-				</div>
+                <div id="hos5">
+                    <div>
+                        <p id="Hname1">Clínica Galeno</p>
+                    </div>
+                </div>
 
-				<div id="hos9">
-					<div>
-						<p id="Hname1">Centro de Rehabilitacion CABA</p>
-					</div>
-				</div>
-	
-				<div id="hos10">
-					<div>
-						<p id="Hname1">Clínica Vidal</p>
-					</div>
-				</div>
-	
-				<div id="hos11">
-					<div>
-						<p id="Hname1">Sanatorio de Colegiales</p>
-					</div>
-				</div>
-	
-				<div id="hos12">
-					<div>
-						<p id="Hname1">Instituto Fleming</p>
-					</div>
-				</div>
-	
-				<div id="hos13">
-					<div>
-						<p id="Hname1">Instituto Alfredo Lanari</p>
-					</div>
-				</div>
-	
-				<div id="hos14">
-					<div>
-						<p id="Hname1">Hospital Cesac</p>
-					</div>
-				</div>
-	
-				<div id="hos15">
-					<div>
-						<p id="Hname1">Clínica Zabala</p>
-					</div>
-				</div>
-	
-				<div id="hos16">
-					<div>
-						<p id="Hname1">Hospital Rivadavia</p>
-					</div>
-				</div>
+                <div id="hos6">
+                    <div>
+                        <p id="Hname1">Hospital Militar Central</p>
+                    </div>
+                </div>
 
-			</div>
+                <div id="hos7">
+                    <div>
+                        <p id="Hname1">Clínica Eneli</p>
+                    </div>
+                </div>
 
-			<!---	 Categories 	--->
+                <div id="hos8">
+                    <div>
+                        <p id="Hname1">Clínica Loiacono</p>
+                    </div>
+                </div>
 
-			<div id="CATEGORIES">
+                <div id="hos9">
+                    <div>
+                        <p id="Hname1">Centro de Rehabilitacion CABA</p>
+                    </div>
+                </div>
 
-					<div id="cat1">
-						<form method="post">
-							<input type="submit" name="med" value="Ophthalmología" id="btncat"> 
-						</form>
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						
-					</div>
+                <div id="hos10">
+                    <div>
+                        <p id="Hname1">Clínica Vidal</p>
+                    </div>
+                </div>
 
-					<div id="cat2">
-							<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-							<div id="square1"></div>
-							<form method="post">
-								<input type="submit" name="med" value="Cardiología" id="btncat"> 
-							</form>
-					</div>
-		
-					<div id="cat3">
-							<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-							<div id="square1"></div>
-							<form method="post">
-								<input type="submit" name="med" value=Odontología id="btncat"> 
-							</form>
-					</div>
-		
-					<div id="cat4">
-							<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-							<div id="square1"></div>
-							<form method="post">
-								<input type="submit" name="med" value="Laboratorio" id="btncat"> 
-							</form>
-					</div>
-		
-					<div id="cat5">
-							<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-							<div id="square1"></div>
-							<form method="post">
-								<input type="submit" name="med" value="Pediatría" id="btncat"> 
-							</form>
-					</div>
-		
-					<div id="cat6">
-							<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-							<div id="square1"></div>
-							<form method="post">
-								<input type="submit" name="med" value="Radiología" id="btncat"> 
-							</form>
-					</div>
-		
-					<div id="cat7">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Dermatología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat8">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Anesthesiología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat9">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Neurología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat10">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Medicina Nuclear" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat11">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Gynecología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat12">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Urología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat13">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Pathología" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat14">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Psychiatría" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat15">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Medicina Física" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat16">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Medicina Interna" id="btncat"> 
-						</form>
-					</div>
-		
-					<div id="cat17">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Medicina Preventiva" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat18">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Medicina de Emergencia" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat19">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Alergía & Inmunología" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat20">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Tomographía" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat21">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Ecographía" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat22">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Toxicología" id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat23">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="M.R.I." id="btncat"> 
-						</form>
-					</div>
-			
-					<div id="cat24">
-						<div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
-						<div id="square1"></div>
-						<form method="post">
-							<input type="submit" name="med" value="Sexología" id="btncat"> 
-						</form>
-					</div>						
-			</div>
+                <div id="hos11">
+                    <div>
+                        <p id="Hname1">Sanatorio de Colegiales</p>
+                    </div>
+                </div>
+
+                <div id="hos12">
+                    <div>
+                        <p id="Hname1">Instituto Fleming</p>
+                    </div>
+                </div>
+
+                <div id="hos13">
+                    <div>
+                        <p id="Hname1">Instituto Alfredo Lanari</p>
+                    </div>
+                </div>
+
+                <div id="hos14">
+                    <div>
+                        <p id="Hname1">Hospital Cesac</p>
+                    </div>
+                </div>
+
+                <div id="hos15">
+                    <div>
+                        <p id="Hname1">Clínica Zabala</p>
+                    </div>
+                </div>
+
+                <div id="hos16">
+                    <div>
+                        <p id="Hname1">Hospital Rivadavia</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!---	 Categories 	--->
+
+            <div id="CATEGORIES">
+
+                <div id="cat1">
+                    <form method="post">
+                        <input type="submit" name="med" value="Ophthalmología" id="btncat">
+                    </form>
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+
+                </div>
+
+                <div id="cat2">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Cardiología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat3">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value=Odontología id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat4">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Laboratorio" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat5">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Pediatría" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat6">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Radiología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat7">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Dermatología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat8">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Anesthesiología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat9">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Neurología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat10">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Medicina Nuclear" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat11">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Gynecología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat12">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Urología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat13">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Pathología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat14">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Psychiatría" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat15">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Medicina Física" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat16">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Medicina Interna" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat17">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Medicina Preventiva" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat18">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Medicina de Emergencia" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat19">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Alergía & Inmunología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat20">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Tomographía" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat21">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Ecographía" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat22">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Toxicología" id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat23">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="M.R.I." id="btncat">
+                    </form>
+                </div>
+
+                <div id="cat24">
+                    <div id="imgcat"><img src="images/stethoscope.png" width="10%" height="10%"></div>
+                    <div id="square1"></div>
+                    <form method="post">
+                        <input type="submit" name="med" value="Sexología" id="btncat">
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>

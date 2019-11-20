@@ -187,6 +187,7 @@ app.post('/login', urlencoderParser, async(req, res) => {
 });
 //fin login
 
+var medic;
 //index2
 app.get('/index2', async(req, res) => {
     const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
@@ -205,9 +206,8 @@ app.get('/index2', async(req, res) => {
     });
 });
 
-var medic;
 app.post('/index2', urlencoderParser, async(req, res) => {
-    medic = req.body.med
+    medic = req.body.med;
     res.redirect('doctors');
 });
 //fin index2
@@ -221,6 +221,7 @@ app.get('/doctors', async(req, res) => {
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
+    console.log(medic)
     const findDoctors = await DoctorsMongo.find({ 'doctorType': medic }, function(err, result) {});
 
     res.render('doctors', {

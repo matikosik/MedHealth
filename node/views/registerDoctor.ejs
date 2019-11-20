@@ -1,62 +1,70 @@
 <!DOCTYPE html>
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	
-	<link rel="icon" href="images/logoFormWhite.png">
-	<title>MedHealth - Register Doctor</title>
 
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-	<!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/materialize.js"></script>
-	<script type="text/javascript" src="js/MedHealth.js"></script>
-	<!-- fuentes -->
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="images/logoFormWhite.png">
+    <title>MedHealth - Register Doctor</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../css/materialize.css"> -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <script type="text/javascript" src="js/MedHealth.js"></script>
+    <!-- fuentes -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
+
 <body style="background-color: rgba(170, 170, 170, 0.322); overflow-x: hidden;">
 
-	<div id="backimgdoc">
+    <div id="backimgdoc">
 
-		<div class="LogImage3">
-			<img src="images/logoFormWhite.png">
-		</div>
+        <div class="LogImage3">
+            <img src="images/logoFormWhite.png">
+        </div>
 
-		<div id="greencirc1"></div>
-		<div id="greencirc2"></div>
-		<div id="greencirc3"></div>
-		<div id="greencirc4"></div>
-		<div id="greencirc5"></div>
-		<div id="greencirc6"></div>
-		<div id="greencirc7"></div>
+        <div id="greencirc1"></div>
+        <div id="greencirc2"></div>
+        <div id="greencirc3"></div>
+        <div id="greencirc4"></div>
+        <div id="greencirc5"></div>
+        <div id="greencirc6"></div>
+        <div id="greencirc7"></div>
 
-		<form action="" class="login-form" method="POST">
+        <form action="" class="login-form" method="POST">
 
-			<p id="titledoc">REGISTER DOCTOR</p>
-			<p id="namedoc">Nombre: <%= name %> </p>
-			
-			<p id="lastnamedoc">Apellido: <%= lastName %> </p>
-			
-			<p id="emaildoc">Email: <%= email %> </p>
-			
+            <p id="titledoc">REGISTER DOCTOR</p>
+            <p id="namedoc">Nombre:
+                <%= name %>
+            </p>
 
-			<div class="txtb" style="position:relative; top: 50%; margin: 20px 0;">
-				<input type="address" name="address">
-				<span data-placeholder="Dirección"></span>
-			</div>
-			
-			<div class="txtb" style="position:relative; top: 52.5%; margin: 20px 0;">
-					<input type="phonenumber" name="phonenumber">
-					<span data-placeholder="Numero de Teléfono"></span>
-			</div>
-			
-			<select id="selectpicker" data-style="btn-info" name="doctorType">
+            <p id="lastnamedoc">Apellido:
+                <%= lastName %>
+            </p>
+
+            <p id="emaildoc">Email:
+                <%= email %>
+            </p>
+
+
+            <div class="txtb" style="position:relative; top: 50%; margin: 20px 0;">
+                <input type="address" name="address">
+                <span data-placeholder="Dirección"></span>
+            </div>
+
+            <div class="txtb" style="position:relative; top: 52.5%; margin: 20px 0;">
+                <input type="phonenumber" name="phonenumber">
+                <span data-placeholder="Numero de Teléfono"></span>
+            </div>
+
+            <select id="selectpicker" data-style="btn-info" name="doctorType">
 				<optgroup label="Specialty">
-					<option name="Ophthalmology" value="Ophthalmology">Oftalmología</option>
+					<option name="Ophthalmología" value="Ophthalmología">Ophthalmología</option>
 					<option name="Cardiology" value="Cardiology">Cardiología</option>
 					<option name="Dentistry" value="Dentistry">Odontología</option>
 					<option name="Laboratory" value="Laboratory">Laboratorio</option>
@@ -83,27 +91,28 @@
 				</optgroup>
 			</select>
 
-			<div id="dates"></div>
-			<div id="schedule"></div>
-			
-			<input type="submit" class="logbtn radius" value="CONTINUE">
+            <div id="dates"></div>
+            <div id="schedule"></div>
 
-			<div class="bottom-textD">
-					Ya tienes una cuenta? <a href="login">LOGIN</a>
-			</div>
+            <input type="submit" class="logbtn radius" value="CONTINUE">
 
-		</form>
+            <div class="bottom-textD">
+                Ya tienes una cuenta? <a href="login">LOGIN</a>
+            </div>
 
-		<script type="text/javascript">
-		$(".txtb input").on("focus",function(){
-			$(this).addClass("focus");
-		});
+        </form>
 
-		$(".txtb input").on("blur",function(){
-			if($(this).val() == "")
-			$(this).removeClass("focus");
-		});
-		</script>
-	</div>
+        <script type="text/javascript">
+            $(".txtb input").on("focus", function() {
+                $(this).addClass("focus");
+            });
+
+            $(".txtb input").on("blur", function() {
+                if ($(this).val() == "")
+                    $(this).removeClass("focus");
+            });
+        </script>
+    </div>
 </body>
+
 </html>
