@@ -11,14 +11,8 @@ const CalendarSchema = new mongoose.Schema({
     event: {
         type: String
     },
-    day: {
-        type: Number
-    },
-    month: {
-        type: Number
-    },
-    year: {
-        type: Number
+    date: {
+        type: String
     },
     color: {
         type: String

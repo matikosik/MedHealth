@@ -248,66 +248,13 @@
         <form action="" class="" method="POST">
             <div id="appotitle">Turno</div>
             <select class="select-style" data-style="btn-info" name="day">
-			<optgroup label="Día">
-				<option name="1" value="1">1</option>
-				<option name="2" value="2">2</option>
-				<option name="3" value="3">3</option>
-				<option name="4" value="4">4</option>
-				<option name="5" value="5">5</option>
-				<option name="6" value="6">6</option>
-				<option name="7" value="7">7</option>
-				<option name="8" value="8">8</option>
-				<option name="9" value="9">9</option>
-				<option name="10" value="10">10</option>
-				<option name="11" value="11">11</option>
-				<option name="12" value="12">12</option>
-				<option name="13" value="13">13</option>
-				<option name="14" value="14">14</option>
-				<option name="15" value="15">15</option>
-				<option name="16" value="16">16</option>
-				<option name="17" value="17">17</option>
-				<option name="18" value="18">18</option>
-				<option name="19" value="19">19</option>
-				<option name="20" value="20">20</option>
-				<option name="21" value="21">21</option>
-				<option name="22" value="22">22</option>
-				<option name="23" value="23">23</option>
-				<option name="24" value="24">24</option>
-				<option name="25" value="25">25</option>
-				<option name="26" value="26">26</option>
-				<option name="27" value="27">27</option>
-				<option name="28" value="28">28</option>
-				<option name="29" value="29">29</option>
-				<option name="30" value="30">30</option>
-			</optgroup>
+			<optgroup label="Fecha">
+                <% for(var i = 0; fechasDelDia.length > i; i++) { %>
+				<option name="<%= fechasDelDia[i] %>" value="<%= fechasDelDia[i] %>"><%= fechasDelDia[i] %></option>
+                <% } %>
+            </optgroup>
 		</select>
-            <select class="select-style2" data-style="btn-info" name="month">
-			<optgroup label="Mes">
-				<option name="1" value="1">1</option>
-				<option name="2" value="3">2</option>
-				<option name="3" value="3">3</option>
-				<option name="4" value="4">4</option>
-				<option name="5" value="5">5</option>
-				<option name="6" value="6">6</option>
-				<option name="7" value="7">7</option>
-				<option name="8" value="8">8</option>
-				<option name="9" value="9">9</option>
-				<option name="10" value="10">10</option>
-				<option name="11" value="11">11</option>
-				<option name="12" value="12">12</option>
-			</optgroup>
-		</select>
-            <select class="select-style3" data-style="btn-info" name="year">
-			<optgroup label="Año">
-				<option name="2019" value="2019">2019</option>
-				<option name="2020" value="2020">2020</option>
-				<option name="2021" value="2021">2021</option>
-				<option name="2022" value="2022">2022</option>
-				<option name="2023" value="2023">2023</option>
-				<option name="2024" value="2024">2024</option>
-				<option name="2024" value="2024">2025</option>
-			</optgroup>
-		</select>
+
             <div>
                 <p id="descappo">Descripción:</p>
                 <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">

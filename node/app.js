@@ -42,7 +42,6 @@ var day = ("0" + datetime.getDate()).slice(-2);
 var month = datetime.getMonth() + 1
 var year = datetime.getFullYear()
 
-
 //index
 app.get('/', (req, res) => {
     res.render('index');
@@ -286,59 +285,278 @@ app.get('/appointment', async(req, res) => {
     var latitude = (findDoctor[0].lat)
     var longitude = (findDoctor[0].lon)
 
-    res.render('appointment', {
-        fullName,
-        status,
-        mail,
-        medic,
-        findDoctor,
-        latitude,
-        longitude,
-        day,
-        month,
-        year,
-        horariosDoctor
+    var fechasDelDia = new Array();
+
+    const eldoctor = AvailabilityMongo.find({ doctor: doctor }, function(err, result) {
+        var largo = result[0].days
+        var largo2 = largo.length
+
+        var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+
+        var date = new Date(),
+            y = 2019,
+            m = date.getMonth();
+        var lastDay = new Date(y, m + 1, 0).getDate();
+
+        var i = ("0" + date.getDate()).slice(-2);
+        var b = date.getMonth()
+
+        if (largo2 == 1) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 2) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 3) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1] || days[fecha1] == result[0].days[2]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 4) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1] || days[fecha1] == result[0].days[2] || days[fecha1] == result[0].days[3]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 5) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1] || days[fecha1] == result[0].days[2] || days[fecha1] == result[0].days[3] || days[fecha1] == result[0].days[4]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 6) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1] || days[fecha1] == result[0].days[2] || days[fecha1] == result[0].days[3] || days[fecha1] == result[0].days[4] || days[fecha1] == result[0].days[5]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        } else if (largo2 == 7) {
+            while (b < 12) {
+                if (i < lastDay) {
+                    var year = 2019
+                    var month = b + 1
+                    var day = i + 1
+
+                    var fecha = new Date(month + ', ' + day + ', ' + year);
+                    var fecha1 = fecha.getDay();
+
+                    if (days[fecha1] == result[0].days[0] || days[fecha1] == result[0].days[1] || days[fecha1] == result[0].days[2] || days[fecha1] == result[0].days[3] || days[fecha1] == result[0].days[4] || days[fecha1] == result[0].days[5] || days[fecha1] == result[0].days[6]) {
+                        fechasDelDia.push(day + '/' + month + '/' + year)
+                    }
+                    i++
+                } else {
+                    b++
+                    i = 0
+                }
+            }
+            console.log(fechasDelDia)
+            res.render('appointment', {
+                fullName,
+                status,
+                mail,
+                medic,
+                findDoctor,
+                latitude,
+                longitude,
+                day,
+                month,
+                year,
+                horariosDoctor,
+                fechasDelDia
+            });
+        }
     });
+
 });
 
 app.post('/appointment', async(req, res) => {
-    const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
-
-    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-    var status = (findUser[0].mop)
-    var mail = (findUser[0].email)
-
     const findDoctor = await DoctorsMongo.find({ 'email': doctor }, function(err, result) {});
-
-    const horariosDoctor = await AvailabilityMongo.find({ 'doctor': medic }, function(err, result) {});
-
-    var latitude = (findDoctor[0].lat)
-    var longitude = (findDoctor[0].lon)
 
     const appointment = new CalendarMongo({
         email: user,
         doctor: findDoctor[0].email,
         event: req.body.event,
-        day: req.body.day,
-        month: req.body.month,
-        year: req.body.year,
+        date: req.body.day,
         color: '#eb4034'
     });
     await appointment.save();
 
-    res.render('appointment', {
-        fullName,
-        status,
-        mail,
-        medic,
-        findDoctor,
-        latitude,
-        longitude,
-        day,
-        month,
-        year,
-        horariosDoctor
-    });
+    res.redirect('/appointment')
 });
 //fin appointment
 
@@ -489,31 +707,21 @@ app.get('/dashboard', async(req, res) => {
     });
 });
 
-app.post('/dashbard', async(req, res) => {
-    const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
-    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
-    var status = (findUser[0].mop)
-    var mail = (findUser[0].email)
+app.post('/dashboard', async(req, res) => {
+    if (req.body.confirmar != '') {
+        var updateCalendar = await CalendarMongo.updateMany({ '_id': req.body.confirmar }, {
+            $set: {
+                color: '#ffffff00'
+            }
 
-    const events = await CalendarMongo.find({ 'email': user }, function(err, result) {});
+        });
+        console.log('updateCalendar')
+    }
+    if (req.body.eliminar != '') {
+        var deleteCalendar = await CalendarMongo.deleteOne({ '_id': req.body.eliminar });
+        console.log('deleteCalendar')
+    }
 
-    console.log(req.body)
-
-    var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
-    var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
-    var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
-
-    /*
-    res.render('dashboard', {
-        fullName,
-        status,
-        mail,
-        day,
-        month,
-        year,
-        sortDate2
-    });
-    */
     res.redirect('/dashboard')
 });
 //fin dashboard doctor
