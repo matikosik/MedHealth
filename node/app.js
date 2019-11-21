@@ -178,9 +178,11 @@ app.post('/login', urlencoderParser, async(req, res) => {
             res.render('login', {
                 error
             });
+        } else if (result[0].mop == 'doctor') {
+            user = req.body.email;
+            res.redirect('dashboard');
         } else if (req.body.password == result[0].password) {
             user = req.body.email;
-            //console.log(user); 
             res.redirect('index2');
         }
     });
@@ -462,6 +464,59 @@ app.post('/editDoctor', async(req, res) => {
     res.redirect('/index2')
 });
 //fin edit Doctor
+
+//dashboard doctor
+app.get('/dashboard', async(req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    const events = await CalendarMongo.find({ 'email': user }, function(err, result) {});
+
+    var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
+    var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
+    var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
+
+    res.render('dashboard', {
+        fullName,
+        status,
+        mail,
+        day,
+        month,
+        year,
+        sortDate2
+    });
+});
+
+app.post('/dashbard', async(req, res) => {
+    const findUser = await RegisterMongo.find({ 'email': user }, function(err, result) {});
+    var fullName = (findUser[0].name + ' ' + findUser[0].lastName)
+    var status = (findUser[0].mop)
+    var mail = (findUser[0].email)
+
+    const events = await CalendarMongo.find({ 'email': user }, function(err, result) {});
+
+    console.log(req.body)
+
+    var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
+    var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
+    var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
+
+    /*
+    res.render('dashboard', {
+        fullName,
+        status,
+        mail,
+        day,
+        month,
+        year,
+        sortDate2
+    });
+    */
+    res.redirect('/dashboard')
+});
+//fin dashboard doctor
 
 app.listen(3000, () => {
     console.log('estoy escuchando a puerto 3000');
