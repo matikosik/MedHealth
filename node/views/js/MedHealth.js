@@ -42,6 +42,15 @@ function hidelang() {
     }
 }
 
+function hidelang2() {
+  var x = document.getElementById('langmore');
+  if (x.style.visibility === 'hidden') {
+    x.style.visibility = 'visible';
+  } else {
+    x.style.visibility = 'hidden';
+  }
+}
+
 function hidename() {
     var x = document.getElementById('avtxt');
     if (x.style.visibility === 'visible') {

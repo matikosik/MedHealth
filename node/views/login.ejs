@@ -18,24 +18,33 @@
 	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-<body>
+<body style="background-color: rgba(203, 203, 203, 0.322); overflow: hidden;">
 	<div>
 		<div class="LogImage2">
-			<a href="/"><img src="images/logoForm2.png"></a>
+			<a href="/"><img src="images/logoFormWhite.png"></a>
 		</div>
+
+		<div id="greencirc1"></div>
+		<div id="greencirc2"></div>
+		<div id="greencirc3"></div>
+		<div id="greencirc4"></div>
+		<div id="greencirc5"></div>
+		<div id="greencirc6"></div>
+		<div id="greencirc7"></div>
+
 
 		<form action="" class="login-form2" method="POST">
 
 			<h1 class="h12">LOG IN</h1>
 
-			<div class="txtb">
+			<div class="txtb" style="position:relative; top: 25%; margin: 20px 0;">
 				<input type="email" name="email">
 				<span data-placeholder="Email"></span>
 			</div>
 
-			<div class="txtb">
+			<div class="txtb" style="position:relative; top: 30%; margin: 20px 0;">
 				<input type="password" name="password">
-				<span data-placeholder="Password"></span>
+				<span data-placeholder="Contraseña"></span>
 			</div>
 			
 			<label class="error"> <%= error %> </label>
@@ -46,7 +55,7 @@
 		</form>
 
 		<div class="bottom-text2">
-			Don't have an account yet? <a href="register">REGISTER</a>
+			Todavia no tenes una cuenta? <a href="register">REGISTRATE</a>
 		</div>
 
 	</div>

@@ -19,6 +19,9 @@ const CalendarSchema = new mongoose.Schema({
     },
     year: {
         type: Number
+    },
+    color: {
+        type: String
     }
 });
 

@@ -12,7 +12,7 @@
 }
 
 #txtlogoindex{
-	position: absolute;
+	/*position: absolute;
 	top: 8%;
 	left: 10.5%;
 	font-family: Poppins;
@@ -20,10 +20,18 @@
 	font-weight: 600;
 	font-size: 22px;
 	line-height: 36px;
-	display: flex;
 	align-items: center;
 	text-align: center;
+	color: #18D13D;*/
+
+	font-family: 'Poppins';
+	font-size: 22px;
 	color: #18D13D;
+	position: absolute;
+	top: 8%;
+	left: 11%;
+	font-size: 30px;
+	font-weight: 550;
 }
 
 #indextxt{
@@ -45,14 +53,7 @@
 #regiboxx{
 	position: absolute;
 	top: 50%;
-	left: 30%;
-}
-
-#regibox{
-	width: 300px;
-	height: 100px;
-	background: #18D13D;
-	z-index: 15;
+	left: 29%;
 }
 
 #indextxt2{
@@ -484,15 +485,15 @@ body{
 
 .login-form{
 	width: 360px;
-	background: #f1f1f1;
-	height: 550px;
+	background: #ffffff;
+	height: 510px;
 	margin-top: 0%;
 	margin-bottom: 5%;
 	padding: 80px 40px;
 	border-radius: 10px;
 	position: absolute;
-	left: 50%;
-	top: 10%;
+	left: 50.5%;
+	top: 6%;
 	transform: translate(-50%, 10%);
 	z-index: -1;
 }
@@ -503,6 +504,8 @@ body{
 }
 
 .txtb{
+	position: absolute;
+	top: 0%;
 	border-bottom: 2px solid #adadad;
 	position: relative;
 	margin: 30px 0;
@@ -550,7 +553,7 @@ body{
 .logbtn{
 	display: block;
 	position: absolute;
-	top: 89%;
+	top: 88%;
 	position: translateY(86%);
 	width: 82%;
 	height: 50px;
@@ -564,6 +567,14 @@ body{
 }
 
 .error{
+	position: absolute;
+	top: 72%;
+	color: red;
+}
+
+.error2{
+	position: absolute;
+	top: 83%;
 	color: red;
 }
 
@@ -573,8 +584,8 @@ body{
 
 .bottom-text{
 	position: absolute;
-	top: 120%;
-	left: 41.5%;
+	top: 105%;
+	left: 42.5%;
 	position: translateY(109%);
 	margin-top: 60px;
 	text-align: center;
@@ -584,8 +595,8 @@ body{
 
 .bottom-textD{
 	position: absolute;
-	top: 88%;
-	left: 27%;
+	top: 87%;
+	left: 25%;
 	position: translateY(90%);
 	margin-top: 60px;
 	text-align: center;
@@ -596,8 +607,29 @@ body{
 
 .LogImage{
 	position: absolute;
-	left: 50%;
+	left: 50.25%;
+	top: 2.5%;
+	transform: translate(-50%, 6%);
+}
+
+.LogImage3{
+	position: absolute;
+	left: 50.25%;
+	top: 2%;
+	transform: translate(-50%, 6%);
+}
+
+.LogImage5{
+	position: absolute;
+	left: 50.25%;
 	top: 6%;
+	transform: translate(-50%, 6%);
+}
+
+.LogImage7{
+	position: absolute;
+	left: 50.25%;
+	top: 3%;
 	transform: translate(-50%, 6%);
 }
 
@@ -611,8 +643,8 @@ h1{
 	font-weight: 500;
 	font-size: 40px;
 	position: relative;
-	top: 3%;
-	right: 0%;
+	top: 4%;
+	right: 1%;
 }
 
 /* ---------------------DocRegister--------------------- */
@@ -754,7 +786,7 @@ h1{
 .LogImage2{
 	position: absolute;
 	left: 50%;
-	top: 2%;
+	top: 3%;
 	transform: translate(-50%, 4%);
 }
 
@@ -763,15 +795,15 @@ h1{
 	color: #adadad;
 	font-weight: 500;
 	font-size: 40px;
-	position: relative;
-	top: 3%;
-	right: 0%;
+	position: absolute;
+	top: 25%;
+	left: 0%;
 }
 
 .login-form2{
 	width: 360px;
-	background: #f1f1f1;
-	height: 290px;
+	background: #ffffff;
+	height: 250px;
 	margin-bottom: 5%;
 	padding: 80px 40px;
 	border-radius: 10px;
@@ -828,7 +860,7 @@ h1{
 	top: -5px;
 }
 
-.focus + span::after{
+.focus2 + span::after{
 	width: 100%;
 }
 
@@ -854,8 +886,8 @@ h1{
 
 .bottom-text2{
 	position: absolute;
-	top: 72%;
-	left: 40%;
+	top: 66%;
+	left: 40.5%;
 	position: translateY(77%);
 	margin-top: 60px;
 	text-align: center;
@@ -898,8 +930,8 @@ hr{
 
 #date{
 	position: absolute;
-	top: 28%;
-	left: 67%;
+	top: 56%;
+	left: 45%;
 	font-family: poppins;
 	color: rgba(110, 110, 110, 0.685);
 }
@@ -912,10 +944,22 @@ hr{
 }
 
 #avtxt{
+	position: absolute;
+	top: 55%;
+	left: 83%;
 	font-family: poppins;
 	font-weight: 600;
-	text-align: left;	
-	align-items: center;
+	text-align: center;	
+	visibility: visible;
+}
+
+#avtxt2{
+	position: absolute;
+	top: 55%;
+	left: 83%;
+	font-family: poppins;
+	font-weight: 600;
+	text-align: center;	
 	visibility: visible;
 }
 
@@ -927,16 +971,9 @@ hr{
 	z-index: 1;
 }
 
-
-#imgadd{
-	position: absolute;
-	top: 10%;
-	left: 50%;
-}
-
 #textconfdisp1{
 	position: absolute;
-	top: 10%;
+	top: 13%;
 	left: 6%;
 	font-family: poppins;
 	font-weight: bold;
@@ -944,7 +981,7 @@ hr{
 
 #textconfdisp2{
 	position: absolute;
-	top: 25%;
+	top: 33%;
 	left: 6%;
 	font-family: poppins;
 	font-weight: bold;
@@ -953,8 +990,8 @@ hr{
 
 #textconfdisp3{
 	position: absolute;
-	top: 25%;
-	left: 24%;
+	top: 33%;
+	left: 25%;
 	font-family: poppins;
 	font-weight: 400;
 	font-size: 14px;
@@ -963,17 +1000,17 @@ hr{
 
 #textconfdisp4{
 	position: absolute;
-	top: 38%;
-	left: 5%;
+	top: 35%;
+	left: 6%;
 	font-family: poppins;
-	font-weight: 400;
+	font-weight: 600;
 	font-size: 14px;
 }
 
 #textconfdisp5{
 	position: absolute;
-	top: 50%;
-	left: 5%;
+	top: 51%;
+	left: 6%;
 	font-family: poppins;
 	font-weight: 600;
 	font-size: 14px;
@@ -981,7 +1018,7 @@ hr{
 
 #editprofile{
 	position: absolute;
-	top: 75%;
+	top: 70%;
 	left: 7%;
 	height: 24px;
 	width: 175px;
@@ -1007,10 +1044,25 @@ hr{
 	z-index: 4;
 }
 
+#lang2{
+	position: absolute;
+	top: 5%;
+	left: 87%;
+	z-index: 4;
+}
+
 #langmore{
 	position: absolute;
 	top: 23%;
 	left: 1216px;
+	z-index: 5;
+	visibility: hidden;
+}
+
+#langmore2{
+	position: absolute;
+	top: 9%;
+	left: 1170px;
 	z-index: 5;
 	visibility: hidden;
 }
@@ -1118,7 +1170,7 @@ hr{
 	top: 80%;
 	left: 58%;
 	height: 24px;
-	width: 100px;
+	width: 120px;
 	background: blue;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 	border-radius: 20px;
@@ -1142,7 +1194,7 @@ hr{
 #calendartxt2{
 	position: absolute;
 	top: 78%;
-	left: 47.5%;
+	left: 45.75%;
 	position: translate(80%, 34%);
 	color: #0000ff;
 	font-weight: bold;
@@ -1154,6 +1206,20 @@ hr{
 	position: absolute;
 	top: 30%;
 	left: 22.5%;
+}
+
+#calendarTable{
+	position: absolute;
+	left: 10%;
+	width: 80%;
+	height: 50;
+	background: #FFFFFF;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 12px;
+}
+
+#calendarTable:hover{
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
  
 /*  Medics  */
@@ -1168,8 +1234,8 @@ hr{
 
 #med1{
 	width: 200px;
-	height: 175px;
-	background: #FFFFFF;
+	height: 185px;
+	background: #FFFFFF00;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
 	border-radius: 12px;
 }
@@ -1178,17 +1244,17 @@ hr{
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
 }
 
-#calendarTable{
-	width: 80%;
-	height: 50;
-	background: #FFFFFF;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
-	border-radius: 12px;
-	margin:0 auto;
+#doctorpic{
+	position: absolute;
+	top: 32%;
+	z-index: -1;
 }
 
-#calendarTable:hover{
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+#dochr{
+	margin-top: -10.5em;
+	width: 296px;
+	margin-left: -3em;
+	z-index: 15;
 }
 
 #box{
@@ -1877,13 +1943,60 @@ hr{
 	border: none;
 	color: #ffffff00;
 	width: 100%;
-	height: 100%;
+	height: 185px;
+	z-index: -10;
+}
+
+#btnMed2{
+	background: #ffffff00; 
+	border: none;
+	color: #ffffff00;
+	width: 100%;
+	height: 75px;
+	z-index: -10;
 }
 
 #textMed{
-	position: relative;
-	top: -95%;
+	position: absolute;
+	top: 10%;
+	left: 8%;
+	text-align: center;
+	font-weight: 800;
+	font-family: poppins;
+	font-size: 16px;
+}
+
+#textMed2{
+	position: absolute;
+	top: 50%;
+	left: 12.25%;
+	text-align: center;
+	font-family: poppins;
 	font-size: 15px;
+}
+#textMed2-1{
+	position: absolute;
+	top: 0%;
+	left: -15%;
+	text-align: center;
+	font-weight: 800;
+	font-family: poppins;
+	font-size: 15px;
+}
+
+#squareappo{
+	position: absolute;
+	top: 0%;
+	width: 75px;
+	height: 75px;
+	background: linear-gradient(45deg,#E18CFF,#0720A4);
+	border-radius: 12px 0px 0px 12px;
+}
+
+#imgposappo{
+	position: absolute;
+	top: 12%;
+	left: 1%;
 }
 
 #docinfo{
@@ -2005,11 +2118,327 @@ hr{
 	margin-top: 6px;
 }
 
-#map5{
+#descappo{
 	position: absolute;
-	top: 30%;
+	top: 15%;
+	left: 5%;
+	font-family: poppins;
+	font-weight: bolder;
+	color: #000000;
+}
+
+#inputappo{
+	position: absolute;
+	top: 25%;
+	left: 5%;
+	width: 300px;
+}
+
+#btnappo{
+	position: absolute;
+	top: 70%;
+	left: 10%;
+	background: #18D13D;
+	width: 82%;
+	height: 50px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 40px;
+	color: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	font-size: 22px;
+	font-family: poppins;
+	font-weight: 800;
+	transition: .5s;
+}
+
+/*---------------------*/
+
+.login-form5{
+	width: 360px;
+	background: #ffffff;
+	height: 550px;
+	margin-top: 0%;
+	margin-bottom: 5%;
+	padding: 80px 40px;
+	border-radius: 10px;
+	position: absolute;
 	left: 50%;
-	width: 50%;
-	height: 70%;
-	background: gray;
+	top: 10%;
+	transform: translate(-50%, 10%);
+	z-index: -1;
+}
+
+.login-form5 h1{
+	text-align: center;
+	margin-bottom: 0px;
+}
+
+.txtb5{
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	margin: 30px 0;
+}
+
+.txtb5 input{
+	font-size: 15px;
+	color: #333;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+
+.txtb5 span::before{
+	content: attr(data-placeholder);
+	position: absolute;
+	top: 50%;
+	left: 1.5%;
+	color: #adadad;
+	transform: translateY(-50%);
+	z-index: -1;
+	transition: .5s;
+}
+
+.txtb5 span::after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: linear-gradient(120deg,#18D13D,#0a5719);
+	transition: .5s;
+}
+
+.focus + span::before{
+	top: -5px;
+}
+
+.focus + span::after{
+	width: 100%;
+}
+
+.logbtn5{
+	display: block;
+	position: absolute;
+	top: 89%;
+	position: translateY(86%);
+	width: 82%;
+	height: 50px;
+	border: none;
+	background: linear-gradient(120deg,#18D13D,#0a5719);
+	background-size: 200%;
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	transition: .5s;
+}
+
+#btnedit{
+	position: absolute;
+	top: 85%;
+	left: 9%;
+	background: blue;
+	width: 82%;
+	height: 40px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 40px;
+	color: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: poppins;
+	font-weight: 800;
+	transition: .5s;
+}
+
+#btnedit2{
+	position: absolute;
+	top: 93%;
+	left: 9%;
+	background: red;
+	width: 82%;
+	height: 40px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 40px;
+	color: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: poppins;
+	font-weight: 800;
+	transition: .5s;
+}
+
+#btnedit3{
+	position: absolute;
+	top: 78%;
+	left: 9%;
+	background: blue;
+	width: 82%;
+	height: 40px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 40px;
+	color: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: poppins;
+	font-weight: 800;
+	transition: .5s;
+}
+
+#btnedit4{
+	position: absolute;
+	top: 88%;
+	left: 9%;
+	background: red;
+	width: 82%;
+	height: 40px;
+	border: none;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	border-radius: 40px;
+	color: #FFFFFF;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: poppins;
+	font-weight: 800;
+	transition: .5s;
+}
+
+.login-form6{
+	width: 360px;
+	background: #ffffff;
+	height: 350px;
+	margin-top: 0%;
+	margin-bottom: 5%;
+	padding: 80px 40px;
+	border-radius: 10px;
+	position: absolute;
+	left: 50%;
+	top: 10%;
+	transform: translate(-50%, 10%);
+	z-index: -1;
+}
+
+#greencirc1{
+	position: absolute;
+	top: -15%;
+	left: 90%;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background: #18D13D;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#greencirc2{
+	position: absolute;
+	top: 10%;
+	left: 95%;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background: rgb(27, 233, 68);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#greencirc3{
+	position: absolute;
+	top: 85%;
+	left: -4%;
+	height: 300px;
+	width: 300px;
+	border-radius: 50%;
+	background: rgb(27, 233, 68);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#greencirc4{
+	position: absolute;
+	top: 65%;
+	left: -5%;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background: #18D13D;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#greencirc5{
+	position: absolute;
+	top: -20%;
+	left: 80%;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background: rgb(20, 175, 51);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+	z-index: -1;
+}
+
+#greencirc6{
+	position: absolute;
+	top: -8%;
+	left: -5%;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	background: rgb(30, 252, 74);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#greencirc7{
+	position: absolute;
+	top: 75%;
+	left: 12%;
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	background: rgb(31, 165, 58);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+#regibtn{
+	position: absolute;
+	top: 53.75%;
+	left: 31%;
+	width: 515px;
+	height: 70px;
+	border-radius: 12px;
+	background: #18D13D	;
+}
+
+#regibtntxt{
+	position: absolute;
+	top: 25%;
+	left: 33%;
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: 500;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+#alreadyindex{
+	position: absolute;
+	top: 67%;
+	left: 37%;
+}
+
+#alreadyindex2{
+	position: absolute;
+	top: 67%;
+	left: 58.5%;
+}
+
+#thing{
+	position: absolute;
+	top: 110%;
+	height: 50px;
 }
