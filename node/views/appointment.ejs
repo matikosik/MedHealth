@@ -234,6 +234,28 @@
                 outline: none;
             }
             
+            .select-style4 {
+                position: absolute;
+                top: 55%;
+                left: 40%;
+                border: 1px solid #ccc;
+                width: 50px;
+                border-radius: 4px;
+                overflow: hidden;
+            }
+            
+            .select-style4 select {
+                padding: 5px 8px;
+                width: 130%;
+                border: none;
+                background: white;
+                background-image: none;
+            }
+            
+            .select-style4 select:focus {
+                outline: none;
+            }
+            
             #appotitle {
                 position: absolute;
                 top: 2%;
@@ -253,7 +275,14 @@
 				<option name="<%= fechasDelDia[i] %>" value="<%= fechasDelDia[i] %>"><%= fechasDelDia[i] %></option>
                 <% } %>
             </optgroup>
-		</select>
+        </select>
+            <select class="select-style4" data-style="btn-info" name="hora">
+                <optgroup label="Fecha">
+                    <% for(var i = 0; horasDisponibles.length > i; i++) { %>
+                    <option name="<%= horasDisponibles[i] %>" value="<%= horasDisponibles[i] %>"><%= horasDisponibles[i] %></option>
+                    <% } %>
+                </optgroup>
+            </select>
 
             <div>
                 <p id="descappo">Descripción:</p>

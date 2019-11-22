@@ -115,7 +115,7 @@
                             <form action="" method="POST">
                                 <div id="calendarTable" style="background-color:  <%= sortDate2[i].color %>;">
                                     <input type="submit" name="whoMed" value="<%= sortDate2[i].doctor %>" id="btnMed2">
-                                    <label id="textMed">Fecha: <%= sortDate2[i].date %></label>
+                                    <label id="textMed">Fecha: <%= sortDate2[i].date %>, a las <%= sortDate2[i].hour %></label>
                                     <label id="textMed2">Evento: Turno con <%= result[0].name %> <%= result[0].lastName %> </label>
                                     <div id="squareappo"></div>
                                     <div id="imgposappo"><img src="images/calendar.png" height="10%" width="10%"></div>

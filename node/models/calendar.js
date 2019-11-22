@@ -17,6 +17,9 @@ const CalendarSchema = new mongoose.Schema({
     date: {
         type: String
     },
+    hour: {
+        type: String
+    },
     color: {
         type: String
     }

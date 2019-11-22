@@ -299,7 +299,8 @@ app.get('/appointment', async(req, res) => {
     const eldoctor = AvailabilityMongo.find({ doctor: doctor }, function(err, result) {
         var largo = result[0].days
         var largo2 = largo.length
-
+        var horasDisponibles = result[0].hours
+        console.log(horasDisponibles.length)
         var days = ['Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
 
         var date = new Date(),
@@ -329,7 +330,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -342,7 +342,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         } else if (largo2 == 2) {
             while (b < 12) {
@@ -363,7 +364,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -376,7 +376,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         } else if (largo2 == 3) {
             while (b < 12) {
@@ -397,7 +398,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -410,7 +410,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         } else if (largo2 == 4) {
             while (b < 12) {
@@ -431,7 +432,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -444,7 +444,9 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles,
+                horasDisponibles
             });
         } else if (largo2 == 5) {
             while (b < 12) {
@@ -465,7 +467,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -478,7 +479,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         } else if (largo2 == 6) {
             while (b < 12) {
@@ -499,7 +501,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -512,7 +513,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         } else if (largo2 == 7) {
             while (b < 12) {
@@ -533,7 +535,6 @@ app.get('/appointment', async(req, res) => {
                     i = 0
                 }
             }
-            console.log(fechasDelDia)
             res.render('appointment', {
                 fullName,
                 status,
@@ -546,7 +547,8 @@ app.get('/appointment', async(req, res) => {
                 month,
                 year,
                 horariosDoctor,
-                fechasDelDia
+                fechasDelDia,
+                horasDisponibles
             });
         }
     });
@@ -562,6 +564,7 @@ app.post('/appointment', async(req, res) => {
         doctor2: findDoctor[0].email,
         event: req.body.event,
         date: req.body.day,
+        hour: req.body.hora,
         color: '#eb4034'
     });
     await appointment.save();
