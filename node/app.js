@@ -683,7 +683,8 @@ app.post('/editDoctor', async(req, res) => {
                 address: req.body.address,
                 doctorType: req.body.doctorType,
                 lat: latitude,
-                lon: longitude
+                lon: longitude,
+                gender: req.body.gender
             }
         });
 
