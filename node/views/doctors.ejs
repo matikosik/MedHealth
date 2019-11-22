@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    
     <link rel="icon" href="images/logoFormWhite.png">
     <title>Doctors</title>
 
@@ -19,59 +18,40 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
 </head>
-
 <body>
     <div class="container">
         <div>
             <div class="NAVBAR">
                 <div>
                     <a href="index2"><img src="/images/logo.png" class="picpref responsive-img"></a>
-
-                    <hr>
+                    
+                    <hr>                    
                 </div>
 
                 <p class="textoNavBar">MEDHEALTH</p>
 
-                <p id="date">Fecha:
-                    <%=day%> /
-                        <%=month%> /
-                            <%=year%>
-                </p>
+                <p id="date">Fecha: <%=day%> / <%=month%> / <%=year%></p>
 
                 <div id="av" onclick="hideav()">
-                    <img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">
+					<img src="images/UserAv.png" width="75%" height="75%" onclick="hidename()">					
                 </div>
+                
+                <p id="avtxt"> <%= fullName %> </p>
 
-                <p id="avtxt">
-                    <%= fullName %>
-                </p>
+					<div id="avconfdisp">
+						<img src="images/OK.png" width="80%" height="80%">
+						<div>
+							<p id="textconfdisp1"><%= fullName %></p>
+							
+                            <p id="textconfdisp2">Estado:<p id="textconfdisp3"><%= status %></p></p>
+                            
+                            <!--<p id="textconfdisp4">Appointment: 15/11</p>-->
 
-                <div id="avconfdisp">
-                    <img src="images/OK.png" width="80%" height="80%">
-                    <div>
-                        <p id="textconfdisp1">
-                            <%= fullName %>
-                        </p>
-
-                        <p id="textconfdisp2">Estado:
-                            <p id="textconfdisp3">
-                                <%= status %>
-                            </p>
-                        </p>
-
-                        <!--<p id="textconfdisp4">Appointment: 15/11</p>-->
-
-                        <p id="textconfdisp5">
-                            <%= mail %>
-                        </p>
-
-                        <a href="/edit">
-                            <div id="editprofile">
-                                <p id="edittxt">Edit Profile</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+							<p id="textconfdisp5"><%= mail %></p>
+							
+							<a href="/edit"><div id="editprofile"><p id="edittxt">Editar Perfil</p></div></a>
+						</div>
+					</div>           
 
                 <div id="location">
                     <img src="images/placeholder-filled-point.png" width="5%" height="5%">
@@ -79,62 +59,50 @@
                 </div>
 
                 <div>
-                    <p id="textC2">
-                        <%= medic %>
-                    </p>
+                    <p id="textC2"><%= medic %></p>                            
                 </div>
 
-                <a href="calendar">
-                    <div id="calendar">
-                        <p id="calendartxt">Mis Turnos</p>
-                    </div>
-                </a>
-                <a href="/">
-                    <div id="logout">
-                        <p id="logouttxt">Cerrar Sesión</p>
-                    </div>
-                </a>
+                <a href="calendar"><div id="calendar"><p id="calendartxt">Mis Turnos</p></div></a>
+                <a href="/"><div id="logout"><p id="logouttxt">Cerrar Sesión</p></div></a>
 
-            </div>
+            </div>          
 
             <!---       Medics      --->
 
-            <div id="MEDICS">
+            <div id="MEDICS">                                           
 
-                <div id="decoy"></div>
-                <div id="box">
-                    <div>
-                        <img id="imagebox" src="images/multiply.png" width="2%" height="3%" onclick="myFunction2()">
+                    <div id="decoy"></div>
+                    <div id="box">
+                        <div>
+                            <img id="imagebox" src="images/multiply.png" width="2%" height="3%" onclick="myFunction2()">
+                        </div>
                     </div>
-                </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <table style="border-collapse: separate; border-spacing: 25px;">
-                    <tbody>
-                        <% for(var i = 0; findDoctors.length > i; i++) { %>
-                            <th>
-                                <form action="" method="POST">
-                                    <div id="med1">
+					<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+					<br>
+					
+				<table style="border-collapse: separate; border-spacing: 25px;">
+					<tbody>
+						<% for(var i = 0; findDoctors.length > i; i++) { %>
+                        	<th>
+								<form action="" method="POST">
+									<div id="med1">
                                         <input type="submit" name="whoMed" value="<%= findDoctors[i].email %>" id="btnMed">
+                                        
+                                        <div id="doctorpic"><img src="images/<%= findDoctors[i].gender %>.png"></div>
 
-                                        <div id="doctorpic"><img src="images/<%= findDoctors[i].gender %>.png" width="150px" style="position: absolute; top: 50px; left: 25px;"></div>
-
-                                        <div id="dochr">
-                                            <hr>
-                                        </div>
-
-                                        <label>Dr. <%= findDoctors[i].name %> <%= findDoctors[i].lastName %></label>
-                                        <!--<br>
+                                        <div id="dochr"><hr></div>
+										
+										<label>Dr. <%= findDoctors[i].name %> <%= findDoctors[i].lastName %></label>
+										<!--<br>
 										<label id="textMed">Email:</label>
 										<br>
 										<label id="textMed"><%= findDoctors[i].email %></label>
@@ -146,17 +114,16 @@
 										<label id="textMed">Phone Number:</label>
 										<br>
 										<label id="textMed"><%= findDoctors[i].phoneNumber %></label>-->
-                                    </div>
-                                </form>
-                            </th>
-                            <% } %>
-                    </tbody>
-                </table>
+                        			</div>
+								</form>
+							</th>
+						<% } %>
+					</tbody>      
+				</table>          
 
-                <!---       End Medics     --->
+			<!---       End Medics     --->
             </div>
         </div>
-    </div>
+	</div>
 </body>
-
 </html>

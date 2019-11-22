@@ -120,11 +120,9 @@
                                     <div id="squareappo"></div>
                                     <div id="imgposappo"><img src="images/calendar.png" height="10%" width="10%"></div>
                                     <!--<button type="submit" name="eliminar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 80%; top: 15%; "><img src="images/cross.png" width="50px" height="50px"></button>-->
-
                                     <div id="" onclick="appointmentForm()" style=" position: absolute; left: 80%; top: 15%; ">
                                         <img src="images/cross.png" width="50px" height="50px">
                                     </div>
-
                                     <!---->
                                     <% if (sortDate2[i].color == '#eb4034') { %>
                                         <button type="submit" name="confirmar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 70%; top: 15%; "><img src="images/tick.png" width="50px" height="50px"></button>
@@ -144,7 +142,6 @@
                                 visibility: hidden;
                                 z-index: 3;
                                 ">
-
                             <style>
                                 .select-style {
                                     position: absolute;
@@ -222,7 +219,6 @@
                                     color: #000000;
                                 }
                             </style>
-
                             <form action="" class="" method="POST">
                                 <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='El doctor <%= fullName %> no esta disponible el dia <%= sortDate2[i].date %>, por favor volver a sacar turno en otra fecha.' style="width:25%;">
                                 <button type="submit" name="eliminar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 42%; top: 70%; "><img src="images/cross.png" width="50px" height="50px"></button>
@@ -252,7 +248,6 @@
                 x.style.visibility = 'visible';
             }
         }
-
         function appointmentexit() {
             var x = document.getElementById('appointmentForm');
             if (x.style.visibility === 'visible') {

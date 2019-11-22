@@ -167,23 +167,23 @@
 	z-index: 3;
 	">
 
-        <style>
-            .select-style {
-                position: absolute;
-                top: 55%;
-                left: 26%;
-                border: 1px solid #ccc;
-                width: 50px;
-                border-radius: 4px;
-                overflow: hidden;
-            }
+<style>
+    .select-style {
+        position: absolute;
+        top: 55%;
+        left: 13%;
+        border: 1px solid #ccc;
+        width: 135px;
+        border-radius: 4px;
+        overflow: hidden;
+        }
             
-            .select-style select {
-                padding: 5px 8px;
-                width: 130%;
-                border: none;
-                background: white;
-                background-image: none;
+     .select-style select {
+       padding: 5px 8px;
+       width: 130%;
+       border: none;
+    background: white;
+    background-image: none;
             }
             
             .select-style select:focus {
@@ -237,9 +237,9 @@
             .select-style4 {
                 position: absolute;
                 top: 55%;
-                left: 40%;
+                left: 55%;
                 border: 1px solid #ccc;
-                width: 50px;
+                width: 135px;
                 border-radius: 4px;
                 overflow: hidden;
             }
@@ -255,41 +255,41 @@
             .select-style4 select:focus {
                 outline: none;
             }
-            
+
             #appotitle {
                 position: absolute;
                 top: 2%;
-                left: 30%;
+                left: 40%;
                 font-family: poppins;
                 font-weight: 800;
                 font-size: 22px;
                 color: #000000;
             }
-        </style>
+</style>
 
         <form action="" class="" method="POST">
-            <div id="appotitle">Turno</div>
-            <select class="select-style" data-style="btn-info" name="day">
-			<optgroup label="Fecha">
-                <% for(var i = 0; fechasDelDia.length > i; i++) { %>
-				<option name="<%= fechasDelDia[i] %>" value="<%= fechasDelDia[i] %>"><%= fechasDelDia[i] %></option>
-                <% } %>
-            </optgroup>
-        </select>
-            <select class="select-style4" data-style="btn-info" name="hora">
+                <div id="appotitle">Turno</div>
+                <select class="select-style" data-style="btn-info" name="day">
                 <optgroup label="Fecha">
-                    <% for(var i = 0; horasDisponibles.length > i; i++) { %>
-                    <option name="<%= horasDisponibles[i] %>" value="<%= horasDisponibles[i] %>"><%= horasDisponibles[i] %></option>
+                    <% for(var i = 0; fechasDelDia.length > i; i++) { %>
+                    <option name="<%= fechasDelDia[i] %>" value="<%= fechasDelDia[i] %>"><%= fechasDelDia[i] %></option>
                     <% } %>
                 </optgroup>
             </select>
+                <select class="select-style4" data-style="btn-info" name="hora">
+                    <optgroup label="Horario">
+                        <% for(var i = 0; horasDisponibles.length > i; i++) { %>
+                        <option name="<%= horasDisponibles[i] %>" value="<%= horasDisponibles[i] %>"><%= horasDisponibles[i] %></option>
+                        <% } %>
+                    </optgroup>
+                </select>
 
             <div>
                 <p id="descappo">Descripción:</p>
-                <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Appointment with doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
+                <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='Turno con el Doctor <%= findDoctor[0].name %> <%= findDoctor[0].lastName %>' style="width:25%;">
             </div>
 
-            <input type="submit" id="btnappo" value="Make the Appointment">
+            <input type="submit" id="btnappo" value="Solicitar Turno">
         </form>
     </div>
     <script>
