@@ -8,6 +8,9 @@ const CalendarSchema = new mongoose.Schema({
     doctor: {
         type: String
     },
+    doctor2: {
+        type: String
+    },
     event: {
         type: String
     },

@@ -114,11 +114,12 @@
                         <tr>
                             <form action="" method="POST">
                                 <div id="calendarTable" style="background-color:  <%= sortDate2[i].color %> ;">
-                                    <input type="submit" name="whoMed" value="<%= sortDate2[i].doctor %>" id="btnMed2">
+                                    <input type="submit" name="whoMed" value="<%= sortDate2[i].doctor2 %>" id="btnMed2">
                                     <label id="textMed">Fecha: <%= sortDate2[i].date %></label>
-                                    <label id="textMed2"><p id="textMed2-1">Evento:</p> <%= sortDate2[i].event %></label>
+                                    <label id="textMed2">Evento: <%= sortDate2[i].event %></label>
                                     <div id="squareappo"></div>
                                     <div id="imgposappo"><img src="images/calendar.png" height="10%" width="10%"></div>
+                                    <button type="submit" name="eliminar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 94%; top: 12%; "><img src="images/cross.png" width="50px" height="50px"></button>
                                 </div>
                             </form>
                         </tr>

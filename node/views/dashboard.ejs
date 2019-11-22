@@ -113,10 +113,10 @@
                     <% for(var i = 0; sortDate2.length > i; i++) { %>
                         <tr>
                             <form action="" method="POST">
-                                <div id="calendarTable" style="background-color:  <%= sortDate2[i].color %> ;">
+                                <div id="calendarTable" style="background-color:  <%= sortDate2[i].color %>;">
                                     <input type="submit" name="whoMed" value="<%= sortDate2[i].doctor %>" id="btnMed2">
-                                    <label id="textMed">Fecha: <%= sortDate2[i].day %> / <%= sortDate2[i].month %> / <%= sortDate2[i].year %></label>
-                                    <label id="textMed2"><p id="textMed2-1">Evento:</p> <%= sortDate2[i].event %></label>
+                                    <label id="textMed">Fecha: <%= sortDate2[i].date %></label>
+                                    <label id="textMed2">Evento: Turno con <%= result[0].name %> <%= result[0].lastName %> </label>
                                     <div id="squareappo"></div>
                                     <div id="imgposappo"><img src="images/calendar.png" height="10%" width="10%"></div>
                                     <!--<button type="submit" name="eliminar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 80%; top: 15%; "><img src="images/cross.png" width="50px" height="50px"></button>-->
@@ -224,6 +224,7 @@
                             </style>
 
                             <form action="" class="" method="POST">
+                                <input style="width: 350px; height: 50px;" id="inputappo" type="userxtx" name="event" value='El doctor <%= fullName %> no esta disponible el dia <%= sortDate2[i].date %>, por favor volver a sacar turno en otra fecha.' style="width:25%;">
                                 <button type="submit" name="eliminar" value="<%= sortDate2[i].id %>" style=" position: absolute; left: 42%; top: 70%; "><img src="images/cross.png" width="50px" height="50px"></button>
                             </form>
                             <button style=" position: absolute; left: 90%; top: 5%; "><img src="images/exit.png" width="25px" height="15px" onclick="appointmentexit()"></button>

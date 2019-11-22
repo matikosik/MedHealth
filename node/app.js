@@ -267,8 +267,14 @@ app.get('/calendar', async(req, res) => {
 });
 
 app.post('/calendar', async(req, res) => {
-    doctor = req.body.whoMed;
-    res.redirect('appointment')
+    if (req.body.eliminar != '') {
+        var deleteCalendar = await CalendarMongo.deleteOne({ '_id': req.body.eliminar });
+        res.redirect('calendar')
+    } else {
+        doctor = req.body.whoMed;
+        res.redirect('appointment')
+    }
+
 });
 
 //appointment
@@ -550,6 +556,7 @@ app.post('/appointment', async(req, res) => {
     const appointment = new CalendarMongo({
         email: user,
         doctor: findDoctor[0].email,
+        doctor2: findDoctor[0].email,
         event: req.body.event,
         date: req.body.day,
         color: '#eb4034'
@@ -679,7 +686,7 @@ app.post('/editDoctor', async(req, res) => {
 
     });
 
-    res.redirect('/index2')
+    res.redirect('/dashboard')
 });
 //fin edit Doctor
 
@@ -690,21 +697,52 @@ app.get('/dashboard', async(req, res) => {
     var status = (findUser[0].mop)
     var mail = (findUser[0].email)
 
-    const events = await CalendarMongo.find({ 'email': user }, function(err, result) {});
+    const events = await CalendarMongo.find({ 'doctor': user }, function(err, result) {});
 
     var sortDate = events.sort((a, b) => parseFloat(a.day) - parseFloat(b.day));
     var sortDate1 = sortDate.sort((a, b) => parseFloat(a.month) - parseFloat(b.month));
     var sortDate2 = sortDate1.sort((a, b) => parseFloat(a.year) - parseFloat(b.year));
 
-    res.render('dashboard', {
-        fullName,
-        status,
-        mail,
-        day,
-        month,
-        year,
-        sortDate2
-    });
+    var findedPatient = new Array();
+
+    if (events.length != 0) {
+        var i = 0;
+        while (i < sortDate2.length) {
+            if (i < sortDate2.length) {
+                const findPatient = await RegisterMongo.find({ 'email': sortDate2[i].email }, function(err, result) {
+                    findedPatient.push(result)
+                    res.render('dashboard', {
+                        fullName,
+                        status,
+                        mail,
+                        day,
+                        month,
+                        year,
+                        sortDate2,
+                        result
+                    });
+                    console.log(findedPatient)
+                });
+                i++
+            } else if (i > sortDate2.length) {
+                i = 0;
+            }
+
+        }
+        console.log(findedPatient[0])
+    } else {
+        var result
+        res.render('dashboard', {
+            fullName,
+            status,
+            mail,
+            day,
+            month,
+            year,
+            sortDate2,
+            result
+        });
+    }
 });
 
 app.post('/dashboard', async(req, res) => {
@@ -718,7 +756,12 @@ app.post('/dashboard', async(req, res) => {
         console.log('updateCalendar')
     }
     if (req.body.eliminar != '') {
-        var deleteCalendar = await CalendarMongo.deleteOne({ '_id': req.body.eliminar });
+        var deleteCalendar = await CalendarMongo.updateMany({ '_id': req.body.eliminar }, {
+            $set: {
+                event: req.body.event,
+                doctor: ''
+            }
+        });
         console.log('deleteCalendar')
     }
 
