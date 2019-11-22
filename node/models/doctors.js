@@ -25,6 +25,9 @@ const DoctorsSchema = new mongoose.Schema({
     },
     lon: {
         type: Number
+    },
+    gender: {
+        type: String
     }
 });
 

@@ -60,6 +60,7 @@ app.get('/register', (req, res) => {
 var name
 var lastName
 var email
+var gender
 
 app.post('/register', urlencoderParser, async(req, res) => {
     var errorArray = ['A user already exists using this email.', 'El registro fue exitoso', '', 'Passwords are not the same.'];
@@ -85,6 +86,7 @@ app.post('/register', urlencoderParser, async(req, res) => {
                 name = savedUser.name;
                 lastName = savedUser.lastName;
                 email = savedUser.email;
+                gender = savedUser.gender;
                 res.redirect('/registerDoctor');
             } else if (req.body.mop != 'doctor') {
                 res.redirect('login');
@@ -125,7 +127,8 @@ app.post('/registerDoctor', urlencoderParser, async(req, res) => {
             phoneNumber: req.body.phonenumber,
             doctorType: req.body.doctorType,
             lat: latitude,
-            lon: longitude
+            lon: longitude,
+            gender: gender
         });
         await registerDoctor.save();
     });
